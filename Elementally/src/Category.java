@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * holds all the elements in an sorted ArrayList
  * <p>
  * Started on 13-4-2017<br>
- * Last changes made on 7-5-2017
+ * Last changes made on 8-5-2017
  *
  * @author Thomas Holleman
  */
@@ -50,7 +50,10 @@ public class Category {
     private void addElement(Element toAdd, boolean toKnown) {
         if (toAdd == null) return;
         ArrayList<Element> addTo = toKnown ? known : containing;
-        if (!toKnown && (toAdd.isKnown() || toAdd.isBasic())) addElement(toAdd, true);
+        // If the element is known but it is not currently added to known: add it to known
+        if (!toKnown && toAdd.isKnown()) {
+            addElement(toAdd, true);
+        }
         toAdd.setCategory(this);
         int id = toAdd.getId();
         int largest = addTo.size() - 1;
