@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Holds the data from elements
  * <p>
  * Started on 13-4-2017<br>
- * Last changes made on 7-5-2017
+ * Last changes made on 8-5-2017
  *
  * @author Thomas Holleman
  */
@@ -85,7 +85,7 @@ public class Element {
     }
     
     public boolean isKnown() {
-        return category != null && category.getElementById(id, true) != null;
+        return isBasic() || category != null && category.getElementById(id, true) != null;
     }
     
     /**

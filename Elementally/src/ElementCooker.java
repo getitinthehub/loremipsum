@@ -11,7 +11,7 @@ import java.util.Scanner;
  * Holds the result for recipes
  * <p>
  * Started on 13-4-2017<br>
- * Last changes made on 7-5-2017
+ * Last changes made on 8-5-2017
  *
  * @author Thomas Holleman
  */
@@ -297,6 +297,10 @@ public class ElementCooker {
                             Element loaded = new Element(components[2], Integer.parseInt(components[1]), components[0].equals("b"));
                             addRecipes(loaded, components, 3, lineNumber); // Throws ElementallyException
                             lastCategory.addElement(loaded);
+                            // If the element is known: learn it
+                            if (components[0].equals("k")) {
+                                lastCategory.learn(loaded);
+                            }
                         }
                         // If the id is not a number: throw an error
                         catch (NumberFormatException nfEx) {
