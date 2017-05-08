@@ -1,0 +1,33 @@
+nothing;4,6;4,5;4,7;2,6;7,13;3,12;1,12;6,12;4,13;2,12;2,7;
+c;fire
+b;1;fire;
+u;5;magma;1,3;5,8;5,6;
+c;water
+b;2;water;
+c;earth
+b;3;earth;
+u;6;stone;2,5;
+u;7;metal;1,6;
+u;8;mud;2,3;
+u;9;sand;3,4;
+u;17;clay;1,8;
+c;air
+b;4;air;
+u;10;steam;1,2;
+u;13;cloud;4,10;
+c;building materials
+u;11;glass;1,9;
+u;18;brick;1,17;
+c;tools
+u;12;hourglass;9,11;
+u;16;boiler;7,10;
+c;life
+u;14;energy;1,4;
+u;15;life;8,14;
+c;myths and legends
+u;19;golem;15,17;
+u;22;zombie;15,21;
+u;23;wizard;14,20;
+c;humanity
+u;20;human;15,19;
+u;21;corpse;1,20;
