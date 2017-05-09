@@ -72,6 +72,7 @@ public class Category
             addTo.add(toAdd);
             return;
         }
+        if (addTo.get(largest).getId() == id) return;
         int smallest = 0;
         // If the element is smaller than the smallest element in this category: add it to the start
         if (id < addTo.get(smallest).getId())
@@ -79,7 +80,7 @@ public class Category
             addTo.add(0, toAdd);
             return;
         }
-        //Todo check for elements that are already in the arrayList when the size is 2
+        if (addTo.get(smallest).getId() == id) return;
         // find the position the element needs placed at using a binary method
         while (smallest + 1 != largest)
         {
