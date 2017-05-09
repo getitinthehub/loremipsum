@@ -79,6 +79,7 @@ public class Category
             addTo.add(0, toAdd);
             return;
         }
+        //Todo check for elements that are already in the arrayList when the size is 2
         // find the position the element needs placed at using a binary method
         while (smallest + 1 != largest)
         {
@@ -257,7 +258,7 @@ public class Category
             }
         }
         known = new ArrayList<>();
-        // Add all the basic elements again
+        // learn all the basic elements again
         for (Element element : basic)
         {
             addElement(element);
