@@ -3,8 +3,10 @@
  *
  * @author Thomas Holleman
  */
-public class ElementallyException extends Exception {
-    public ElementallyException(String message) {
+public class ElementallyException extends Exception
+{
+    public ElementallyException(String message)
+    {
         super(message);
     }
 }

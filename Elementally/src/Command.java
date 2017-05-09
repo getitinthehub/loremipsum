@@ -8,7 +8,8 @@ import org.jetbrains.annotations.Nullable;
  *
  * @author Thomas Holleman
  */
-public class Command {
+public class Command
+{
     private executable code;
     private String[] executeAt;
     
@@ -17,7 +18,8 @@ public class Command {
      *
      * @param executeAt The strings that should call this command when given
      */
-    public Command(String... executeAt) {
+    public Command(String... executeAt)
+    {
         this.executeAt = executeAt != null ? executeAt : new String[0];
         code = null;
     }
@@ -26,7 +28,8 @@ public class Command {
      * @return The first string given in the constructor
      */
     @Nullable
-    public String getName() {
+    public String getName()
+    {
         if (executeAt.length == 0) return null;
         return executeAt[0];
     }
@@ -38,14 +41,18 @@ public class Command {
      *
      * @return True if the command should be executed
      */
-    public boolean shouldExecuteAt(String command) {
-        if (command != null) {
+    public boolean shouldExecuteAt(String command)
+    {
+        if (command != null)
+        {
             command = command.trim();
         }
         // Go through every execute command and compare it to the argument
-        for (String synonym : executeAt) {
+        for (String synonym : executeAt)
+        {
             // If the argument is the same as the command: return true
-            if (synonym.equals(command)) {
+            if (synonym.equals(command))
+            {
                 return true;
             }
         }
@@ -57,7 +64,8 @@ public class Command {
      *
      * @param code The code that should execute when this command is called
      */
-    public void setCode(executable code) {
+    public void setCode(executable code)
+    {
         this.code = code;
     }
     
@@ -69,9 +77,11 @@ public class Command {
      * @return A combination or null if no combination is made
      */
     @Nullable
-    public Element[] execute(String[] args) {
+    public Element[] execute(String[] args)
+    {
         // If code is specified: execute it
-        if (code != null) {
+        if (code != null)
+        {
             return code.execute(args);
         }
         return null;
@@ -80,7 +90,8 @@ public class Command {
     /**
      * Simple interface to add code to commands
      */
-    public interface executable {
+    public interface executable
+    {
         /**
          * Execute the code of the command
          *
@@ -88,7 +99,6 @@ public class Command {
          *
          * @return An combination or null if nothing is created
          */
-        @Nullable
-        Element[] execute(String[] args);
+        @Nullable Element[] execute(String[] args);
     }
 }

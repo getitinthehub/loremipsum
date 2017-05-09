@@ -10,7 +10,8 @@ import java.util.ArrayList;
  *
  * @author Thomas Holleman
  */
-public class Element {
+public class Element
+{
     private static int highestId = 0;
     
     private final int id;
@@ -19,22 +20,26 @@ public class Element {
     private Category category;
     private boolean basic;
     
-    public Category getCategory() {
+    public Category getCategory()
+    {
         return category;
     }
     
-    public Element(String name) {
+    public Element(String name)
+    {
         this(name, ++highestId, false);
     }
     
-    public Element(String name, int id, boolean basic) {
+    public Element(String name, int id, boolean basic)
+    {
         this.name = name;
         recipes = new ArrayList<>();
         this.id = id;
         this.basic = basic;
         category = null;
         
-        if (id > highestId) {
+        if (id > highestId)
+        {
             highestId = id;
         }
     }
@@ -42,15 +47,18 @@ public class Element {
     /**
      * Should only be used if there are no elements saved.
      */
-    public static void resetCounter() {
+    public static void resetCounter()
+    {
         highestId = 0;
     }
     
-    public void setCategory(Category category) {
+    public void setCategory(Category category)
+    {
         this.category = category;
     }
     
-    public boolean isBasic() {
+    public boolean isBasic()
+    {
         return basic;
     }
     
@@ -59,32 +67,39 @@ public class Element {
      *
      * @param toAdd a recipe following the format: [int id],[int id]
      */
-    public void addRecipe(String toAdd) {
+    public void addRecipe(String toAdd)
+    {
         recipes.add(toAdd);
     }
     
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "[" + id + ". " + name + "]";
     }
     
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
     
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
     
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
     
-    public ArrayList<String> getRecipes() {
+    public ArrayList<String> getRecipes()
+    {
         return recipes;
     }
     
-    public boolean isKnown() {
+    public boolean isKnown()
+    {
         return isBasic() || category != null && category.getElementById(id, true) != null;
     }
     
@@ -93,7 +108,8 @@ public class Element {
      *
      * @return a valid export string
      */
-    public String exportLine() {
+    public String exportLine()
+    {
         String known = basic ? "b" : isKnown() ? "k" : "u";
         return known + ";" + id + ";" + name + ";" + getRecipesString();
     }
@@ -104,18 +120,23 @@ public class Element {
      * @return A valid export string
      */
     @NotNull
-    public String getRecipesString() {
+    public String getRecipesString()
+    {
         StringBuilder output = new StringBuilder();
         // Appends the recipes together
-        for (String recipe : recipes) {
+        for (String recipe : recipes)
+        {
             output.append(recipe).append(";");
         }
         return output.toString();
     }
     
-    public void removeRecipe(String recipe) {
-        for (int i = 0; i < recipes.size(); i++) {
-            if (recipes.get(i).equals(recipe)) {
+    public void removeRecipe(String recipe)
+    {
+        for (int i = 0; i < recipes.size(); i++)
+        {
+            if (recipes.get(i).equals(recipe))
+            {
                 recipes.remove(i);
             }
         }
