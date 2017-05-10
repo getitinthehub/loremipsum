@@ -11,7 +11,7 @@ import java.util.Scanner;
  * Holds the result for recipes
  * <p>
  * Started on 13-4-2017<br>
- * Last changes made on 8-5-2017
+ * Last changes made on 10-5-2017
  *
  * @author Thomas Holleman
  */
@@ -25,6 +25,9 @@ public class ElementCooker
     private ArrayList<Category> categories;
     private HashMap<String, Element> recipes;
     
+    /**
+     * Constructor for the class
+     */
     public ElementCooker()
     {
         initGlobals();
@@ -55,6 +58,7 @@ public class ElementCooker
         // Else: unlearn all the elements
         else
         {
+            // Go through every category and unlearn all elements
             for (Category category : categories)
             {
                 category.unlearnEverything();
@@ -72,6 +76,11 @@ public class ElementCooker
         nothing = new Element(NOTHING_NAME);
     }
     
+    /**
+     * Simple getter for the categories
+     *
+     * @return The categories in this object
+     */
     public ArrayList<Category> getCategories()
     {
         return categories;
@@ -125,10 +134,12 @@ public class ElementCooker
         String key = getKey(elementId1, elementId2);
         existingElement.addRecipe(key);
         Element previous = recipes.put(key, existingElement);
+        // If there already was an element in that position: remove the element if that was the last recipe for it
         if (previous != null)
         {
             previous.removeRecipe(key);
             // Todo: Search for infinite loops
+            // If there are no recipes left for that element and it's not basic: remove it
             if (previous.getRecipes().isEmpty() && previous.isBasic())
             {
                 remove(previous, true);
@@ -148,7 +159,10 @@ public class ElementCooker
     public Element getElementById(int elementId, boolean fromKnown)
     {
         // Nothing is not in an category and will therefor be compared here
-        if (elementId == 0) return nothing;
+        if (elementId == 0)
+        {
+            return nothing;
+        }
         // Go through every element and returns the element if it's in there
         for (Category category : categories)
         {
@@ -174,7 +188,10 @@ public class ElementCooker
     {
         if (elementName == null) return null;
         // Nothing is not in an category and will therefor be compared here
-        if (nothing.getName().equals(elementName)) return nothing;
+        if (nothing.getName().equals(elementName))
+        {
+            return nothing;
+        }
         // Goes through every category and returns the element if it's in there
         for (Category category : categories)
         {
@@ -215,6 +232,7 @@ public class ElementCooker
     public void merge(Category base, Category toDelete)
     {
         if (base == null || toDelete == null || base.equals(toDelete)) return;
+        // Add all the elements from the deleting category to the base category
         for (Element element : toDelete.getContaining())
         {
             base.addElement(element);
@@ -278,6 +296,11 @@ public class ElementCooker
         return null;
     }
     
+    /**
+     * Adds a category to this class
+     *
+     * @param category The category to add
+     */
     public void addCategory(Category category)
     {
         categories.add(category);
@@ -484,6 +507,7 @@ public class ElementCooker
     public Element[] emptyCombination(boolean allowDuplicates) throws ElementallyException
     {
         // todo: only check half of the combinations
+        // todo: check from known when applicable
         //If there are elements to combine: combine them
         if (categories.size() != 0)
         {

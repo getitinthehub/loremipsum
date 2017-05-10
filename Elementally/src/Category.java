@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * holds all the elements in an sorted ArrayList
  * <p>
  * Started on 13-4-2017<br>
- * Last changes made on 8-5-2017
+ * Last changes made on 10-5-2017
  *
  * @author Thomas Holleman
  */
@@ -16,6 +16,11 @@ public class Category
     private ArrayList<Element> containing;
     private ArrayList<Element> known;
     
+    /**
+     * Constructor for the class
+     *
+     * @param name The name of this category
+     */
     public Category(String name)
     {
         containing = new ArrayList<>();
@@ -23,26 +28,53 @@ public class Category
         this.name = name;
     }
     
+    /**
+     * Simple getter for the name
+     *
+     * @return The name for this category
+     */
     public String getName()
     {
         return name;
     }
     
+    /**
+     * Simple setter for the name of this category
+     *
+     * @param name The new name of this category
+     */
     public void setName(String name)
     {
         this.name = name;
     }
     
+    /**
+     * Simple getter for the all the elements within this category
+     *
+     * @return An ArrayList with all the elements
+     */
     public ArrayList<Element> getContaining()
     {
         return containing;
     }
     
+    /**
+     * Simple getter for all the elements that are known by the player in this category
+     *
+     * @return An ArrayList with all the known elements
+     */
     public ArrayList<Element> getKnown()
     {
         return known;
     }
     
+    /**
+     * Adds the element in the correct place in order to keep this collection in order<br>
+     * Will not add elements with the same Id<br>
+     * Will not learn elements
+     *
+     * @param toAdd The element to add
+     */
     public void addElement(Element toAdd)
     {
         addElement(toAdd, false);
@@ -50,9 +82,11 @@ public class Category
     
     /**
      * Adds the element in the correct place in order to keep this collection in order<br>
-     * Will not add elements with the same Id
+     * If a element is known it will always add it to the known ArrayList.<br>
+     * Will not add elements when an element already has the same id.
      *
-     * @param toAdd The element that needs to be added
+     * @param toAdd   The element that needs to be added
+     * @param toKnown True if the element should be added to the known ArrayList
      */
     private void addElement(Element toAdd, boolean toKnown)
     {
@@ -63,6 +97,7 @@ public class Category
         {
             addElement(toAdd, true);
         }
+        
         toAdd.setCategory(this);
         int id = toAdd.getId();
         int largest = addTo.size() - 1;
@@ -137,7 +172,7 @@ public class Category
             // If the element is smaller than the middle: move the highest limit
             if (elementId < middleElement.getId())
             {
-                largest = --middle;
+                largest = middle - 1;
             }
             // If the element is found: remove the element and return true
             else if (elementId == middleElement.getId())
@@ -147,7 +182,7 @@ public class Category
             // Else: Move the smallest limit
             else
             {
-                smallest = ++middle;
+                smallest = middle + 1;
             }
         }
         return null;
@@ -183,12 +218,19 @@ public class Category
      */
     public void learn(Element toLearn)
     {
+        // If the element is known to this category: learn the element
         if (getElementById(toLearn.getId(), false) != null)
         {
             addElement(toLearn, true);
         }
     }
     
+    /**
+     * toString of this class.
+     * It is recommended that getName() is used for getting the name
+     *
+     * @return The name of this category
+     */
     @Override
     public String toString()
     {

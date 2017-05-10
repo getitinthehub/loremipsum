@@ -11,7 +11,7 @@ import java.util.Scanner;
  * creates new elements and categories<br>
  * <p>
  * Started on 13-4-2017<br>
- * Last changes made on 7-5-2017
+ * Last changes made on 10-5-2017
  *
  * @author Thomas Holleman
  */
@@ -178,7 +178,6 @@ public class App
                                // Find an empty combination
                                try
                                {
-                                   //todo: only check known elements
                                    return game.emptyCombination(allowDuplicates);
                                }
                                // If all combinations are filled in: inform the user
@@ -441,6 +440,7 @@ public class App
      */
     private void renameElement(String elementNumber, String newName)
     {
+        // Rename an element
         try
         {
             if (newName == null) return;
@@ -465,6 +465,7 @@ public class App
                 }
             }
         }
+        // If the player filled in a word instead of an id: inform the player of this
         catch (NumberFormatException nfEx)
         {
             System.out.println("Please fill in a valid id next time.");
@@ -479,19 +480,21 @@ public class App
      */
     private void moveElement(String elementNumber, String category)
     {
-        Element toMove;
+        // Move an element to a category
         try
         {
-            toMove = parseElement(elementNumber);
+            Element toMove = parseElement(elementNumber); // Throws NumberFormatException
+            if (toMove == null) return;
             Category moveTo = game.getCategoryByName(category);
+            // If the category didn't exist yet: create it
             if (moveTo == null)
             {
                 moveTo = new Category(category);
             }
-            if (toMove == null) return;
             game.remove(toMove, false);
             moveTo.addElement(toMove);
         }
+        // If the player filled in a word instead of an id: inform the player of this
         catch (NumberFormatException nfEx)
         {
             System.out.println("Please fill in a valid id next time");
@@ -610,10 +613,10 @@ public class App
     private void printMenu()
     {
         ArrayList<Category> categories = game.getCategories();
-        // If all elements can be shown and edited: show them all
+        // If all elements should be shown: show them all
         if (editMode)
         {
-            // Print the categories
+            // Print the categories and their elements
             for (Category category : categories)
             {
                 ArrayList<Element> containing = category.getContaining();
@@ -623,10 +626,11 @@ public class App
         // Else: show only the known elements
         else
         {
+            // Print the categories and their elements
             for (Category category : categories)
             {
-                ArrayList<Element> containing = category.getKnown();
-                printCategory(category, containing);
+                ArrayList<Element> known = category.getKnown();
+                printCategory(category, known);
             }
         }
     }
@@ -639,6 +643,7 @@ public class App
      */
     private void printCategory(Category category, ArrayList<Element> containing)
     {
+        // If the category is not empty: display it
         if (!containing.isEmpty())
         {
             System.out.print(category.getName() + ":");

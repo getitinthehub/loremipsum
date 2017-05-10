@@ -1,10 +1,10 @@
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Created for Elementally
+ * Class to tie code to certain strings to execute at a later moment
  * <p>
  * Started on 7-5-2017<br>
- * Last changes made on 7-5-2017
+ * Last changes made on 10-5-2017
  *
  * @author Thomas Holleman
  */
@@ -20,7 +20,7 @@ public class Command
      */
     public Command(String... executeAt)
     {
-        this.executeAt = executeAt != null ? executeAt : new String[0];
+        this.executeAt = executeAt != null ? executeAt : new String[]{null};
         code = null;
     }
     
@@ -43,10 +43,6 @@ public class Command
      */
     public boolean shouldExecuteAt(String command)
     {
-        if (command != null)
-        {
-            command = command.trim();
-        }
         // Go through every execute command and compare it to the argument
         for (String synonym : executeAt)
         {
