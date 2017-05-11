@@ -626,6 +626,7 @@ public class App
         // Else: show only the known elements
         else
         {
+            System.out.printf("Progress: %.1f%% %n", game.getProgress());
             // Print the categories and their elements
             for (Category category : categories)
             {

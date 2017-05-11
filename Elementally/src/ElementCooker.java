@@ -361,6 +361,7 @@ public class ElementCooker
                         // Add the element
                         try
                         {
+                            // Throws NumberFormatException
                             Element loaded = new Element(components[2], Integer.parseInt(components[1]), components[0].equals("b"));
                             addRecipes(loaded, components, 3, lineNumber); // Throws ElementallyException
                             lastCategory.addElement(loaded);
@@ -507,7 +508,6 @@ public class ElementCooker
     public Element[] emptyCombination(boolean allowDuplicates) throws ElementallyException
     {
         // todo: only check half of the combinations
-        // todo: check from known when applicable
         //If there are elements to combine: combine them
         if (categories.size() != 0)
         {
@@ -561,6 +561,24 @@ public class ElementCooker
             }
         }
         throw new ElementallyException(ALL_COMBINATIONS_FILLED_ERROR);
+    }
+    
+    /**
+     * Calculates the known percentage.
+     *
+     * @return The percentage of elements that are known
+     */
+    public double getProgress()
+    {
+        double total = 0;
+        double known = 0;
+        // Count all the total elements and known elements
+        for (Category category : categories)
+        {
+            total += category.getContaining().size();
+            known += category.getKnown().size();
+        }
+        return known / total * 100;
     }
     
     /**
