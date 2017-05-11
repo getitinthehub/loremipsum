@@ -1,4 +1,5 @@
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
@@ -6,11 +7,12 @@ import java.util.ArrayList;
  * Holds the data from elements
  * <p>
  * Started on 13-4-2017<br>
- * Last changes made on 8-5-2017
+ * Last changes made on 10-5-2017
  *
  * @author Thomas Holleman
  */
-public class Element {
+public class Element
+{
     private static int highestId = 0;
     
     private final int id;
@@ -19,39 +21,66 @@ public class Element {
     private Category category;
     private boolean basic;
     
-    public Category getCategory() {
-        return category;
-    }
-    
-    public Element(String name) {
+    /**
+     * Simple constructor the class
+     *
+     * @param name The name of this element
+     */
+    public Element(String name)
+    {
         this(name, ++highestId, false);
     }
     
-    public Element(String name, int id, boolean basic) {
+    /**
+     * Complete constructor for this class.
+     * When used make sure the id is unique to avoid complications during run time
+     *
+     * @param name  The name of the element
+     * @param id    The id of the element
+     * @param basic True if the element is a basic element
+     */
+    public Element(String name, int id, boolean basic)
+    {
         this.name = name;
         recipes = new ArrayList<>();
         this.id = id;
         this.basic = basic;
         category = null;
         
-        if (id > highestId) {
+        // If the id is higher then the highest id: update the highest id
+        if (id > highestId)
+        {
             highestId = id;
         }
     }
     
     /**
-     * Should only be used if there are no elements saved.
+     * Should only be used if all elements are deleted.
      */
-    public static void resetCounter() {
+    public static void resetCounter()
+    {
         highestId = 0;
     }
     
-    public void setCategory(Category category) {
-        this.category = category;
+    /**
+     * Simple getter for the category of this element
+     *
+     * @return The category of this element or null
+     */
+    @Nullable
+    public Category getCategory()
+    {
+        return category;
     }
     
-    public boolean isBasic() {
-        return basic;
+    /**
+     * Simple setter for the category of this element
+     *
+     * @param category The element that this should be set to
+     */
+    public void setCategory(Category category)
+    {
+        this.category = category;
     }
     
     /**
@@ -59,33 +88,60 @@ public class Element {
      *
      * @param toAdd a recipe following the format: [int id],[int id]
      */
-    public void addRecipe(String toAdd) {
+    public void addRecipe(String toAdd)
+    {
         recipes.add(toAdd);
     }
     
+    /**
+     * toString of this class with some of the information of this class to identify it
+     *
+     * @return An String to identify instances of this class
+     */
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "[" + id + ". " + name + "]";
     }
     
-    public int getId() {
+    /**
+     * Simple getter for the id
+     *
+     * @return The id of the instance
+     */
+    public int getId()
+    {
         return id;
     }
     
-    public String getName() {
+    /**
+     * Simple getter for the name
+     *
+     * @return The name of the instance
+     */
+    public String getName()
+    {
         return name;
     }
     
-    public void setName(String name) {
+    /**
+     * Simple setter of the name
+     *
+     * @param name The new name of this instance
+     */
+    public void setName(String name)
+    {
         this.name = name;
     }
     
-    public ArrayList<String> getRecipes() {
+    /**
+     * Simple getter for the recipes
+     *
+     * @return The recipes of this instance
+     */
+    public ArrayList<String> getRecipes()
+    {
         return recipes;
-    }
-    
-    public boolean isKnown() {
-        return isBasic() || category != null && category.getElementById(id, true) != null;
     }
     
     /**
@@ -93,9 +149,20 @@ public class Element {
      *
      * @return a valid export string
      */
-    public String exportLine() {
+    public String exportLine()
+    {
         String known = basic ? "b" : isKnown() ? "k" : "u";
         return known + ";" + id + ";" + name + ";" + getRecipesString();
+    }
+    
+    /**
+     * Checks its category to see if it is in the known ArrayList
+     *
+     * @return True if the element is known by the category or if the element is basic
+     */
+    public boolean isKnown()
+    {
+        return isBasic() || category != null && category.getElementById(id, true) != null;
     }
     
     /**
@@ -104,19 +171,37 @@ public class Element {
      * @return A valid export string
      */
     @NotNull
-    public String getRecipesString() {
+    public String getRecipesString()
+    {
         StringBuilder output = new StringBuilder();
         // Appends the recipes together
-        for (String recipe : recipes) {
+        for (String recipe : recipes)
+        {
             output.append(recipe).append(";");
         }
         return output.toString();
     }
     
-    public void removeRecipe(String recipe) {
-        for (int i = 0; i < recipes.size(); i++) {
-            if (recipes.get(i).equals(recipe)) {
+    /**
+     * Simple getter to learn if the element is basic
+     *
+     * @return True if the element is basic
+     */
+    public boolean isBasic()
+    {
+        return basic;
+    }
+    
+    public void removeRecipe(String recipe)
+    {
+        // Remove the recipe from the recipes ArrayList
+        for (int i = 0; i < recipes.size(); i++)
+        {
+            // If the recipe is the same: remove it
+            if (recipes.get(i).equals(recipe))
+            {
                 recipes.remove(i);
+                return;
             }
         }
     }
