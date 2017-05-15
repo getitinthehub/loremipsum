@@ -33,7 +33,7 @@ public class App
      */
     public static void main(String[] args)
     {
-//        args = new String[]{"editMode"};
+        args = new String[]{"editMode"};
         App toRun = new App();
         // Changes all the settings according to the arguments
         for (String arg : args)
@@ -178,7 +178,12 @@ public class App
                                // Find an empty combination
                                try
                                {
-                                   return game.emptyCombination(allowDuplicates);
+                                   Element startWith = null;
+                                   if (args.length == 2)
+                                   {
+                                       startWith = parseElement(args[1]); // Throws NumberFormatException
+                                   }
+                                   return game.emptyCombination(startWith, allowDuplicates);
                                }
                                // If all combinations are filled in: inform the user
                                catch (ElementallyException eEx)
@@ -193,6 +198,10 @@ public class App
                                    {
                                        System.out.println(eEx.getMessage());
                                    }
+                               }
+                               catch (NumberFormatException nfEx)
+                               {
+                                   System.out.println("The correct format for renaming is: " + random.getName() + " [id]\n" + "or: " + random.getName() + "\nor an empty line");
                                }
                                return null;
                            });
