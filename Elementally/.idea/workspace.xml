@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9538a5a-d844-46c0-b676-ac0c5a8b675f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/App.class" afterPath="$PROJECT_DIR$/out/production/Elementally/App.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/SafeFile" afterPath="$PROJECT_DIR$/out/production/Elementally/SafeFile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.java" afterPath="$PROJECT_DIR$/src/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Category.java" afterPath="$PROJECT_DIR$/src/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ElementCooker.java" afterPath="$PROJECT_DIR$/src/ElementCooker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SafeFile" afterPath="$PROJECT_DIR$/src/SafeFile" />
     </list>
     <ignored path="Elementally.iws" />
@@ -31,18 +30,23 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="203" column="122" lean-forward="false" selection-start-line="203" selection-start-column="122" selection-end-line="203" selection-end-column="122" />
+            <state relative-caret-position="91">
+              <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#App#0" expanded="true" />
                 <element signature="method#main#0;class#App#0" expanded="true" />
-                <element signature="e#4009#4690#0" expanded="false" />
-                <element signature="e#4758#4898#0" expanded="false" />
-                <element signature="e#4969#5118#0" expanded="false" />
-                <element signature="e#8196#8861#0" expanded="false" />
-                <element signature="e#8952#9708#0" expanded="false" />
-                <element signature="e#9790#10997#0" expanded="false" />
+                <element signature="method#run#0;class#App#0" expanded="true" />
+                <element signature="method#setCommands#0;class#App#0" expanded="true" />
+                <element signature="e#4135#4859#0" expanded="false" />
+                <element signature="e#4927#5067#0" expanded="false" />
+                <element signature="e#5138#5287#0" expanded="false" />
+                <element signature="e#5666#7515#0" expanded="false" />
+                <element signature="e#7597#8289#0" expanded="false" />
+                <element signature="e#8365#9030#0" expanded="false" />
+                <element signature="e#9121#9877#0" expanded="false" />
+                <element signature="e#9959#11166#0" expanded="false" />
+                <element signature="e#11261#12589#0" expanded="false" />
                 <element signature="method#askCombination#0;class#App#0" expanded="true" />
                 <element signature="method#parseElement#0;class#App#0" expanded="true" />
                 <element signature="method#parseElement#1;class#App#0" expanded="true" />
@@ -56,8 +60,8 @@
       <file leaf-file-name="SafeFile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SafeFile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+            <state relative-caret-position="867">
+              <caret line="52" column="19" lean-forward="true" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -66,7 +70,7 @@
       <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
+            <state relative-caret-position="527">
               <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
                 <element signature="class#executable#0;class#Command#0" expanded="false" />
@@ -79,7 +83,7 @@
       <file leaf-file-name="ElementCooker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
+            <state relative-caret-position="1785">
               <caret line="524" column="52" lean-forward="false" selection-start-line="524" selection-start-column="52" selection-end-line="524" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -93,8 +97,8 @@
       <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Category.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="229" column="51" lean-forward="true" selection-start-line="229" selection-start-column="51" selection-end-line="229" selection-end-column="51" />
+            <state relative-caret-position="986">
+              <caret line="229" column="51" lean-forward="false" selection-start-line="229" selection-start-column="51" selection-end-line="229" selection-end-column="51" />
               <folding>
                 <element signature="method#getElementById#0;class#Category#0" expanded="true" />
                 <marker date="1494868389914" expanded="false" signature="4692:4728" ph="{...}" />
@@ -108,6 +112,13 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>16</find>
+      <find>temp</find>
+      <find>14</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -123,9 +134,9 @@
         <option value="$PROJECT_DIR$/src/Element.java" />
         <option value="$PROJECT_DIR$/src/Command.java" />
         <option value="$PROJECT_DIR$/src/ElementallyException.java" />
-        <option value="$PROJECT_DIR$/src/SafeFile" />
         <option value="$PROJECT_DIR$/src/ElementCooker.java" />
         <option value="$PROJECT_DIR$/src/Category.java" />
+        <option value="$PROJECT_DIR$/src/SafeFile" />
         <option value="$PROJECT_DIR$/src/App.java" />
       </list>
     </option>
@@ -158,9 +169,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -189,6 +198,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -595,12 +606,13 @@
       <workItem from="1494511352518" duration="605000" />
       <workItem from="1494849943138" duration="3099000" />
       <workItem from="1494853730155" duration="153000" />
-      <workItem from="1494864921653" duration="4652000" />
+      <workItem from="1494864921653" duration="4707000" />
+      <workItem from="1494920490595" duration="837000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21498000" />
+    <option name="totallyTimeSpent" value="22390000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -621,23 +633,23 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.68927443" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +668,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -696,12 +708,17 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#App#0" expanded="true" />
             <element signature="method#main#0;class#App#0" expanded="true" />
-            <element signature="e#4009#4690#0" expanded="false" />
-            <element signature="e#4758#4898#0" expanded="false" />
-            <element signature="e#4969#5118#0" expanded="false" />
-            <element signature="e#8196#8861#0" expanded="false" />
-            <element signature="e#8952#9708#0" expanded="false" />
-            <element signature="e#9790#10997#0" expanded="false" />
+            <element signature="method#run#0;class#App#0" expanded="true" />
+            <element signature="method#setCommands#0;class#App#0" expanded="true" />
+            <element signature="e#4135#4859#0" expanded="false" />
+            <element signature="e#4927#5067#0" expanded="false" />
+            <element signature="e#5138#5287#0" expanded="false" />
+            <element signature="e#5666#7515#0" expanded="false" />
+            <element signature="e#7597#8289#0" expanded="false" />
+            <element signature="e#8365#9030#0" expanded="false" />
+            <element signature="e#9121#9877#0" expanded="false" />
+            <element signature="e#9959#11166#0" expanded="false" />
+            <element signature="e#11261#12589#0" expanded="false" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#1;class#App#0" expanded="true" />
@@ -784,12 +801,17 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#App#0" expanded="true" />
             <element signature="method#main#0;class#App#0" expanded="true" />
-            <element signature="e#4009#4690#0" expanded="false" />
-            <element signature="e#4758#4898#0" expanded="false" />
-            <element signature="e#4969#5118#0" expanded="false" />
-            <element signature="e#8196#8861#0" expanded="false" />
-            <element signature="e#8952#9708#0" expanded="false" />
-            <element signature="e#9790#10997#0" expanded="false" />
+            <element signature="method#run#0;class#App#0" expanded="true" />
+            <element signature="method#setCommands#0;class#App#0" expanded="true" />
+            <element signature="e#4135#4859#0" expanded="false" />
+            <element signature="e#4927#5067#0" expanded="false" />
+            <element signature="e#5138#5287#0" expanded="false" />
+            <element signature="e#5666#7515#0" expanded="false" />
+            <element signature="e#7597#8289#0" expanded="false" />
+            <element signature="e#8365#9030#0" expanded="false" />
+            <element signature="e#9121#9877#0" expanded="false" />
+            <element signature="e#9959#11166#0" expanded="false" />
+            <element signature="e#11261#12589#0" expanded="false" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#1;class#App#0" expanded="true" />
@@ -872,12 +894,17 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#App#0" expanded="true" />
             <element signature="method#main#0;class#App#0" expanded="true" />
-            <element signature="e#4009#4690#0" expanded="false" />
-            <element signature="e#4758#4898#0" expanded="false" />
-            <element signature="e#4969#5118#0" expanded="false" />
-            <element signature="e#8196#8861#0" expanded="false" />
-            <element signature="e#8952#9708#0" expanded="false" />
-            <element signature="e#9790#10997#0" expanded="false" />
+            <element signature="method#run#0;class#App#0" expanded="true" />
+            <element signature="method#setCommands#0;class#App#0" expanded="true" />
+            <element signature="e#4135#4859#0" expanded="false" />
+            <element signature="e#4927#5067#0" expanded="false" />
+            <element signature="e#5138#5287#0" expanded="false" />
+            <element signature="e#5666#7515#0" expanded="false" />
+            <element signature="e#7597#8289#0" expanded="false" />
+            <element signature="e#8365#9030#0" expanded="false" />
+            <element signature="e#9121#9877#0" expanded="false" />
+            <element signature="e#9959#11166#0" expanded="false" />
+            <element signature="e#11261#12589#0" expanded="false" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#1;class#App#0" expanded="true" />
@@ -960,12 +987,17 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#App#0" expanded="true" />
             <element signature="method#main#0;class#App#0" expanded="true" />
-            <element signature="e#4009#4690#0" expanded="false" />
-            <element signature="e#4758#4898#0" expanded="false" />
-            <element signature="e#4969#5118#0" expanded="false" />
-            <element signature="e#8196#8861#0" expanded="false" />
-            <element signature="e#8952#9708#0" expanded="false" />
-            <element signature="e#9790#10997#0" expanded="false" />
+            <element signature="method#run#0;class#App#0" expanded="true" />
+            <element signature="method#setCommands#0;class#App#0" expanded="true" />
+            <element signature="e#4135#4859#0" expanded="false" />
+            <element signature="e#4927#5067#0" expanded="false" />
+            <element signature="e#5138#5287#0" expanded="false" />
+            <element signature="e#5666#7515#0" expanded="false" />
+            <element signature="e#7597#8289#0" expanded="false" />
+            <element signature="e#8365#9030#0" expanded="false" />
+            <element signature="e#9121#9877#0" expanded="false" />
+            <element signature="e#9959#11166#0" expanded="false" />
+            <element signature="e#11261#12589#0" expanded="false" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#1;class#App#0" expanded="true" />
@@ -1048,12 +1080,17 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#App#0" expanded="true" />
             <element signature="method#main#0;class#App#0" expanded="true" />
-            <element signature="e#4009#4690#0" expanded="false" />
-            <element signature="e#4758#4898#0" expanded="false" />
-            <element signature="e#4969#5118#0" expanded="false" />
-            <element signature="e#8196#8861#0" expanded="false" />
-            <element signature="e#8952#9708#0" expanded="false" />
-            <element signature="e#9790#10997#0" expanded="false" />
+            <element signature="method#run#0;class#App#0" expanded="true" />
+            <element signature="method#setCommands#0;class#App#0" expanded="true" />
+            <element signature="e#4135#4859#0" expanded="false" />
+            <element signature="e#4927#5067#0" expanded="false" />
+            <element signature="e#5138#5287#0" expanded="false" />
+            <element signature="e#5666#7515#0" expanded="false" />
+            <element signature="e#7597#8289#0" expanded="false" />
+            <element signature="e#8365#9030#0" expanded="false" />
+            <element signature="e#9121#9877#0" expanded="false" />
+            <element signature="e#9959#11166#0" expanded="false" />
+            <element signature="e#11261#12589#0" expanded="false" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#1;class#App#0" expanded="true" />
@@ -1129,12 +1166,17 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#App#0" expanded="true" />
             <element signature="method#main#0;class#App#0" expanded="true" />
-            <element signature="e#4009#4690#0" expanded="false" />
-            <element signature="e#4758#4898#0" expanded="false" />
-            <element signature="e#4969#5118#0" expanded="false" />
-            <element signature="e#8196#8861#0" expanded="false" />
-            <element signature="e#8952#9708#0" expanded="false" />
-            <element signature="e#9790#10997#0" expanded="false" />
+            <element signature="method#run#0;class#App#0" expanded="true" />
+            <element signature="method#setCommands#0;class#App#0" expanded="true" />
+            <element signature="e#4135#4859#0" expanded="false" />
+            <element signature="e#4927#5067#0" expanded="false" />
+            <element signature="e#5138#5287#0" expanded="false" />
+            <element signature="e#5666#7515#0" expanded="false" />
+            <element signature="e#7597#8289#0" expanded="false" />
+            <element signature="e#8365#9030#0" expanded="false" />
+            <element signature="e#9121#9877#0" expanded="false" />
+            <element signature="e#9959#11166#0" expanded="false" />
+            <element signature="e#11261#12589#0" expanded="false" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#1;class#App#0" expanded="true" />
@@ -1308,25 +1350,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SafeFile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="319" column="18" lean-forward="true" selection-start-line="319" selection-start-column="18" selection-end-line="319" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
+        <state relative-caret-position="527">
           <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
             <element signature="class#executable#0;class#Command#0" expanded="false" />
@@ -1337,7 +1370,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="1785">
           <caret line="524" column="52" lean-forward="false" selection-start-line="524" selection-start-column="52" selection-end-line="524" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1349,8 +1382,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Category.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="229" column="51" lean-forward="true" selection-start-line="229" selection-start-column="51" selection-end-line="229" selection-end-column="51" />
+        <state relative-caret-position="986">
+          <caret line="229" column="51" lean-forward="false" selection-start-line="229" selection-start-column="51" selection-end-line="229" selection-end-column="51" />
           <folding>
             <element signature="method#getElementById#0;class#Category#0" expanded="true" />
             <marker date="1494868389914" expanded="false" signature="4692:4728" ph="{...}" />
@@ -1362,20 +1395,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SafeFile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="52" column="19" lean-forward="true" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="203" column="122" lean-forward="false" selection-start-line="203" selection-start-column="122" selection-end-line="203" selection-end-column="122" />
+        <state relative-caret-position="91">
+          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#App#0" expanded="true" />
             <element signature="method#main#0;class#App#0" expanded="true" />
-            <element signature="e#4009#4690#0" expanded="false" />
-            <element signature="e#4758#4898#0" expanded="false" />
-            <element signature="e#4969#5118#0" expanded="false" />
-            <element signature="e#8196#8861#0" expanded="false" />
-            <element signature="e#8952#9708#0" expanded="false" />
-            <element signature="e#9790#10997#0" expanded="false" />
+            <element signature="method#run#0;class#App#0" expanded="true" />
+            <element signature="method#setCommands#0;class#App#0" expanded="true" />
+            <element signature="e#4135#4859#0" expanded="false" />
+            <element signature="e#4927#5067#0" expanded="false" />
+            <element signature="e#5138#5287#0" expanded="false" />
+            <element signature="e#5666#7515#0" expanded="false" />
+            <element signature="e#7597#8289#0" expanded="false" />
+            <element signature="e#8365#9030#0" expanded="false" />
+            <element signature="e#9121#9877#0" expanded="false" />
+            <element signature="e#9959#11166#0" expanded="false" />
+            <element signature="e#11261#12589#0" expanded="false" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#0;class#App#0" expanded="true" />
             <element signature="method#parseElement#1;class#App#0" expanded="true" />

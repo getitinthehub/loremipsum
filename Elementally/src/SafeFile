@@ -1,4 +1,4 @@
-nothing;7,9;4,10;3,11;2,9;2,4;5,12;2,15;10,13;2,7;3,7;3,10;7,18;5,14;8,28;2,27;15,26;1,38;24,32;24,27;9,37;10,31;1,35;29,36;
+nothing;7,9;4,10;3,11;2,9;2,4;5,12;2,15;10,13;2,7;3,7;3,10;7,18;5,16;8,28;2,27;15,26;1,38;24,32;24,27;9,37;10,31;1,35;29,36;
 c;fire
 b;1;fire;
 u;6;magma;1,3;
@@ -14,6 +14,7 @@ u;10;mud;2,3;
 u;12;swamp;2,10;
 u;23;sand;7,13;
 u;43;clay;1,10;
+u;50;iron;1,7;
 c;air
 b;4;air;
 u;5;steam;1,2;
@@ -24,13 +25,13 @@ u;31;wind;4,13;13,31;
 u;33;snow;9,32;
 c;life
 u;13;energy;1,4;
-u;14;golem;10,16;
-u;16;life;12,13;
-u;22;plant;12,16;
+u;14;life;12,13;
+u;16;golem;10,14;
+u;22;plant;12,14;
 u;25;time;23,24;
 u;48;tree;2,22;
 c;creatures
-u;17;fish;2,16;
+u;17;fish;2,14;
 u;19;amphibian;3,17;
 u;20;reptile;12,19;
 u;34;fat fish;17,18;
@@ -45,8 +46,8 @@ c;building materials
 u;24;glass;1,23;
 u;44;brick;1,43;
 c;myths and legends
-u;27;zombie;16,26;
-u;28;wizzard;13,21;
+u;27;zombie;14,26;
+u;28;wizard;13,21;
 u;29;necromancer;27,28;
 u;30;pyromancer;1,28;
 u;37;mermaid;17,21;
