@@ -211,6 +211,46 @@ public class Category
         return null;
     }
     
+    public int indexOf(Element element) {
+        if (element == null) return -1;
+        ArrayList<Element> from = containing;
+        int elementId = element.getId();
+        int largest = from.size() - 1;
+        // If the element is larger than the largest element in this category: return -1
+        if (from.isEmpty() || elementId > from.get(largest).getId())
+        {
+            return -1;
+        }
+        int smallest = 0;
+        // If the element is smaller than the smallest element in this category: return -1
+        if (elementId < from.get(smallest).getId())
+        {
+            return -1;
+        }
+        // Search the element using a binary method
+        while (smallest <= largest)
+        {
+            int middle = (smallest + largest) / 2;
+            Element middleElement = from.get(middle);
+            // If the element is smaller than the middle: move the highest limit
+            if (elementId < middleElement.getId())
+            {
+                largest = middle - 1;
+            }
+            // If the element is found: remove the element and return true
+            else if (elementId == middleElement.getId())
+            {
+                return middle;
+            }
+            // Else: Move the smallest limit
+            else
+            {
+                smallest = middle + 1;
+            }
+        }
+        return -1;
+    }
+    
     /**
      * Adds a element to know ArrayList
      *

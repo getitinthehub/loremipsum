@@ -140,7 +140,7 @@ public class ElementCooker
             previous.removeRecipe(key);
             // Todo: Search for infinite loops
             // If there are no recipes left for that element and it's not basic: remove it
-            if (previous.getRecipes().isEmpty() && previous.isBasic())
+            if (previous.getRecipes().isEmpty() && !previous.isBasic())
             {
                 remove(previous, true);
             }
@@ -505,14 +505,25 @@ public class ElementCooker
      * @throws ElementallyException When all the combinations are filled in
      */
     @SuppressWarnings("ConstantConditions")
-    public Element[] emptyCombination(boolean allowDuplicates) throws ElementallyException
+    public Element[] emptyCombination(@Nullable Element first, boolean allowDuplicates) throws ElementallyException
     {
         // todo: only check half of the combinations
         //If there are elements to combine: combine them
         if (categories.size() != 0)
         {
-            int stopAtCat1 = (int) (categories.size() * Math.random());
-            int stopAtEle1 = (int) (categories.get(stopAtCat1).getContaining().size() * Math.random());
+            int stopAtCat1;
+            int stopAtEle1;
+            // If no element is chosen to start with: choose a random one
+            if (first == null || first.getCategory() == null)
+            {
+                stopAtCat1 = (int) (categories.size() * Math.random());
+                stopAtEle1 = (int) (categories.get(stopAtCat1).getContaining().size() * Math.random());
+            }
+            // If a element is chosen to start with: start with that element
+            else {
+                stopAtCat1 = categories.indexOf(first.getCategory());
+                stopAtEle1 = first.getCategory().indexOf(first);
+            }
             int currentCat1 = stopAtCat1;
             int currentEle1 = stopAtEle1;
             boolean fullCircle1 = false;
