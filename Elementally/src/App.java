@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class App
 {
-    private boolean allowDuplicates, running, editMode;
+    private boolean allowDuplicates, running, editMode, showMenu;
     private ElementCooker game;
     private Scanner userInput;
     private String safeFileLocation;
@@ -73,8 +73,12 @@ public class App
         // Keep playing until the player wants to quit
         while (running)
         {
-            printMenu();
-            System.out.println();
+            if (showMenu)
+            {
+                printMenu();
+                System.out.println();
+            }
+            showMenu = true;
             Element[] toCombine = askCombination();
             // If a combination was chosen: combine them
             if (toCombine != null)
@@ -123,6 +127,7 @@ public class App
     private void initGlobals()
     {
         running = true;
+        showMenu = true;
         game = new ElementCooker();
         safeFileLocation = "src\\SafeFile";
         userInput = new Scanner(System.in);
@@ -149,6 +154,7 @@ public class App
                              System.err.println("Save file could not be found, data not saved");
                              running = false;
                          }
+                         showMenu = false;
                          return null;
                      });
         Command exit = new Command("exit");
