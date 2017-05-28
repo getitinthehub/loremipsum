@@ -1,14 +1,11 @@
-import com.sun.istack.internal.Nullable;
-
 import java.util.ArrayList;
 
 /**
- * holds all the elements in an sorted ArrayList
+ * Created for elementally
  * <p>
- * Started on 13-4-2017<br>
- * Last changes made on 10-5-2017
+ * Started on 23-5-2017
  *
- * @author Thomas Holleman
+ * @author Thomas
  */
 public class Category
 {
@@ -97,7 +94,6 @@ public class Category
         {
             addElement(toAdd, true);
         }
-        
         toAdd.setCategory(this);
         int id = toAdd.getId();
         int largest = addTo.size() - 1;
@@ -148,7 +144,6 @@ public class Category
      *
      * @return The element with the id or null if no such element could be found
      */
-    @Nullable
     public Element getElementById(int elementId, boolean fromKnown)
     {
         ArrayList<Element> from = fromKnown ? known : containing;
@@ -195,7 +190,6 @@ public class Category
      *
      * @return The element with the name or null if no such element could be found
      */
-    @Nullable
     public Element getElementByName(String elementName)
     {
         if (elementName == null) return null;
@@ -211,7 +205,8 @@ public class Category
         return null;
     }
     
-    public int indexOf(Element element) {
+    public int indexOf(Element element)
+    {
         if (element == null) return -1;
         ArrayList<Element> from = containing;
         int elementId = element.getId();
@@ -334,6 +329,7 @@ public class Category
         // Add all the basic elements to the ArrayList
         for (Element element : known)
         {
+            element.unLearnAll();
             // If the element is basic: add it
             if (element.isBasic())
             {

@@ -1,6 +1,6 @@
-import org.jetbrains.annotations.Nullable;
-
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,8 +10,8 @@ import java.util.Scanner;
  * ensures the player can't combine two elements with the same id<br>
  * creates new elements and categories<br>
  * <p>
- * Started on 13-4-2017<br>
- * Last changes made on 10-5-2017
+ * Started on 13-4-2017
+ * <p>
  *
  * @author Thomas Holleman
  */
@@ -24,6 +24,15 @@ public class App
     private Command[] commands;
     
     /**
+     * Sets up the variables that can be changed in the main method
+     */
+    private App()
+    {
+        allowDuplicates = false;
+        editMode = false;
+    }
+    
+    /**
      * Main method for the Elementally game.
      * Give additional arguments to change settings for the game:<br>
      * allowDuplicates to allow elements to combine with themselves<br>
@@ -33,7 +42,7 @@ public class App
      */
     public static void main(String[] args)
     {
-        args = new String[]{"editMode"};
+//        args = new String[]{"editMode"};
         App toRun = new App();
         // Changes all the settings according to the arguments
         for (String arg : args)
@@ -52,15 +61,6 @@ public class App
             }
         }
         toRun.run();
-    }
-    
-    /**
-     * Sets up the variables that can be changed in the main method
-     */
-    private App()
-    {
-        allowDuplicates = false;
-        editMode = false;
     }
     
     /**
@@ -98,26 +98,20 @@ public class App
      */
     private void loadSafeFile()
     {
-        // Load the save file
         try
         {
-            game.loadSafeFile(safeFileLocation);
+            StringBuilder sb = new StringBuilder();
+            Scanner loader = new Scanner(new File(safeFileLocation));
+            while (loader.hasNextLine())
+            {
+                sb.append(loader.nextLine()).append("\n");
+            }
+            game.loadDataFrom(sb.toString());
         }
-        // If the file could not be found: set the game to its starting state
-        catch (FileNotFoundException fnfEx)
+        catch (FileNotFoundException | ElementallyException e)
         {
-            // If the nothing element is not in the file: let the player known
-            if (fnfEx.getMessage().equals(ElementCooker.NO_NOTHING_ERROR))
-            {
-                System.out.println("Incorrect file format, nothing element must be present.");
-            }
-            // Else: the file does not exist, let the player know
-            else
-            {
-                System.out.println("No previous safe file found");
-            }
+            System.out.println("No previous safe file found, setting to starting state.");
             game.startState(true);
-            System.out.println("Default state loaded.\n");
         }
     }
     
@@ -128,7 +122,7 @@ public class App
     {
         running = true;
         showMenu = true;
-        game = new ElementCooker();
+        game = ElementCooker.getInstance();
         safeFileLocation = "src\\SafeFile";
         userInput = new Scanner(System.in);
         setCommands();
@@ -142,17 +136,18 @@ public class App
         Command save = new Command("save");
         save.setCode((args) ->
                      {
-                         // Save the game
+                         String saveString = game.getSaveString();
                          try
                          {
-                             game.save(safeFileLocation);
-                             System.out.println("Game saved successfully");
+                             PrintWriter saver = new PrintWriter(new File(safeFileLocation));
+                             saver.print(saveString);
+                             saver.close();
+                             System.out.println("game saved successfully");
                          }
-                         // If the game could not be saved: stop the game.
                          catch (FileNotFoundException e)
                          {
-                             System.err.println("Save file could not be found, data not saved");
-                             running = false;
+                             System.out.println("game could not be saved, copy this in the safe file" +
+                                                "\n" + saveString);
                          }
                          showMenu = false;
                          return null;
@@ -173,7 +168,13 @@ public class App
         // If the player should not edit any elements: don't add those commands
         if (!editMode)
         {
-            commands = new Command[]{save, exit, reset, cancel};
+            Command quiz = new Command("quiz");
+            quiz.setCode(args ->
+                         {
+                             askQuizQuestion();
+                             return null;
+                         });
+            commands = new Command[]{save, quiz, exit, reset, cancel};
         }
         // Else: add all commands
         else
@@ -189,21 +190,12 @@ public class App
                                    {
                                        startWith = parseElement(args[1]); // Throws NumberFormatException
                                    }
-                                   return game.emptyCombination(startWith, allowDuplicates);
+                                   return game.getEmptyCombination(startWith, allowDuplicates);
                                }
                                // If all combinations are filled in: inform the user
                                catch (ElementallyException eEx)
                                {
-                                   // If the error is because all elements are filled in: inform the user
-                                   if (eEx.getMessage().equals(ElementCooker.ALL_COMBINATIONS_FILLED_ERROR))
-                                   {
-                                       System.out.println("All combinations are filled in");
-                                   }
-                                   // If the error is unknown: display the error message
-                                   else
-                                   {
-                                       System.out.println(eEx.getMessage());
-                                   }
+                                   System.out.println(eEx.getMessage());
                                }
                                catch (NumberFormatException nfEx)
                                {
@@ -312,13 +304,119 @@ public class App
         }
     }
     
+    private void askQuizQuestion()
+    {
+        try
+        {
+            Answer[] choices = new Answer[4];
+            Answer correct = game.getQuizAnswer(true);
+            choices[0] = correct;
+            for (int i = 1; i < 4; i++)
+            {
+                choices[i] = game.getQuizAnswer(false);
+            }
+            randomize(choices);
+            System.out.println("Which combination creates " + correct.getResult().getName());
+            for (int i = 0; i < choices.length; i++)
+            {
+                System.out.println((i + 1) + choices[i].toString());
+            }
+            int answer = -1;
+            do
+            {
+                try
+                {
+                    System.out.print("Answer: ");
+                    answer = Integer.parseInt(userInput.nextLine());
+                }
+                catch (NumberFormatException ignored)
+                {
+                }
+            }
+            while (answer < 1 || answer > choices.length);
+            if (choices[answer - 1].isCorrect())
+            {
+                System.out.println("Correct");
+            }
+            else
+            {
+                Answer chosen = choices[answer - 1];
+                System.out.println("Incorrect, " + chosen + " creates " + chosen.getResult() +
+                                   "\nThe correct answer was " + correct);
+                
+            }
+        }
+        catch (ElementallyException eEx)
+        {
+            System.out.println("There are no questions at the moment");
+        }
+    }
+    
+    private void randomize(Answer[] toRandomize)
+    {
+        for (int i = 0; i < toRandomize.length; i++)
+        {
+            int switchWith = (int) (Math.random() * toRandomize.length);
+            Answer switcher = toRandomize[i];
+            toRandomize[i] = toRandomize[switchWith];
+            toRandomize[switchWith] = switcher;
+        }
+    }
+    
+    private Element[] randomCombinationFor(Element element)
+    {
+        assert element != null;
+        ArrayList<String> possibleCombinations = element.getKnownRecipes();
+        if (possibleCombinations.size() < 1) return null;
+        String[] correctAnswerKey = possibleCombinations.get((int) (Math.random() * possibleCombinations.size())).split(",");
+        return new Element[]{parseElement(correctAnswerKey[0]), parseElement(correctAnswerKey[1])};
+    }
+    
+    /**
+     * Tries to get an element with the id given by the player
+     *
+     * @param input The id of the element
+     *
+     * @return The element found with the id or null when no element is found
+     * @throws NumberFormatException When the input is not a integer
+     */
+    private Element parseElement(String input) throws NumberFormatException
+    {
+        return parseElement(input, -1);
+    }
+    
+    /**
+     * Tries to get an element with the id given by the player
+     *
+     * @param input           The id of the element
+     * @param previousElement The element that is not allowed to be filled in
+     *
+     * @return The element found with the id or null when no element is found
+     * @throws NumberFormatException When the input is not a integer
+     */
+    private Element parseElement(String input, int previousElement) throws NumberFormatException
+    {
+        Element chosen = game.getElementById(Integer.parseInt(input), !editMode); //Throws NumberFormatException
+        // If the element does not exist: inform the player.
+        if (chosen == null)
+        {
+            System.out.println("an element does not exist with that number");
+        }
+        // If the element is already asked before: inform the player and invalidate the input
+        else if (chosen.getId() == previousElement)
+        {
+            System.out.println("Elements can not be the same");
+            chosen = null;
+        }
+        return chosen;
+    }
+    
     /**
      * Asks the player for two ids to combine.
      * If the player fills in an word it will be executed as an command
      *
      * @return An element combination with a length of 2 or null if an command does not create an combination.
      */
-    @Nullable
     private Element[] askCombination()
     {
         String input = "";
@@ -358,54 +456,12 @@ public class App
     }
     
     /**
-     * Tries to get an element with the id given by the player
-     *
-     * @param input The id of the element
-     *
-     * @return The element found with the id or null when no element is found
-     * @throws NumberFormatException When the input is not a integer
-     */
-    @Nullable
-    private Element parseElement(String input) throws NumberFormatException
-    {
-        return parseElement(input, -1);
-    }
-    
-    /**
-     * Tries to get an element with the id given by the player
-     *
-     * @param input           The id of the element
-     * @param previousElement The element that is not allowed to be filled in
-     *
-     * @return The element found with the id or null when no element is found
-     * @throws NumberFormatException When the input is not a integer
-     */
-    @Nullable
-    private Element parseElement(String input, int previousElement) throws NumberFormatException
-    {
-        Element chosen = game.getElementById(Integer.parseInt(input), !editMode); //Throws NumberFormatException
-        // If the element does not exist: inform the player.
-        if (chosen == null)
-        {
-            System.out.println("an element does not exist with that number");
-        }
-        // If the element is already asked before: inform the player and invalidate the input
-        else if (chosen.getId() == previousElement)
-        {
-            System.out.println("Elements can not be the same");
-            chosen = null;
-        }
-        return chosen;
-    }
-    
-    /**
      * Executes the input as a command
      *
      * @param command The input from the player
      *
      * @return An combination when a command returns such a thing or null when this does not happen
      */
-    @Nullable
     private Element[] executeCommand(String command)
     {
         // If there are commands to look through: execute commands
@@ -565,7 +621,7 @@ public class App
      */
     private void combine(Element element1, Element element2)
     {
-        Element creates = game.combine(element1, element2);
+        Element creates = game.combine(element1, element2, !editMode);
         System.out.printf("%s and %s creates", element1.getName(), element2.getName());
         // If the combination is known: print the result
         if (creates != null)

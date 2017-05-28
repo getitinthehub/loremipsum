@@ -1,25 +1,20 @@
-import org.jetbrains.annotations.Nullable;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 
 /**
- * Holds the result for recipes
+ * Created for elementally
  * <p>
- * Started on 13-4-2017<br>
- * Last changes made on 10-5-2017
+ * Started on 23-5-2017
  *
- * @author Thomas Holleman
+ * @author Thomas
  */
 public class ElementCooker
 {
     public static final String NOTHING_NAME = "nothing";
-    public static final String NO_NOTHING_ERROR = "Incorrect file format, nothing element must be present";
-    public static final String ALL_COMBINATIONS_FILLED_ERROR = "All combinations are filled in.";
+    
+    private static final ElementCooker instance = new ElementCooker();
+    private static final String NO_NOTHING_ERROR = "Incorrect file format, nothing element must be present";
+    private static final String ALL_COMBINATIONS_FILLED_ERROR = "All combinations are filled in";
     
     private Element nothing;
     private ArrayList<Category> categories;
@@ -28,9 +23,24 @@ public class ElementCooker
     /**
      * Constructor for the class
      */
-    public ElementCooker()
+    private ElementCooker()
     {
         initGlobals();
+    }
+    
+    /**
+     * Initializes the non static global variables
+     */
+    private void initGlobals()
+    {
+        recipes = new HashMap<>();
+        categories = new ArrayList<>();
+        nothing = new Element(NOTHING_NAME, 0, true);
+    }
+    
+    public static ElementCooker getInstance()
+    {
+        return instance;
     }
     
     /**
@@ -45,15 +55,21 @@ public class ElementCooker
         {
             initGlobals();
             Element.resetCounter();
-            String[] categories = {"fire", "water", "earth", "air"};
-            String[] elements = {"fire", "water", "earth", "air"};
-            // Add all the elements and categories
-            for (int i = 0; i < categories.length; i++)
-            {
-                Category starter = new Category(categories[i]);
-                starter.addElement(new Element(elements[i], i, true));
-                addCategory(starter);
-            }
+            
+            Category fire = new Category("fire");
+            Category water = new Category("water");
+            Category earth = new Category("earth");
+            Category air = new Category("air");
+            
+            fire.addElement(new Element("fire", 1, true));
+            water.addElement(new Element("water", 2, true));
+            earth.addElement(new Element("earth", 3, true));
+            air.addElement(new Element("air", 4, true));
+            
+            categories.add(fire);
+            categories.add(water);
+            categories.add(earth);
+            categories.add(air);
         }
         // Else: unlearn all the elements
         else
@@ -64,16 +80,6 @@ public class ElementCooker
                 category.unlearnEverything();
             }
         }
-    }
-    
-    /**
-     * Initializes the non static global variables
-     */
-    private void initGlobals()
-    {
-        recipes = new HashMap<>();
-        categories = new ArrayList<>();
-        nothing = new Element(NOTHING_NAME);
     }
     
     /**
@@ -94,10 +100,15 @@ public class ElementCooker
      *
      * @return An element that this combination would result in or null if the combination is not defined before
      */
-    @Nullable
-    public Element combine(Element element1, Element element2)
+    public Element combine(Element element1, Element element2, boolean learn)
     {
-        return recipes.get(getKey(element1.getId(), element2.getId()));
+        String key = getKey(element1.getId(), element2.getId());
+        Element result = recipes.get(key);
+        if (learn && result != null)
+        {
+            result.learnRecipe(key);
+        }
+        return result;
     }
     
     /**
@@ -140,7 +151,7 @@ public class ElementCooker
             previous.removeRecipe(key);
             // Todo: Search for infinite loops
             // If there are no recipes left for that element and it's not basic: remove it
-            if (previous.getRecipes().isEmpty() && !previous.isBasic())
+            if (previous.getAllRecipes().isEmpty() && !previous.isBasic())
             {
                 remove(previous, true);
             }
@@ -148,32 +159,38 @@ public class ElementCooker
     }
     
     /**
-     * Finds an element with a given id
+     * Removes an element from its category and all its recipes
      *
-     * @param elementId The id of the element that needs to be found
-     * @param fromKnown True if the element should be gotten from the known ArrayList
-     *
-     * @return The element with the id or null if there is no element with that id
+     * @param toRemove     Element that needs to be removed
+     * @param clearRecipes Indicates if the recipes resulting in this element should be forgotten as well
      */
-    @Nullable
-    public Element getElementById(int elementId, boolean fromKnown)
+    public void remove(Element toRemove, boolean clearRecipes)
     {
-        // Nothing is not in an category and will therefor be compared here
-        if (elementId == 0)
+        if (toRemove == null) return;
+        int i = 0;
+        // Try to remove the element from every category until one actually removes something
+        while (!categories.get(i).remove(toRemove))
         {
-            return nothing;
-        }
-        // Go through every element and returns the element if it's in there
-        for (Category category : categories)
-        {
-            Element found = category.getElementById(elementId, fromKnown);
-            // If the element is found: return it
-            if (found != null)
+            // If the next removal attempt will throw an out of bounds exception: stop
+            if (++i == categories.size())
             {
-                return found;
+                return;
             }
         }
-        return null;
+        // If the category is now empty: remove the category
+        if (categories.get(i).getContaining().size() == 0)
+        {
+            categories.remove(i);
+        }
+        // If the recipes should be removed: remove them
+        if (clearRecipes)
+        {
+            // Remove every recipe that will result into that element
+            for (String recipe : toRemove.getAllRecipes())
+            {
+                recipes.put(recipe, null);
+            }
+        }
     }
     
     /**
@@ -183,7 +200,6 @@ public class ElementCooker
      *
      * @return The element with the name or null if there is no element with that name
      */
-    @Nullable
     public Element getElementByName(String elementName)
     {
         if (elementName == null) return null;
@@ -216,7 +232,7 @@ public class ElementCooker
         if (base == null || toDelete == null || base.equals(toDelete)) return;
         remove(toDelete, false);
         // Goes through every recipe and sets them to the base element
-        for (String recipe : toDelete.getRecipes())
+        for (String recipe : toDelete.getAllRecipes())
         {
             recipes.put(recipe, base);
             base.addRecipe(recipe);
@@ -241,41 +257,6 @@ public class ElementCooker
     }
     
     /**
-     * Removes an element from its category and all its recipes
-     *
-     * @param toRemove     Element that needs to be removed
-     * @param clearRecipes Indicates if the recipes resulting in this element should be forgotten as well
-     */
-    public void remove(Element toRemove, boolean clearRecipes)
-    {
-        if (toRemove == null) return;
-        int i = 0;
-        // Try to remove the element from every category until one actually removes something
-        while (!categories.get(i).remove(toRemove))
-        {
-            // If the next removal attempt will throw an out of bounds exception: stop
-            if (++i == categories.size())
-            {
-                return;
-            }
-        }
-        // If the category is now empty: remove the category
-        if (categories.get(i).getContaining().size() == 0)
-        {
-            categories.remove(i);
-        }
-        // If the recipes should be removed: remove them
-        if (clearRecipes)
-        {
-            // Remove every recipe that will result into that element
-            for (String recipe : toRemove.getRecipes())
-            {
-                recipes.put(recipe, null);
-            }
-        }
-    }
-    
-    /**
      * Finds an category with a given name
      *
      * @param categoryName The name of the category that needs to be found
@@ -296,6 +277,81 @@ public class ElementCooker
         return null;
     }
     
+    public void loadDataFrom(String dataLine) throws ElementallyException
+    {
+        String[] data = dataLine.split("\n");
+        int lineNumber = findNothingElement(data) + 1; // Throws ElementallyException
+        Category lastCategory = null;
+        while (lineNumber < data.length)
+        {
+            try
+            {
+                String[] components = data[lineNumber].split(";");
+                if (components.length > 1)
+                {
+                    if (components[0].equals("c"))
+                    {
+                        lastCategory = new Category(components[1]);
+                        addCategory(lastCategory);
+                    }
+                    else if (lastCategory != null)
+                    {
+                        Element loaded = Element.parseLine(data[lineNumber]);
+                        lastCategory.addElement(loaded);
+                        for (String recipe : loaded.getAllRecipes())
+                        {
+                            recipes.put(recipe, loaded);
+                        }
+                        // If the element is known: learn it
+                        if (components[0].equals("k"))
+                        {
+                            lastCategory.learn(loaded);
+                        }
+                    }
+                    // If there is no last category: throw an error
+                    else
+                    {
+                        throw new ElementallyException("no category specified");
+                    }
+                }
+                else
+                {
+                    throw new ElementallyException("incorrect format, must have at least 2 arguments");
+                }
+            }
+            catch (ElementallyException eEx)
+            {
+                System.err.println("line" + (lineNumber + 1) + ": " + eEx.getMessage());
+            }
+            lineNumber++;
+        }
+    }
+    
+    private int findNothingElement(String[] data) throws ElementallyException
+    {
+        int lineNumber = 0;
+        while (lineNumber < data.length)
+        {
+            String line = data[lineNumber];
+            String[] components = line.split(";");
+            // If this line contains the nothing element: add it and all the recipes
+            if (components[0].equals(nothing.getName()))
+            {
+                try
+                {
+                    nothing = Element.parseLine("b;0;" + line);
+                    return lineNumber;
+                }
+                catch (ElementallyException eEx)
+                {
+                    System.out.println(line + ": " + eEx.getMessage());
+                }
+            }
+            lineNumber++;
+        }
+        throw new ElementallyException(NO_NOTHING_ERROR);
+    }
+    
     /**
      * Adds a category to this class
      *
@@ -307,193 +363,29 @@ public class ElementCooker
     }
     
     /**
-     * Loads the safe data from a given file
-     * <p>
-     * A safe file must have a nothing element
-     * All categories and elements that need to be loaded must be after this nothing element
-     * All lines must follow the following formats:
-     * <p>
-     * Recipe: [int id],[int id]<br>
-     * RecipeCollection: [recipe];[recipe]; etc...<br>
-     * Nothing: nothing;[recipeCollection]<br>
-     * Category: c;[String name]<br>
-     * Known: 'b' if the element is basic, 'k' if the element is known, 'u' if the element is unknown
-     * Element: [known];[int id];[String name];[RecipeCollection]
-     *
-     * @param location The location of the safe file
-     *
-     * @throws FileNotFoundException Thrown when the file could not be found or when the nothing element was not found
+     * Data can only be saved in activities
      */
-    public void loadSafeFile(String location) throws FileNotFoundException
+    public String getSaveString()
     {
-        Scanner importer = new Scanner(new File(location)); // Throws FileNotFoundException
-        int lineNumber;
-        // Find the nothing element
-        try
-        {
-            lineNumber = findNothingElement(importer);
-        }
-        // If the file does not contain the nothing element, it not the correct file: throw an error
-        catch (ElementallyException eEx)
-        {
-            throw new FileNotFoundException(NO_NOTHING_ERROR);
-        }
-        Category lastCategory = null;
-        // Parse all the remaining lines
-        while (importer.hasNextLine())
-        {
-            // parse the element/category
-            try
-            {
-                String[] components = importer.nextLine().split(";");
-                // If the line has at least 1 line: add its data
-                if (components.length > 1)
-                {
-                    // If the line is a category: add it
-                    if (components[0].equals("c"))
-                    {
-                        lastCategory = new Category(components[1]);
-                        addCategory(lastCategory);
-                    }
-                    // If it's not a category then it's element it should be added to the last category
-                    else if (lastCategory != null)
-                    {
-                        // Add the element
-                        try
-                        {
-                            // Throws NumberFormatException
-                            Element loaded = new Element(components[2], Integer.parseInt(components[1]), components[0].equals("b"));
-                            addRecipes(loaded, components, 3, lineNumber); // Throws ElementallyException
-                            lastCategory.addElement(loaded);
-                            // If the element is known: learn it
-                            if (components[0].equals("k"))
-                            {
-                                lastCategory.learn(loaded);
-                            }
-                        }
-                        // If the id is not a number: throw an error
-                        catch (NumberFormatException nfEx)
-                        {
-                            throw new ElementallyException("line " + lineNumber + ": element id is not a number");
-                        }
-                    }
-                    // If there is no last element: throw an error
-                    else
-                    {
-                        throw new ElementallyException(String.format("line %d: no category specified", lineNumber));
-                    }
-                }
-                // Else: throw an error
-                else
-                {
-                    throw new ElementallyException("line" + lineNumber + ": incorrect format, must have at least 2 arguments");
-                }
-            }
-            // Display the error to inform the user
-            catch (ElementallyException eEx)
-            {
-                System.err.println("[LOAD ERROR]: " + eEx.getMessage());
-            }
-            lineNumber++;
-        }
-        importer.close();
-    }
-    
-    /**
-     * Must be the first method called after invoking the scanner in order to find the nothing element
-     * nothing line must start with nothing;[recipes]
-     * elements and categories before the nothing element will not be loaded
-     *
-     * @param reader The Scanner which will be used
-     *
-     * @return The amount of lines it took to find the nothing element
-     */
-    private int findNothingElement(Scanner reader) throws ElementallyException
-    {
-        int lineNumber = 1;
-        // Goes through all the lines until it finds the nothing element
-        while (reader.hasNextLine())
-        {
-            String[] components = reader.nextLine().split(";");
-            // If this line contains the nothing element: add it and all the recipes
-            if (components[0].equals(nothing.getName()))
-            {
-                addRecipes(nothing, components, 1, lineNumber);
-                return ++lineNumber;
-            }
-            lineNumber++;
-        }
-        throw new ElementallyException("Nothing element could not be found");
-    }
-    
-    /**
-     * Helper method used for loading data
-     * This method will add all the recipes to an element
-     *
-     * @param recipeFor  The element the recipes will make
-     * @param recipes    The array with all the recipes, recipes must follow the format: [int],[int]
-     * @param startAt    The index the method should start looking at for recipes
-     * @param lineNumber Used for error throwing
-     */
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    private void addRecipes(Element recipeFor, String[] recipes, int startAt, int lineNumber) throws ElementallyException
-    {
-        if (recipes == null) throw new ElementallyException("recipes can not be null");
-        // Test if all the components are correctly formatted
-        for (int i = startAt; i < recipes.length; i++)
-        {
-            String[] idA = recipes[i].split(",");
-            // If the element is of the correct length: test its component
-            if (idA.length == 2)
-            {
-                // Make sure all elements are integers
-                try
-                {
-                    Integer.parseInt(idA[0]);
-                    Integer.parseInt(idA[1]);
-                }
-                // If a part of the recipe was not an integer: throw an exception
-                catch (NumberFormatException nfEx)
-                {
-                    throw new ElementallyException(String.format("line %d: recipe must have 2 integers", lineNumber));
-                }
-            }
-            // Else: throw an error
-            else
-            {
-                throw new ElementallyException(String.format("line %d: recipe must have 2 arguments", lineNumber));
-            }
-        }
-        // Add all the recipes
-        for (int i = startAt; i < recipes.length; i++)
-        {
-            recipeFor.addRecipe(recipes[i]);
-            this.recipes.put(recipes[i], recipeFor);
-        }
-    }
-    
-    /**
-     * Saves all of the categories, elements and recipes into a safe file
-     *
-     * @param safeFile The location the file needs to be written to
-     *
-     * @throws FileNotFoundException When the file could not be found
-     */
-    public void save(String safeFile) throws FileNotFoundException
-    {
-        PrintWriter saver = new PrintWriter(new File(safeFile)); // Throws FileNotFoundException
-        saver.println(nothing.getName() + ";" + nothing.getRecipesString());
+        StringBuilder output = new StringBuilder();
+        output.append(nothing.getName())
+              .append(";")
+              .append(nothing.getRecipesString())
+              .append("\n");
         // Save all the categories and their elements
         for (Category category : categories)
         {
-            saver.println("c;" + category.getName());
+            output.append("c;")
+                  .append(category.getName())
+                  .append("\n");
             // Save all the elements from each category
             for (Element element : category.getContaining())
             {
-                saver.println(element.exportLine());
+                output.append(element.exportLine())
+                      .append("\n");
             }
         }
-        saver.close();
+        return output.toString();
     }
     
     /**
@@ -505,7 +397,7 @@ public class ElementCooker
      * @throws ElementallyException When all the combinations are filled in
      */
     @SuppressWarnings("ConstantConditions")
-    public Element[] emptyCombination(@Nullable Element first, boolean allowDuplicates) throws ElementallyException
+    public Element[] getEmptyCombination(Element first, boolean allowDuplicates) throws ElementallyException
     {
         // todo: only check half of the combinations
         //If there are elements to combine: combine them
@@ -520,7 +412,8 @@ public class ElementCooker
                 stopAtEle1 = (int) (categories.get(stopAtCat1).getContaining().size() * Math.random());
             }
             // If a element is chosen to start with: start with that element
-            else {
+            else
+            {
                 stopAtCat1 = categories.indexOf(first.getCategory());
                 stopAtEle1 = first.getCategory().indexOf(first);
             }
@@ -603,5 +496,81 @@ public class ElementCooker
         Category category = toLearn.getCategory();
         if (category == null) return;
         category.learn(toLearn);
+    }
+    
+    public Answer getQuizAnswer(boolean correct) throws ElementallyException
+    {
+        ArrayList<Category> knownCategories = getKnownCategories();
+        int stopAtCat = (int) (knownCategories.size() * Math.random());
+        int stopAtEle = (int) (knownCategories.get(stopAtCat).getKnown().size() * Math.random());
+        int currentCat = stopAtCat;
+        int currentEle = stopAtEle;
+        boolean fullCircle = false;
+        int maxCat = knownCategories.get(currentCat).getKnown().size();
+        while (!fullCircle)
+        {
+            Element current = knownCategories.get(currentCat).getKnown().get(currentEle);
+            ArrayList<String> answers = current.getKnownRecipes();
+            if (answers.size() > 0)
+            {
+                ArrayList<String> recipes = current.getKnownRecipes();
+                String answer = recipes.get((int) (Math.random() * recipes.size()));
+                current.gotQuized(answer);
+                String[] ids = answer.split(",");
+                return new Answer(correct,
+                                  new Element[]{getElementById(Integer.parseInt(ids[0]), true),
+                                                getElementById(Integer.parseInt(ids[1]), true)},
+                                  current);
+            }
+            if (++currentEle == maxCat)
+            {
+                currentEle = 0;
+                currentCat = (currentCat + 1) % knownCategories.size();
+                maxCat = knownCategories.get(currentCat).getKnown().size();
+            }
+            fullCircle = currentCat == stopAtCat && currentEle == stopAtEle;
+        }
+        throw new ElementallyException("No quizable elements");
+    }
+    
+    private ArrayList<Category> getKnownCategories()
+    {
+        ArrayList<Category> known = new ArrayList<>();
+        for (Category category : categories)
+        {
+            if (category.getKnown().size() > 0)
+            {
+                known.add(category);
+            }
+        }
+        return known;
+    }
+    
+    /**
+     * Finds an element with a given id
+     *
+     * @param elementId The id of the element that needs to be found
+     * @param fromKnown True if the element should be gotten from the known ArrayList
+     *
+     * @return The element with the id or null if there is no element with that id
+     */
+    public Element getElementById(int elementId, boolean fromKnown)
+    {
+        // Nothing is not in an category and will therefor be compared here
+        if (elementId == 0)
+        {
+            return nothing;
+        }
+        // Go through every element and returns the element if it's in there
+        for (Category category : categories)
+        {
+            Element found = category.getElementById(elementId, fromKnown);
+            // If the element is found: return it
+            if (found != null)
+            {
+                return found;
+            }
+        }
+        return null;
     }
 }

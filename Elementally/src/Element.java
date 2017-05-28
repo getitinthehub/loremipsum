@@ -1,15 +1,11 @@
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.ArrayList;
 
 /**
- * Holds the data from elements
+ * Created for elementally
  * <p>
- * Started on 13-4-2017<br>
- * Last changes made on 10-5-2017
+ * Started on 23-5-2017
  *
- * @author Thomas Holleman
+ * @author Thomas
  */
 public class Element
 {
@@ -17,7 +13,7 @@ public class Element
     
     private final int id;
     private String name;
-    private ArrayList<String> recipes;
+    private ArrayList<String> quizedRecipes, knownRecipes, unknownRecipes;
     private Category category;
     private boolean basic;
     
@@ -42,7 +38,9 @@ public class Element
     public Element(String name, int id, boolean basic)
     {
         this.name = name;
-        recipes = new ArrayList<>();
+        quizedRecipes = new ArrayList<>();
+        knownRecipes = new ArrayList<>();
+        unknownRecipes = new ArrayList<>();
         this.id = id;
         this.basic = basic;
         category = null;
@@ -62,12 +60,59 @@ public class Element
         highestId = 0;
     }
     
+    public static Element parseLine(String line) throws ElementallyException
+    {
+        String[] components = line.split(";");
+        if (components.length < 6)
+        {
+            throw new ElementallyException("Invalid argument amount");
+        }
+        boolean basic = components[0].equals("b");
+        if (!basic && !components[0].equals("k") && !components[0].equals("u"))
+        {
+            throw new ElementallyException("Element must start with b, k or u");
+        }
+        int id;
+        try
+        {
+            id = Integer.parseInt(components[1]);
+        }
+        catch (NumberFormatException nfEx)
+        {
+            throw new ElementallyException("id must be a number");
+        }
+        String name = components[2];
+        Element loaded = new Element(name, id, basic);
+        int index = 4; // b;1;fire;q;START HERE;k;u;
+        ArrayList<String> quizedRecipes = new ArrayList<>();
+        ArrayList<String> knownRecipes = new ArrayList<>();
+        ArrayList<String> unknownRecipes = new ArrayList<>();
+        String recipe;
+        for (; index < components.length && !(recipe = components[index]).equals("k"); index++)
+        {
+            quizedRecipes.add(recipe);
+        }
+        index++; // Skip the identifier
+        for (; index < components.length && !(recipe = components[index]).equals("u"); index++)
+        {
+            knownRecipes.add(recipe);
+        }
+        index++; // Skip the identifier
+        for (; index < components.length; index++)
+        {
+            unknownRecipes.add(components[index]);
+        }
+        loaded.quizedRecipes = quizedRecipes;
+        loaded.knownRecipes = knownRecipes;
+        loaded.unknownRecipes = unknownRecipes;
+        return loaded;
+    }
+    
     /**
      * Simple getter for the category of this element
      *
      * @return The category of this element or null
      */
-    @Nullable
     public Category getCategory()
     {
         return category;
@@ -90,7 +135,7 @@ public class Element
      */
     public void addRecipe(String toAdd)
     {
-        recipes.add(toAdd);
+        unknownRecipes.add(toAdd);
     }
     
     /**
@@ -135,13 +180,65 @@ public class Element
     }
     
     /**
-     * Simple getter for the recipes
+     * Simple getter for the knownRecipes
      *
-     * @return The recipes of this instance
+     * @return The knownRecipes of this instance
      */
-    public ArrayList<String> getRecipes()
+    public ArrayList<String> getKnownRecipes()
     {
-        return recipes;
+        return new ArrayList<>(knownRecipes);
+    }
+    
+    public ArrayList<String> getAllRecipes()
+    {
+        ArrayList<String> output = new ArrayList<>(unknownRecipes);
+        output.addAll(knownRecipes);
+        output.addAll(quizedRecipes);
+        return output;
+    }
+    
+    public void gotQuized(String recipe)
+    {
+        move(recipe, knownRecipes, quizedRecipes);
+    }
+    
+    public void learnRecipe(String recipe)
+    {
+        move(recipe, unknownRecipes, knownRecipes);
+    }
+    
+    private void move(String string, ArrayList<String> from, ArrayList<String> to)
+    {
+        for (int i = 0; i < from.size(); i++)
+        {
+            if (from.get(i).equals(string))
+            {
+                from.remove(i);
+                to.add(string);
+                return;
+            }
+        }
+    }
+    
+    public void unLearnAll()
+    {
+        unknownRecipes.addAll(knownRecipes);
+        unknownRecipes.addAll(quizedRecipes);
+        knownRecipes = new ArrayList<>();
+    }
+    
+    public void removeRecipe(String recipe)
+    {
+        // Remove the recipe from the knownRecipes ArrayList
+        for (int i = 0; i < knownRecipes.size(); i++)
+        {
+            // If the recipe is the same: remove it
+            if (knownRecipes.get(i).equals(recipe))
+            {
+                knownRecipes.remove(i);
+                return;
+            }
+        }
     }
     
     /**
@@ -170,12 +267,21 @@ public class Element
      *
      * @return A valid export string
      */
-    @NotNull
     public String getRecipesString()
     {
         StringBuilder output = new StringBuilder();
-        // Appends the recipes together
-        for (String recipe : recipes)
+        output.append("q;");
+        for (String recipe : quizedRecipes)
+        {
+            output.append(recipe);
+        }
+        output.append("k;");
+        for (String recipe : knownRecipes)
+        {
+            output.append(recipe).append(";");
+        }
+        output.append("u;");
+        for (String recipe : unknownRecipes)
         {
             output.append(recipe).append(";");
         }
@@ -192,17 +298,8 @@ public class Element
         return basic;
     }
     
-    public void removeRecipe(String recipe)
+    public ArrayList<String> getUnknownRecipes()
     {
-        // Remove the recipe from the recipes ArrayList
-        for (int i = 0; i < recipes.size(); i++)
-        {
-            // If the recipe is the same: remove it
-            if (recipes.get(i).equals(recipe))
-            {
-                recipes.remove(i);
-                return;
-            }
-        }
+        return unknownRecipes;
     }
 }
