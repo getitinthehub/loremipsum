@@ -17,6 +17,17 @@ import java.util.Scanner;
  */
 public class App
 {
+    private static final String NO_PREVIOUS_SAVE_ERROR = "No previous safe file found, setting to starting state.";
+    private static final String SAVE_SUCCESS = "game saved successfully";
+    private static final String SAVE_FAILURE = "game could not be saved, copy this in the safe file";
+    private static final String ID_NAN_ERROR = "ID must be an integer";
+    private static final String NO_QUESTIONS_ERROR = "There are no questions at the moment";
+    private static final String ANSWER_NAN_ERROR = "Answer must be an integer";
+    private static final String INVALID_ELEMENT_ID = "An element does not exist with that number";
+    private static final String DUPLICATE_ELEMENT_ERROR = "Elements can not be the same";
+    private static final String EMPTY_CATEGORY_NAME = "Category must have a name";
+    private static final String CONTINUE = "Are you certain? (Y/N) ";
+    
     private boolean allowDuplicates, running, editMode, showMenu;
     private ElementCooker game;
     private Scanner userInput;
@@ -42,7 +53,6 @@ public class App
      */
     public static void main(String[] args)
     {
-//        args = new String[]{"editMode"};
         App toRun = new App();
         // Changes all the settings according to the arguments
         for (String arg : args)
@@ -73,6 +83,7 @@ public class App
         // Keep playing until the player wants to quit
         while (running)
         {
+            // Show the menu when needed
             if (showMenu)
             {
                 printMenu();
@@ -85,8 +96,8 @@ public class App
             {
                 combine(toCombine[0], toCombine[1]);
             }
-            // Else if more will be printed it should be separated: print an empty line
-            else if (running)
+            // If more will be printed: separate it by printing an empty line
+            if (running)
             {
                 System.out.println();
             }
@@ -98,19 +109,22 @@ public class App
      */
     private void loadSafeFile()
     {
+        // Load in previous data
         try
         {
             StringBuilder sb = new StringBuilder();
             Scanner loader = new Scanner(new File(safeFileLocation));
+            // Add all lines from the save file to the StringBuilder
             while (loader.hasNextLine())
             {
                 sb.append(loader.nextLine()).append("\n");
             }
             game.loadDataFrom(sb.toString());
         }
+        // If no valid previous data was found: load the starting state
         catch (FileNotFoundException | ElementallyException e)
         {
-            System.out.println("No previous safe file found, setting to starting state.");
+            System.out.println(NO_PREVIOUS_SAVE_ERROR);
             game.startState(true);
         }
     }
@@ -142,11 +156,11 @@ public class App
                              PrintWriter saver = new PrintWriter(new File(safeFileLocation));
                              saver.print(saveString);
                              saver.close();
-                             System.out.println("game saved successfully");
+                             System.out.println(SAVE_SUCCESS);
                          }
                          catch (FileNotFoundException e)
                          {
-                             System.out.println("game could not be saved, copy this in the safe file" +
+                             System.out.println(SAVE_FAILURE +
                                                 "\n" + saveString);
                          }
                          showMenu = false;
@@ -199,7 +213,9 @@ public class App
                                }
                                catch (NumberFormatException nfEx)
                                {
-                                   System.out.println("The correct format for renaming is: " + random.getName() + " [id]\n" + "or: " + random.getName() + "\nor an empty line");
+                                   System.out.println("The correct format for renaming is: " + random.getName() + " [id]" +
+                                                      "\nor: " + random.getName() +
+                                                      "\nor an empty line");
                                }
                                return null;
                            });
@@ -262,7 +278,7 @@ public class App
                                    // If the id was not a number: inform the player
                                    catch (NumberFormatException nfEx)
                                    {
-                                       System.out.println("Please enter a valid id next time");
+                                       System.out.println(ID_NAN_ERROR);
                                    }
                                }
                                // Else: Inform the player
@@ -290,7 +306,7 @@ public class App
                     }
                     catch (NumberFormatException ignored)
                     {
-                        System.out.println("Element id must be a integer");
+                        System.out.println(ID_NAN_ERROR);
                     }
                 }
                 // Else: inform the user of the correct format
@@ -304,72 +320,81 @@ public class App
         }
     }
     
+    /**
+     * Asks the player a quiz question if there are enough recipes that haven't been asked
+     */
     private void askQuizQuestion()
     {
+        Element[][] choices = new Element[4][];
+        // Ask a question to the player
         try
         {
-            Answer[] choices = new Answer[4];
-            Answer correct = game.getQuizAnswer(true);
+            Element[] correct = game.getQuizAnswer();
             choices[0] = correct;
-            for (int i = 1; i < 4; i++)
+            // Fill the other options with incorrect answers
+            for (int i = 1; i < choices.length; i++)
             {
-                choices[i] = game.getQuizAnswer(false);
+                choices[i] = game.getQuizAnswer();
             }
-            randomize(choices);
-            System.out.println("Which combination creates " + correct.getResult().getName());
+            int correctPosition = (int) (Math.random() * choices.length);
+            choices[0] = choices[correctPosition];
+            choices[correctPosition] = correct;
+            System.out.println("Which combination creates " + game.combine(correct[0], correct[1], false).getName());
+            // Display the options
             for (int i = 0; i < choices.length; i++)
             {
-                System.out.println((i + 1) + choices[i].toString());
+                System.out.println((i + 1) + " " + answerString(choices[i]));
             }
             int answer = -1;
+            // Get a answer from the player
             do
             {
+                // Get a answer from the player
                 try
                 {
                     System.out.print("Answer: ");
                     answer = Integer.parseInt(userInput.nextLine());
                 }
-                catch (NumberFormatException ignored)
+                // If the player did not give an id: inform the user
+                catch (NumberFormatException nfEx)
                 {
+                    System.out.println(ANSWER_NAN_ERROR);
                 }
             }
+            // Have the answer be valid
             while (answer < 1 || answer > choices.length);
-            if (choices[answer - 1].isCorrect())
+            answer--;
+            // If the answer is correct: congratulate the user
+            if (answer == correctPosition)
             {
                 System.out.println("Correct");
             }
+            // Else: let the player know the real answer
             else
             {
-                Answer chosen = choices[answer - 1];
-                System.out.println("Incorrect, " + chosen + " creates " + chosen.getResult() +
-                                   "\nThe correct answer was " + correct);
+                Element[] chosen = choices[answer];
+                String chosenResult = game.combine(chosen[0], chosen[1], false).getName();
+                System.out.println("Incorrect, " + answerString(chosen) + " creates " + chosenResult +
+                                   "\nThe correct answer was " + answerString(correct));
                 
             }
         }
+        // If there are questions to ask: inform the user
         catch (ElementallyException eEx)
         {
-            System.out.println("There are no questions at the moment");
+            System.out.println(NO_QUESTIONS_ERROR);
+            // Make sure the elements that were can be asked again
+            for (Element[] choice : choices)
+            {
+                if (choice == null) return;
+                game.cancelQuiz(choice);
+            }
         }
     }
     
-    private void randomize(Answer[] toRandomize)
+    private String answerString(Element[] toString)
     {
-        for (int i = 0; i < toRandomize.length; i++)
-        {
-            int switchWith = (int) (Math.random() * toRandomize.length);
-            Answer switcher = toRandomize[i];
-            toRandomize[i] = toRandomize[switchWith];
-            toRandomize[switchWith] = switcher;
-        }
-    }
-    
-    private Element[] randomCombinationFor(Element element)
-    {
-        assert element != null;
-        ArrayList<String> possibleCombinations = element.getKnownRecipes();
-        if (possibleCombinations.size() < 1) return null;
-        String[] correctAnswerKey = possibleCombinations.get((int) (Math.random() * possibleCombinations.size())).split(",");
-        return new Element[]{parseElement(correctAnswerKey[0]), parseElement(correctAnswerKey[1])};
+        return toString[0].getName() + " + " + toString[1].getName();
     }
     
     /**
@@ -400,12 +425,12 @@ public class App
         // If the element does not exist: inform the player.
         if (chosen == null)
         {
-            System.out.println("an element does not exist with that number");
+            System.out.println(INVALID_ELEMENT_ID);
         }
         // If the element is already asked before: inform the player and invalidate the input
         else if (chosen.getId() == previousElement)
         {
-            System.out.println("Elements can not be the same");
+            System.out.println(DUPLICATE_ELEMENT_ERROR);
             chosen = null;
         }
         return chosen;
@@ -539,7 +564,7 @@ public class App
         // If the player filled in a word instead of an id: inform the player of this
         catch (NumberFormatException nfEx)
         {
-            System.out.println("Please fill in a valid id next time.");
+            System.out.println(ID_NAN_ERROR);
         }
     }
     
@@ -568,7 +593,7 @@ public class App
         // If the player filled in a word instead of an id: inform the player of this
         catch (NumberFormatException nfEx)
         {
-            System.out.println("Please fill in a valid id next time");
+            System.out.println(ID_NAN_ERROR);
         }
     }
     
@@ -585,7 +610,7 @@ public class App
         // If the new name is empty: inform the user and return
         if (newName.trim().isEmpty())
         {
-            System.out.println("Category must have a new name");
+            System.out.println(EMPTY_CATEGORY_NAME);
             return;
         }
         Category toRename = game.getCategoryByName(currentName);
@@ -639,7 +664,6 @@ public class App
         {
             System.out.println(" " + ElementCooker.NOTHING_NAME);
         }
-        System.out.println();
     }
     
     /**
@@ -683,12 +707,11 @@ public class App
      */
     private void printMenu()
     {
-        ArrayList<Category> categories = game.getCategories();
         // If all elements should be shown: show them all
         if (editMode)
         {
             // Print the categories and their elements
-            for (Category category : categories)
+            for (Category category : game.getCategories())
             {
                 ArrayList<Element> containing = category.getContaining();
                 printCategory(category, containing);
@@ -699,7 +722,7 @@ public class App
         {
             System.out.printf("Progress: %.1f%% %n", game.getProgress());
             // Print the categories and their elements
-            for (Category category : categories)
+            for (Category category : game.getKnownCategories())
             {
                 ArrayList<Element> known = category.getKnown();
                 printCategory(category, known);
@@ -715,17 +738,13 @@ public class App
      */
     private void printCategory(Category category, ArrayList<Element> containing)
     {
-        // If the category is not empty: display it
-        if (!containing.isEmpty())
+        System.out.print(category.getName() + ":");
+        // Print the elements from this category
+        for (Element element : containing)
         {
-            System.out.print(category.getName() + ":");
-            // Print the elements from this category
-            for (Element element : containing)
-            {
-                System.out.print(" " + element);
-            }
-            System.out.println();
+            System.out.print(" " + element);
         }
+        System.out.println();
     }
     
     /**
@@ -735,7 +754,7 @@ public class App
      */
     private boolean confirm()
     {
-        System.out.print("Continue? (Y/N) ");
+        System.out.print(CONTINUE);
         return userInput.nextLine().toLowerCase().startsWith("y");
     }
 }

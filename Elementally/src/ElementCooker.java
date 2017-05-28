@@ -15,6 +15,9 @@ public class ElementCooker
     private static final ElementCooker instance = new ElementCooker();
     private static final String NO_NOTHING_ERROR = "Incorrect file format, nothing element must be present";
     private static final String ALL_COMBINATIONS_FILLED_ERROR = "All combinations are filled in";
+    private static final String NO_ARGUMENTS_ERROR = "Line must contain arguments";
+    private static final String INVALID_ARGUMENT_AMOUNT_CATEGORY = "Category must have two arguments";
+    private static final String NO_CATEGORY_SPECIFIED = "no category specified for element";
     
     private Element nothing;
     private ArrayList<Category> categories;
@@ -38,6 +41,11 @@ public class ElementCooker
         nothing = new Element(NOTHING_NAME, 0, true);
     }
     
+    /**
+     * Standard getter for singletons
+     *
+     * @return The instance of this class
+     */
     public static ElementCooker getInstance()
     {
         return instance;
@@ -93,46 +101,6 @@ public class ElementCooker
     }
     
     /**
-     * Combines two elements with each other and returns the result
-     *
-     * @param element1 The first element of the combination
-     * @param element2 The second element of the combination
-     *
-     * @return An element that this combination would result in or null if the combination is not defined before
-     */
-    public Element combine(Element element1, Element element2, boolean learn)
-    {
-        String key = getKey(element1.getId(), element2.getId());
-        Element result = recipes.get(key);
-        if (learn && result != null)
-        {
-            result.learnRecipe(key);
-        }
-        return result;
-    }
-    
-    /**
-     * Gets the key for the HashMap
-     *
-     * @param elementId1 The id for the first element
-     * @param elementId2 The id for the second element
-     *
-     * @return A key that can be used to get the Element from the HashMap
-     */
-    private String getKey(int elementId1, int elementId2)
-    {
-        int smallest = elementId1;
-        int largest = elementId2;
-        // If the ids are the wrong way round: switch them
-        if (elementId1 > elementId2)
-        {
-            smallest = elementId2;
-            largest = elementId1;
-        }
-        return smallest + "," + largest;
-    }
-    
-    /**
      * Adds a recipe
      *
      * @param elementId1      The first id of the element that will make up the recipe
@@ -156,6 +124,27 @@ public class ElementCooker
                 remove(previous, true);
             }
         }
+    }
+    
+    /**
+     * Gets the key for the HashMap
+     *
+     * @param elementId1 The id for the first element
+     * @param elementId2 The id for the second element
+     *
+     * @return A key that can be used to get the Element from the HashMap
+     */
+    private String getKey(int elementId1, int elementId2)
+    {
+        int smallest = elementId1;
+        int largest = elementId2;
+        // If the ids are the wrong way round: switch them
+        if (elementId1 > elementId2)
+        {
+            smallest = elementId2;
+            largest = elementId1;
+        }
+        return smallest + "," + largest;
     }
     
     /**
@@ -277,48 +266,60 @@ public class ElementCooker
         return null;
     }
     
+    /**
+     * Loads all the data from a String
+     *
+     * @param dataLine The line with all the data
+     *
+     * @throws ElementallyException Thrown when the string does not contain the nothing element
+     */
     public void loadDataFrom(String dataLine) throws ElementallyException
     {
         String[] data = dataLine.split("\n");
         int lineNumber = findNothingElement(data) + 1; // Throws ElementallyException
         Category lastCategory = null;
+        // Import the data from all the lines
         while (lineNumber < data.length)
         {
+            // Import data from a line
             try
             {
                 String[] components = data[lineNumber].split(";");
-                if (components.length > 1)
+                // If there are no arguments to read: throw an error
+                if (components.length == 0)
                 {
-                    if (components[0].equals("c"))
+                    throw new ElementallyException(NO_ARGUMENTS_ERROR);
+                }
+                // If the line contains a category: add the category
+                if (components[0].equals("c"))
+                {
+                    if (components.length != 2) throw new ElementallyException(INVALID_ARGUMENT_AMOUNT_CATEGORY);
+                    lastCategory = new Category(components[1]);
+                    addCategory(lastCategory);
+                }
+                // If there is a last category to add elements to: add it
+                else if (lastCategory != null)
+                {
+                    Element loaded = Element.parseLine(data[lineNumber]); // Throws ElementallyException
+                    lastCategory.addElement(loaded);
+                    // Add all the recipes to the recipe map
+                    for (String recipe : loaded.getAllRecipes())
                     {
-                        lastCategory = new Category(components[1]);
-                        addCategory(lastCategory);
+                        recipes.put(recipe, loaded);
                     }
-                    else if (lastCategory != null)
+                    // If the element is known: learn it
+                    if (components[0].equals("k"))
                     {
-                        Element loaded = Element.parseLine(data[lineNumber]);
-                        lastCategory.addElement(loaded);
-                        for (String recipe : loaded.getAllRecipes())
-                        {
-                            recipes.put(recipe, loaded);
-                        }
-                        // If the element is known: learn it
-                        if (components[0].equals("k"))
-                        {
-                            lastCategory.learn(loaded);
-                        }
-                    }
-                    // If there is no last category: throw an error
-                    else
-                    {
-                        throw new ElementallyException("no category specified");
+                        lastCategory.learn(loaded);
                     }
                 }
+                // If there is no last category: throw an error
                 else
                 {
-                    throw new ElementallyException("incorrect format, must have at least 2 arguments");
+                    throw new ElementallyException(NO_CATEGORY_SPECIFIED);
                 }
             }
+            // If a line has a incorrect format: let the player know
             catch (ElementallyException eEx)
             {
                 System.err.println("line" + (lineNumber + 1) + ": " + eEx.getMessage());
@@ -327,9 +328,19 @@ public class ElementCooker
         }
     }
     
+    /**
+     * Helper method for the loadDataFrom method.
+     * Finds the nothing element and replaces the previous one.
+     *
+     * @param data The lines where the nothing element should be in
+     *
+     * @return The line on which the nothing element was positioned
+     * @throws ElementallyException When there is no nothing element
+     */
     private int findNothingElement(String[] data) throws ElementallyException
     {
         int lineNumber = 0;
+        // Goes through every line and finds the nothing element
         while (lineNumber < data.length)
         {
             String line = data[lineNumber];
@@ -337,11 +348,18 @@ public class ElementCooker
             // If this line contains the nothing element: add it and all the recipes
             if (components[0].equals(nothing.getName()))
             {
+                // Save the nothing element and its recipes
                 try
                 {
-                    nothing = Element.parseLine("b;0;" + line);
+                    nothing = Element.parseLine("b;0;" + line); // Throws ElementallyException
+                    // Save all the recipes
+                    for (String recipe : nothing.getAllRecipes())
+                    {
+                        recipes.put(recipe, nothing);
+                    }
                     return lineNumber;
                 }
+                // If the nothing element did not have the correct format: inform the user and keep looking
                 catch (ElementallyException eEx)
                 {
                     System.out.println(line + ": " + eEx.getMessage());
@@ -498,7 +516,14 @@ public class ElementCooker
         category.learn(toLearn);
     }
     
-    public Answer getQuizAnswer(boolean correct) throws ElementallyException
+    /**
+     * Finds and returns a quizable element
+     *
+     * @return A element that hasn't been asked before
+     * @throws ElementallyException When there are no quizable elements
+     */
+    //todo avoid a certain element
+    public Element[] getQuizAnswer() throws ElementallyException
     {
         ArrayList<Category> knownCategories = getKnownCategories();
         int stopAtCat = (int) (knownCategories.size() * Math.random());
@@ -507,21 +532,22 @@ public class ElementCooker
         int currentEle = stopAtEle;
         boolean fullCircle = false;
         int maxCat = knownCategories.get(currentCat).getKnown().size();
+        // Go through all the elements until one is quizable
         while (!fullCircle)
         {
             Element current = knownCategories.get(currentCat).getKnown().get(currentEle);
             ArrayList<String> answers = current.getKnownRecipes();
+            // If there are known recipes that aren't quized yet: return a recipe
             if (answers.size() > 0)
             {
                 ArrayList<String> recipes = current.getKnownRecipes();
                 String answer = recipes.get((int) (Math.random() * recipes.size()));
                 current.gotQuized(answer);
                 String[] ids = answer.split(",");
-                return new Answer(correct,
-                                  new Element[]{getElementById(Integer.parseInt(ids[0]), true),
-                                                getElementById(Integer.parseInt(ids[1]), true)},
-                                  current);
+                return new Element[]{getElementById(Integer.parseInt(ids[0]), true),
+                                     getElementById(Integer.parseInt(ids[1]), true)};
             }
+            // If there are no elements left in the category: go to the next category
             if (++currentEle == maxCat)
             {
                 currentEle = 0;
@@ -533,11 +559,19 @@ public class ElementCooker
         throw new ElementallyException("No quizable elements");
     }
     
-    private ArrayList<Category> getKnownCategories()
+    /**
+     * Generates an arrayList with all the known categories
+     *
+     * @return A arrayList with categories that have known elements in them
+     */
+    //todo optimize
+    public ArrayList<Category> getKnownCategories()
     {
         ArrayList<Category> known = new ArrayList<>();
+        // Gets all the categories with known elements in them
         for (Category category : categories)
         {
+            // If the category has known elements in it: add it to the list
             if (category.getKnown().size() > 0)
             {
                 known.add(category);
@@ -572,5 +606,35 @@ public class ElementCooker
             }
         }
         return null;
+    }
+    
+    /**
+     * Makes a recipe quizable again
+     *
+     * @param answer The combination associated with the question
+     */
+    public void cancelQuiz(Element[] answer)
+    {
+        combine(answer[0], answer[1], false).quizCanceled(getKey(answer[0].getId(), answer[1].getId()));
+    }
+    
+    /**
+     * Combines two elements with each other and returns the result
+     *
+     * @param element1 The first element of the combination
+     * @param element2 The second element of the combination
+     *
+     * @return An element that this combination would result in or null if the combination is not defined before
+     */
+    public Element combine(Element element1, Element element2, boolean learn)
+    {
+        String key = getKey(element1.getId(), element2.getId());
+        Element result = recipes.get(key);
+        // If the result can and should be learned: learn it
+        if (learn && result != null)
+        {
+            result.learnRecipe(key);
+        }
+        return result;
     }
 }

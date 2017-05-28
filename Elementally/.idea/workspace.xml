@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9538a5a-d844-46c0-b676-ac0c5a8b675f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Answer.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/App.class" afterPath="$PROJECT_DIR$/out/production/Elementally/App.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/Category.class" afterPath="$PROJECT_DIR$/out/production/Elementally/Category.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/Element.class" afterPath="$PROJECT_DIR$/out/production/Elementally/Element.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/ElementCooker.class" afterPath="$PROJECT_DIR$/out/production/Elementally/ElementCooker.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/SafeFile" afterPath="$PROJECT_DIR$/out/production/Elementally/SafeFile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.java" afterPath="$PROJECT_DIR$/src/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Element.java" afterPath="$PROJECT_DIR$/src/Element.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ElementCooker.java" afterPath="$PROJECT_DIR$/src/ElementCooker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SafeFile" afterPath="$PROJECT_DIR$/src/SafeFile" />
     </list>
     <ignored path="Elementally.iws" />
@@ -27,26 +36,46 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+            <state relative-caret-position="393">
+              <caret line="724" column="54" lean-forward="false" selection-start-line="724" selection-start-column="54" selection-end-line="724" selection-end-column="54" />
               <folding>
                 <element signature="docComment;class#App#0" expanded="true" />
-                <element signature="method#main#0;class#App#0" expanded="true" />
                 <element signature="method#run#0;class#App#0" expanded="true" />
                 <element signature="method#setCommands#0;class#App#0" expanded="true" />
-                <element signature="e#3854#4691#0" expanded="false" />
-                <element signature="e#4759#4899#0" expanded="false" />
-                <element signature="e#4970#5119#0" expanded="false" />
-                <element signature="e#5731#6994#0" expanded="false" />
-                <element signature="e#7076#7768#0" expanded="false" />
-                <element signature="e#7844#8509#0" expanded="false" />
-                <element signature="e#8600#9356#0" expanded="false" />
-                <element signature="e#9438#10645#0" expanded="false" />
-                <element signature="e#10740#12068#0" expanded="false" />
+                <element signature="e#4860#5643#0" expanded="false" />
+                <element signature="e#5711#5851#0" expanded="false" />
+                <element signature="e#5922#6071#0" expanded="false" />
+                <element signature="e#6683#8054#0" expanded="false" />
+                <element signature="e#8136#8828#0" expanded="false" />
+                <element signature="e#8904#9569#0" expanded="false" />
+                <element signature="e#9660#10416#0" expanded="false" />
+                <element signature="e#10498#11682#0" expanded="false" />
+                <element signature="e#11777#13087#0" expanded="false" />
                 <element signature="method#askQuizQuestion#0;class#App#0" expanded="true" />
-                <element signature="method#randomize#0;class#App#0" expanded="true" />
+                <element signature="e#16036#16037#0" expanded="true" />
+                <element signature="e#16112#16113#0" expanded="true" />
                 <element signature="method#askCombination#0;class#App#0" expanded="true" />
                 <element signature="method#executeCommand#0;class#App#0" expanded="true" />
+                <element signature="method#printCategory#0;class#App#0" expanded="true" />
+                <marker date="1495987780282" expanded="false" signature="1635:1701" ph="{...}" />
+                <marker date="1495987780282" expanded="true" signature="2957:3553" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="3727:4103" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="3973:4047" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="4247:4349" ph="{...}" />
+                <marker date="1495987780282" expanded="true" signature="13486:15572" ph="{...}" />
+                <marker date="1495987780282" expanded="true" signature="13702:13768" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="14160:14253" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="14354:14806" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="14440:14578" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="15046:15108" ph="{...}" />
+                <marker date="1495987780282" expanded="true" signature="15195:15562" ph="{...}" />
+                <marker date="1495987780282" expanded="true" signature="15680:15968" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="17217:17280" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="17435:17530" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="21206:22221" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="21870:22211" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="22359:22416" ph="{...}" />
+                <marker date="1495987780282" expanded="false" signature="25812:25889" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -55,96 +84,41 @@
       <file leaf-file-name="ElementCooker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="29" column="4" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+            <state relative-caret-position="206">
+              <caret line="544" column="34" lean-forward="false" selection-start-line="544" selection-start-column="34" selection-end-line="544" selection-end-column="34" />
               <folding>
                 <element signature="docComment;class#ElementCooker#0" expanded="true" />
-                <element signature="method#combine#0;class#ElementCooker#0" expanded="true" />
-                <element signature="method#addRecipe#0;class#ElementCooker#0" expanded="true" />
-                <element signature="e#4689#4723#0" expanded="false" />
-                <element signature="method#remove#0;class#ElementCooker#0" expanded="true" />
-                <element signature="method#merge#0;class#ElementCooker#0" expanded="true" />
-                <element signature="method#loadDataFrom#0;class#ElementCooker#0" expanded="true" />
-                <element signature="e#13083#13122#0" expanded="true" />
-                <element signature="method#getEmptyCombination#0;class#ElementCooker#0" expanded="true" />
-                <element signature="e#13246#13290#0" expanded="false" />
-                <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-                <element signature="method#getKnownCategories#0;class#ElementCooker#0" expanded="true" />
-                <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
+                <element signature="e#14950#14989#0" expanded="true" />
+                <element signature="e#15113#15157#0" expanded="false" />
+                <marker date="1495988922519" expanded="false" signature="1866:2556" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="2620:2820" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="3661:3709" ph="{...}" />
+                <marker date="1495988922519" expanded="true" signature="10001:11955" ph="{...}" />
+                <marker date="1495988922519" expanded="true" signature="10070:11688" ph="{...}" />
+                <marker date="1495988922519" expanded="true" signature="10268:10359" ph="{...}" />
+                <marker date="1495988922519" expanded="true" signature="10492:10736" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="10874:11478" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="11180:11256" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="11580:11674" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="11815:11919" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="12542:13567" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="12891:13252" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="20259:21404" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="21122:21317" ph="{...}" />
+                <marker date="1495988922519" expanded="false" signature="21888:22088" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SafeFile" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/SafeFile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Answer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Answer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Category.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-              <folding>
-                <element signature="e#1061#1062#0" expanded="true" />
-                <element signature="e#1094#1095#0" expanded="true" />
-                <element signature="method#learn#0;class#Category#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Command.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ElementallyException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElementallyException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Element.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Element.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Element.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="190" column="4" lean-forward="true" selection-start-line="190" selection-start-column="4" selection-end-line="190" selection-end-column="4" />
+            <state relative-caret-position="1428">
+              <caret line="299" column="4" lean-forward="false" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
               <folding>
                 <element signature="docComment;class#Element#0" expanded="true" />
-                <element signature="e#4836#4837#0" expanded="true" />
-                <element signature="e#4888#4889#0" expanded="true" />
-                <element signature="method#getAllRecipes#0;class#Element#0" expanded="true" />
-                <element signature="e#5168#5169#0" expanded="true" />
-                <element signature="e#5225#5226#0" expanded="true" />
-                <element signature="e#5279#5280#0" expanded="true" />
-                <element signature="e#5337#5338#0" expanded="true" />
-                <element signature="method#move#0;class#Element#0" expanded="true" />
+                <marker date="1495988922566" expanded="true" signature="6194:6453" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -157,6 +131,7 @@
       <find>16</find>
       <find>temp</find>
       <find>14</find>
+      <find>save</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,12 +152,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/Command.java" />
         <option value="$PROJECT_DIR$/src/ElementallyException.java" />
-        <option value="$PROJECT_DIR$/src/App.java" />
-        <option value="$PROJECT_DIR$/src/Answer.java" />
         <option value="$PROJECT_DIR$/src/Category.java" />
-        <option value="$PROJECT_DIR$/src/Element.java" />
-        <option value="$PROJECT_DIR$/src/ElementCooker.java" />
+        <option value="$PROJECT_DIR$/src/Answer.java" />
         <option value="$PROJECT_DIR$/src/SafeFile" />
+        <option value="$PROJECT_DIR$/src/App.java" />
+        <option value="$PROJECT_DIR$/src/ElementCooker.java" />
+        <option value="$PROJECT_DIR$/src/Element.java" />
       </list>
     </option>
   </component>
@@ -256,6 +231,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -673,7 +649,7 @@
       <workItem from="1494864921653" duration="4707000" />
       <workItem from="1494920490595" duration="837000" />
       <workItem from="1495550171545" duration="1236000" />
-      <workItem from="1495977261603" duration="492000" />
+      <workItem from="1495977261603" duration="8103000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented quiz method">
       <created>1495977622267</created>
@@ -682,11 +658,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495977622267</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed safe file error">
+      <created>1495977785103</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1495977785103</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24443000" />
+    <option name="totallyTimeSpent" value="32054000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -704,21 +687,21 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.68927443" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.68927443" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -741,13 +724,18 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Implemented quiz method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented quiz method" />
+    <MESSAGE value="Fixed safe file error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed safe file error" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -756,40 +744,48 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-          <folding>
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="method#learn#0;class#Category#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
           <folding>
             <element signature="docComment;class#App#0" expanded="true" />
-            <element signature="method#main#0;class#App#0" expanded="true" />
             <element signature="method#run#0;class#App#0" expanded="true" />
             <element signature="method#setCommands#0;class#App#0" expanded="true" />
-            <element signature="e#3854#4691#0" expanded="false" />
-            <element signature="e#4759#4899#0" expanded="false" />
-            <element signature="e#4970#5119#0" expanded="false" />
-            <element signature="e#5731#6994#0" expanded="false" />
-            <element signature="e#7076#7768#0" expanded="false" />
-            <element signature="e#7844#8509#0" expanded="false" />
-            <element signature="e#8600#9356#0" expanded="false" />
-            <element signature="e#9438#10645#0" expanded="false" />
-            <element signature="e#10740#12068#0" expanded="false" />
+            <element signature="e#4860#5643#0" expanded="false" />
+            <element signature="e#5711#5851#0" expanded="false" />
+            <element signature="e#5922#6071#0" expanded="false" />
+            <element signature="e#6683#8054#0" expanded="false" />
+            <element signature="e#8136#8828#0" expanded="false" />
+            <element signature="e#8904#9569#0" expanded="false" />
+            <element signature="e#9660#10416#0" expanded="false" />
+            <element signature="e#10498#11682#0" expanded="false" />
+            <element signature="e#11777#13087#0" expanded="false" />
             <element signature="method#askQuizQuestion#0;class#App#0" expanded="true" />
-            <element signature="method#randomize#0;class#App#0" expanded="true" />
+            <element signature="e#16036#16037#0" expanded="true" />
+            <element signature="e#16112#16113#0" expanded="true" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#executeCommand#0;class#App#0" expanded="true" />
+            <element signature="method#printCategory#0;class#App#0" expanded="true" />
+            <marker date="1495987780282" expanded="false" signature="1635:1701" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="2957:3553" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3727:4103" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3973:4047" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="4247:4349" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13486:15572" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13702:13768" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14160:14253" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14354:14806" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14440:14578" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="15046:15108" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15195:15562" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15680:15968" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17217:17280" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17435:17530" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21206:22221" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21870:22211" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="22359:22416" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="25812:25889" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -814,18 +810,24 @@
           <caret line="508" column="38" lean-forward="false" selection-start-line="508" selection-start-column="38" selection-end-line="508" selection-end-column="38" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#combine#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#addRecipe#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#4689#4723#0" expanded="false" />
-            <element signature="method#remove#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#merge#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#loadDataFrom#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13083#13122#0" expanded="true" />
-            <element signature="method#getEmptyCombination#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13246#13290#0" expanded="false" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getKnownCategories#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
+            <element signature="e#14950#14989#0" expanded="true" />
+            <element signature="e#15113#15157#0" expanded="false" />
+            <marker date="1495988922519" expanded="false" signature="1866:2556" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="2620:2820" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="3661:3709" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10001:11955" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10070:11688" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10268:10359" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10492:10736" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="10874:11478" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11180:11256" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11580:11674" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11815:11919" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12542:13567" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12891:13252" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="20259:21404" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21122:21317" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21888:22088" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -836,14 +838,7 @@
           <caret line="113" column="72" lean-forward="false" selection-start-line="113" selection-start-column="72" selection-end-line="113" selection-end-column="72" />
           <folding>
             <element signature="docComment;class#Element#0" expanded="true" />
-            <element signature="e#4836#4837#0" expanded="true" />
-            <element signature="e#4888#4889#0" expanded="true" />
-            <element signature="method#getAllRecipes#0;class#Element#0" expanded="true" />
-            <element signature="e#5168#5169#0" expanded="true" />
-            <element signature="e#5225#5226#0" expanded="true" />
-            <element signature="e#5279#5280#0" expanded="true" />
-            <element signature="e#5337#5338#0" expanded="true" />
-            <element signature="method#move#0;class#Element#0" expanded="true" />
+            <marker date="1495988922566" expanded="true" signature="6194:6453" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -860,11 +855,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="82" column="54" lean-forward="false" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
-          <folding>
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="method#learn#0;class#Category#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -874,22 +865,42 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#App#0" expanded="true" />
-            <element signature="method#main#0;class#App#0" expanded="true" />
             <element signature="method#run#0;class#App#0" expanded="true" />
             <element signature="method#setCommands#0;class#App#0" expanded="true" />
-            <element signature="e#3854#4691#0" expanded="false" />
-            <element signature="e#4759#4899#0" expanded="false" />
-            <element signature="e#4970#5119#0" expanded="false" />
-            <element signature="e#5731#6994#0" expanded="false" />
-            <element signature="e#7076#7768#0" expanded="false" />
-            <element signature="e#7844#8509#0" expanded="false" />
-            <element signature="e#8600#9356#0" expanded="false" />
-            <element signature="e#9438#10645#0" expanded="false" />
-            <element signature="e#10740#12068#0" expanded="false" />
+            <element signature="e#4860#5643#0" expanded="false" />
+            <element signature="e#5711#5851#0" expanded="false" />
+            <element signature="e#5922#6071#0" expanded="false" />
+            <element signature="e#6683#8054#0" expanded="false" />
+            <element signature="e#8136#8828#0" expanded="false" />
+            <element signature="e#8904#9569#0" expanded="false" />
+            <element signature="e#9660#10416#0" expanded="false" />
+            <element signature="e#10498#11682#0" expanded="false" />
+            <element signature="e#11777#13087#0" expanded="false" />
             <element signature="method#askQuizQuestion#0;class#App#0" expanded="true" />
-            <element signature="method#randomize#0;class#App#0" expanded="true" />
+            <element signature="e#16036#16037#0" expanded="true" />
+            <element signature="e#16112#16113#0" expanded="true" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#executeCommand#0;class#App#0" expanded="true" />
+            <element signature="method#printCategory#0;class#App#0" expanded="true" />
+            <marker date="1495987780282" expanded="false" signature="1635:1701" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="2957:3553" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3727:4103" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3973:4047" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="4247:4349" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13486:15572" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13702:13768" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14160:14253" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14354:14806" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14440:14578" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="15046:15108" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15195:15562" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15680:15968" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17217:17280" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17435:17530" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21206:22221" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21870:22211" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="22359:22416" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="25812:25889" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -914,18 +925,24 @@
           <caret line="508" column="38" lean-forward="true" selection-start-line="508" selection-start-column="38" selection-end-line="508" selection-end-column="38" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#combine#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#addRecipe#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#4689#4723#0" expanded="false" />
-            <element signature="method#remove#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#merge#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#loadDataFrom#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13083#13122#0" expanded="true" />
-            <element signature="method#getEmptyCombination#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13246#13290#0" expanded="false" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getKnownCategories#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
+            <element signature="e#14950#14989#0" expanded="true" />
+            <element signature="e#15113#15157#0" expanded="false" />
+            <marker date="1495988922519" expanded="false" signature="1866:2556" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="2620:2820" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="3661:3709" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10001:11955" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10070:11688" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10268:10359" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10492:10736" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="10874:11478" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11180:11256" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11580:11674" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11815:11919" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12542:13567" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12891:13252" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="20259:21404" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21122:21317" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21888:22088" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -934,11 +951,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
           <caret line="95" column="23" lean-forward="false" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
-          <folding>
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="method#learn#0;class#Category#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -948,14 +961,7 @@
           <caret line="113" column="72" lean-forward="false" selection-start-line="113" selection-start-column="72" selection-end-line="113" selection-end-column="72" />
           <folding>
             <element signature="docComment;class#Element#0" expanded="true" />
-            <element signature="e#4836#4837#0" expanded="true" />
-            <element signature="e#4888#4889#0" expanded="true" />
-            <element signature="method#getAllRecipes#0;class#Element#0" expanded="true" />
-            <element signature="e#5168#5169#0" expanded="true" />
-            <element signature="e#5225#5226#0" expanded="true" />
-            <element signature="e#5279#5280#0" expanded="true" />
-            <element signature="e#5337#5338#0" expanded="true" />
-            <element signature="method#move#0;class#Element#0" expanded="true" />
+            <marker date="1495988922566" expanded="true" signature="6194:6453" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -974,22 +980,42 @@
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="docComment;class#App#0" expanded="true" />
-            <element signature="method#main#0;class#App#0" expanded="true" />
             <element signature="method#run#0;class#App#0" expanded="true" />
             <element signature="method#setCommands#0;class#App#0" expanded="true" />
-            <element signature="e#3854#4691#0" expanded="false" />
-            <element signature="e#4759#4899#0" expanded="false" />
-            <element signature="e#4970#5119#0" expanded="false" />
-            <element signature="e#5731#6994#0" expanded="false" />
-            <element signature="e#7076#7768#0" expanded="false" />
-            <element signature="e#7844#8509#0" expanded="false" />
-            <element signature="e#8600#9356#0" expanded="false" />
-            <element signature="e#9438#10645#0" expanded="false" />
-            <element signature="e#10740#12068#0" expanded="false" />
+            <element signature="e#4860#5643#0" expanded="false" />
+            <element signature="e#5711#5851#0" expanded="false" />
+            <element signature="e#5922#6071#0" expanded="false" />
+            <element signature="e#6683#8054#0" expanded="false" />
+            <element signature="e#8136#8828#0" expanded="false" />
+            <element signature="e#8904#9569#0" expanded="false" />
+            <element signature="e#9660#10416#0" expanded="false" />
+            <element signature="e#10498#11682#0" expanded="false" />
+            <element signature="e#11777#13087#0" expanded="false" />
             <element signature="method#askQuizQuestion#0;class#App#0" expanded="true" />
-            <element signature="method#randomize#0;class#App#0" expanded="true" />
+            <element signature="e#16036#16037#0" expanded="true" />
+            <element signature="e#16112#16113#0" expanded="true" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#executeCommand#0;class#App#0" expanded="true" />
+            <element signature="method#printCategory#0;class#App#0" expanded="true" />
+            <marker date="1495987780282" expanded="false" signature="1635:1701" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="2957:3553" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3727:4103" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3973:4047" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="4247:4349" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13486:15572" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13702:13768" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14160:14253" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14354:14806" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14440:14578" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="15046:15108" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15195:15562" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15680:15968" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17217:17280" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17435:17530" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21206:22221" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21870:22211" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="22359:22416" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="25812:25889" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1014,18 +1040,24 @@
           <caret line="59" column="34" lean-forward="false" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#combine#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#addRecipe#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#4689#4723#0" expanded="false" />
-            <element signature="method#remove#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#merge#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#loadDataFrom#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13083#13122#0" expanded="true" />
-            <element signature="method#getEmptyCombination#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13246#13290#0" expanded="false" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getKnownCategories#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
+            <element signature="e#14950#14989#0" expanded="true" />
+            <element signature="e#15113#15157#0" expanded="false" />
+            <marker date="1495988922519" expanded="false" signature="1866:2556" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="2620:2820" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="3661:3709" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10001:11955" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10070:11688" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10268:10359" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10492:10736" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="10874:11478" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11180:11256" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11580:11674" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11815:11919" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12542:13567" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12891:13252" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="20259:21404" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21122:21317" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21888:22088" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1036,14 +1068,7 @@
           <caret line="113" column="72" lean-forward="false" selection-start-line="113" selection-start-column="72" selection-end-line="113" selection-end-column="72" />
           <folding>
             <element signature="docComment;class#Element#0" expanded="true" />
-            <element signature="e#4836#4837#0" expanded="true" />
-            <element signature="e#4888#4889#0" expanded="true" />
-            <element signature="method#getAllRecipes#0;class#Element#0" expanded="true" />
-            <element signature="e#5168#5169#0" expanded="true" />
-            <element signature="e#5225#5226#0" expanded="true" />
-            <element signature="e#5279#5280#0" expanded="true" />
-            <element signature="e#5337#5338#0" expanded="true" />
-            <element signature="method#move#0;class#Element#0" expanded="true" />
+            <marker date="1495988922566" expanded="true" signature="6194:6453" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1060,11 +1085,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="81" column="86" lean-forward="false" selection-start-line="81" selection-start-column="86" selection-end-line="81" selection-end-column="86" />
-          <folding>
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="method#learn#0;class#Category#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1074,22 +1095,42 @@
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="docComment;class#App#0" expanded="true" />
-            <element signature="method#main#0;class#App#0" expanded="true" />
             <element signature="method#run#0;class#App#0" expanded="true" />
             <element signature="method#setCommands#0;class#App#0" expanded="true" />
-            <element signature="e#3854#4691#0" expanded="false" />
-            <element signature="e#4759#4899#0" expanded="false" />
-            <element signature="e#4970#5119#0" expanded="false" />
-            <element signature="e#5731#6994#0" expanded="false" />
-            <element signature="e#7076#7768#0" expanded="false" />
-            <element signature="e#7844#8509#0" expanded="false" />
-            <element signature="e#8600#9356#0" expanded="false" />
-            <element signature="e#9438#10645#0" expanded="false" />
-            <element signature="e#10740#12068#0" expanded="false" />
+            <element signature="e#4860#5643#0" expanded="false" />
+            <element signature="e#5711#5851#0" expanded="false" />
+            <element signature="e#5922#6071#0" expanded="false" />
+            <element signature="e#6683#8054#0" expanded="false" />
+            <element signature="e#8136#8828#0" expanded="false" />
+            <element signature="e#8904#9569#0" expanded="false" />
+            <element signature="e#9660#10416#0" expanded="false" />
+            <element signature="e#10498#11682#0" expanded="false" />
+            <element signature="e#11777#13087#0" expanded="false" />
             <element signature="method#askQuizQuestion#0;class#App#0" expanded="true" />
-            <element signature="method#randomize#0;class#App#0" expanded="true" />
+            <element signature="e#16036#16037#0" expanded="true" />
+            <element signature="e#16112#16113#0" expanded="true" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#executeCommand#0;class#App#0" expanded="true" />
+            <element signature="method#printCategory#0;class#App#0" expanded="true" />
+            <marker date="1495987780282" expanded="false" signature="1635:1701" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="2957:3553" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3727:4103" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3973:4047" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="4247:4349" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13486:15572" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13702:13768" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14160:14253" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14354:14806" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14440:14578" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="15046:15108" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15195:15562" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15680:15968" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17217:17280" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17435:17530" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21206:22221" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21870:22211" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="22359:22416" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="25812:25889" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1114,18 +1155,24 @@
           <caret line="59" column="34" lean-forward="true" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#combine#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#addRecipe#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#4689#4723#0" expanded="false" />
-            <element signature="method#remove#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#merge#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#loadDataFrom#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13083#13122#0" expanded="true" />
-            <element signature="method#getEmptyCombination#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13246#13290#0" expanded="false" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getKnownCategories#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
+            <element signature="e#14950#14989#0" expanded="true" />
+            <element signature="e#15113#15157#0" expanded="false" />
+            <marker date="1495988922519" expanded="false" signature="1866:2556" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="2620:2820" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="3661:3709" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10001:11955" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10070:11688" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10268:10359" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10492:10736" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="10874:11478" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11180:11256" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11580:11674" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11815:11919" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12542:13567" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12891:13252" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="20259:21404" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21122:21317" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21888:22088" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1136,14 +1183,7 @@
           <caret line="113" column="72" lean-forward="true" selection-start-line="113" selection-start-column="72" selection-end-line="113" selection-end-column="72" />
           <folding>
             <element signature="docComment;class#Element#0" expanded="true" />
-            <element signature="e#4836#4837#0" expanded="true" />
-            <element signature="e#4888#4889#0" expanded="true" />
-            <element signature="method#getAllRecipes#0;class#Element#0" expanded="true" />
-            <element signature="e#5168#5169#0" expanded="true" />
-            <element signature="e#5225#5226#0" expanded="true" />
-            <element signature="e#5279#5280#0" expanded="true" />
-            <element signature="e#5337#5338#0" expanded="true" />
-            <element signature="method#move#0;class#Element#0" expanded="true" />
+            <marker date="1495988922566" expanded="true" signature="6194:6453" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1160,11 +1200,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
           <caret line="262" column="38" lean-forward="true" selection-start-line="262" selection-start-column="38" selection-end-line="262" selection-end-column="38" />
-          <folding>
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="method#learn#0;class#Category#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,22 +1210,42 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#App#0" expanded="true" />
-            <element signature="method#main#0;class#App#0" expanded="true" />
             <element signature="method#run#0;class#App#0" expanded="true" />
             <element signature="method#setCommands#0;class#App#0" expanded="true" />
-            <element signature="e#3854#4691#0" expanded="false" />
-            <element signature="e#4759#4899#0" expanded="false" />
-            <element signature="e#4970#5119#0" expanded="false" />
-            <element signature="e#5731#6994#0" expanded="false" />
-            <element signature="e#7076#7768#0" expanded="false" />
-            <element signature="e#7844#8509#0" expanded="false" />
-            <element signature="e#8600#9356#0" expanded="false" />
-            <element signature="e#9438#10645#0" expanded="false" />
-            <element signature="e#10740#12068#0" expanded="false" />
+            <element signature="e#4860#5643#0" expanded="false" />
+            <element signature="e#5711#5851#0" expanded="false" />
+            <element signature="e#5922#6071#0" expanded="false" />
+            <element signature="e#6683#8054#0" expanded="false" />
+            <element signature="e#8136#8828#0" expanded="false" />
+            <element signature="e#8904#9569#0" expanded="false" />
+            <element signature="e#9660#10416#0" expanded="false" />
+            <element signature="e#10498#11682#0" expanded="false" />
+            <element signature="e#11777#13087#0" expanded="false" />
             <element signature="method#askQuizQuestion#0;class#App#0" expanded="true" />
-            <element signature="method#randomize#0;class#App#0" expanded="true" />
+            <element signature="e#16036#16037#0" expanded="true" />
+            <element signature="e#16112#16113#0" expanded="true" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#executeCommand#0;class#App#0" expanded="true" />
+            <element signature="method#printCategory#0;class#App#0" expanded="true" />
+            <marker date="1495987780282" expanded="false" signature="1635:1701" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="2957:3553" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3727:4103" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3973:4047" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="4247:4349" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13486:15572" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13702:13768" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14160:14253" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14354:14806" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14440:14578" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="15046:15108" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15195:15562" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15680:15968" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17217:17280" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17435:17530" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21206:22221" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21870:22211" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="22359:22416" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="25812:25889" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1208,18 +1264,24 @@
           <caret line="418" column="52" lean-forward="false" selection-start-line="418" selection-start-column="52" selection-end-line="418" selection-end-column="52" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#combine#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#addRecipe#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#4689#4723#0" expanded="false" />
-            <element signature="method#remove#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#merge#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#loadDataFrom#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13083#13122#0" expanded="true" />
-            <element signature="method#getEmptyCombination#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13246#13290#0" expanded="false" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getKnownCategories#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
+            <element signature="e#14950#14989#0" expanded="true" />
+            <element signature="e#15113#15157#0" expanded="false" />
+            <marker date="1495988922519" expanded="false" signature="1866:2556" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="2620:2820" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="3661:3709" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10001:11955" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10070:11688" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10268:10359" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10492:10736" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="10874:11478" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11180:11256" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11580:11674" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11815:11919" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12542:13567" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12891:13252" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="20259:21404" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21122:21317" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21888:22088" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1228,11 +1290,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="205" column="4" lean-forward="false" selection-start-line="205" selection-start-column="4" selection-end-line="205" selection-end-column="4" />
-          <folding>
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="method#learn#0;class#Category#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1249,14 +1307,7 @@
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
             <element signature="docComment;class#Element#0" expanded="true" />
-            <element signature="e#4836#4837#0" expanded="true" />
-            <element signature="e#4888#4889#0" expanded="true" />
-            <element signature="method#getAllRecipes#0;class#Element#0" expanded="true" />
-            <element signature="e#5168#5169#0" expanded="true" />
-            <element signature="e#5225#5226#0" expanded="true" />
-            <element signature="e#5279#5280#0" expanded="true" />
-            <element signature="e#5337#5338#0" expanded="true" />
-            <element signature="method#move#0;class#Element#0" expanded="true" />
+            <marker date="1495988922566" expanded="true" signature="6194:6453" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1267,22 +1318,42 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#App#0" expanded="true" />
-            <element signature="method#main#0;class#App#0" expanded="true" />
             <element signature="method#run#0;class#App#0" expanded="true" />
             <element signature="method#setCommands#0;class#App#0" expanded="true" />
-            <element signature="e#3854#4691#0" expanded="false" />
-            <element signature="e#4759#4899#0" expanded="false" />
-            <element signature="e#4970#5119#0" expanded="false" />
-            <element signature="e#5731#6994#0" expanded="false" />
-            <element signature="e#7076#7768#0" expanded="false" />
-            <element signature="e#7844#8509#0" expanded="false" />
-            <element signature="e#8600#9356#0" expanded="false" />
-            <element signature="e#9438#10645#0" expanded="false" />
-            <element signature="e#10740#12068#0" expanded="false" />
+            <element signature="e#4860#5643#0" expanded="false" />
+            <element signature="e#5711#5851#0" expanded="false" />
+            <element signature="e#5922#6071#0" expanded="false" />
+            <element signature="e#6683#8054#0" expanded="false" />
+            <element signature="e#8136#8828#0" expanded="false" />
+            <element signature="e#8904#9569#0" expanded="false" />
+            <element signature="e#9660#10416#0" expanded="false" />
+            <element signature="e#10498#11682#0" expanded="false" />
+            <element signature="e#11777#13087#0" expanded="false" />
             <element signature="method#askQuizQuestion#0;class#App#0" expanded="true" />
-            <element signature="method#randomize#0;class#App#0" expanded="true" />
+            <element signature="e#16036#16037#0" expanded="true" />
+            <element signature="e#16112#16113#0" expanded="true" />
             <element signature="method#askCombination#0;class#App#0" expanded="true" />
             <element signature="method#executeCommand#0;class#App#0" expanded="true" />
+            <element signature="method#printCategory#0;class#App#0" expanded="true" />
+            <marker date="1495987780282" expanded="false" signature="1635:1701" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="2957:3553" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3727:4103" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3973:4047" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="4247:4349" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13486:15572" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13702:13768" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14160:14253" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14354:14806" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14440:14578" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="15046:15108" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15195:15562" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15680:15968" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17217:17280" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17435:17530" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21206:22221" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21870:22211" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="22359:22416" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="25812:25889" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1301,18 +1372,24 @@
           <caret line="418" column="52" lean-forward="true" selection-start-line="418" selection-start-column="52" selection-end-line="418" selection-end-column="52" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#combine#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#addRecipe#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#4689#4723#0" expanded="false" />
-            <element signature="method#remove#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#merge#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#loadDataFrom#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13083#13122#0" expanded="true" />
-            <element signature="method#getEmptyCombination#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13246#13290#0" expanded="false" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getKnownCategories#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
+            <element signature="e#14950#14989#0" expanded="true" />
+            <element signature="e#15113#15157#0" expanded="false" />
+            <marker date="1495988922519" expanded="false" signature="1866:2556" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="2620:2820" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="3661:3709" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10001:11955" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10070:11688" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10268:10359" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10492:10736" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="10874:11478" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11180:11256" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11580:11674" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11815:11919" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12542:13567" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12891:13252" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="20259:21404" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21122:21317" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21888:22088" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1321,11 +1398,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="205" column="4" lean-forward="false" selection-start-line="205" selection-start-column="4" selection-end-line="205" selection-end-column="4" />
-          <folding>
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="method#learn#0;class#Category#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1342,14 +1415,7 @@
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
             <element signature="docComment;class#Element#0" expanded="true" />
-            <element signature="e#4836#4837#0" expanded="true" />
-            <element signature="e#4888#4889#0" expanded="true" />
-            <element signature="method#getAllRecipes#0;class#Element#0" expanded="true" />
-            <element signature="e#5168#5169#0" expanded="true" />
-            <element signature="e#5225#5226#0" expanded="true" />
-            <element signature="e#5279#5280#0" expanded="true" />
-            <element signature="e#5337#5338#0" expanded="true" />
-            <element signature="method#move#0;class#Element#0" expanded="true" />
+            <marker date="1495988922566" expanded="true" signature="6194:6453" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1440,36 +1506,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java">
+    <entry file="file://$PROJECT_DIR$/src/Answer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="319" column="18" lean-forward="true" selection-start-line="319" selection-start-column="18" selection-end-line="319" selection-end-column="18" />
+        <state relative-caret-position="272">
+          <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Answer.java">
+    <entry file="file://$PROJECT_DIR$/src/SafeFile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        <state relative-caret-position="0">
+          <caret line="0" column="130" lean-forward="false" selection-start-line="0" selection-start-column="130" selection-end-line="0" selection-end-column="130" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="724" column="54" lean-forward="false" selection-start-line="724" selection-start-column="54" selection-end-line="724" selection-end-column="54" />
+          <folding>
+            <element signature="docComment;class#App#0" expanded="true" />
+            <element signature="method#run#0;class#App#0" expanded="true" />
+            <element signature="method#setCommands#0;class#App#0" expanded="true" />
+            <element signature="e#4860#5643#0" expanded="false" />
+            <element signature="e#5711#5851#0" expanded="false" />
+            <element signature="e#5922#6071#0" expanded="false" />
+            <element signature="e#6683#8054#0" expanded="false" />
+            <element signature="e#8136#8828#0" expanded="false" />
+            <element signature="e#8904#9569#0" expanded="false" />
+            <element signature="e#9660#10416#0" expanded="false" />
+            <element signature="e#10498#11682#0" expanded="false" />
+            <element signature="e#11777#13087#0" expanded="false" />
+            <element signature="method#askQuizQuestion#0;class#App#0" expanded="true" />
+            <element signature="e#16036#16037#0" expanded="true" />
+            <element signature="e#16112#16113#0" expanded="true" />
+            <element signature="method#askCombination#0;class#App#0" expanded="true" />
+            <element signature="method#executeCommand#0;class#App#0" expanded="true" />
+            <element signature="method#printCategory#0;class#App#0" expanded="true" />
+            <marker date="1495987780282" expanded="false" signature="1635:1701" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="2957:3553" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3727:4103" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="3973:4047" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="4247:4349" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13486:15572" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="13702:13768" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14160:14253" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14354:14806" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="14440:14578" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="15046:15108" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15195:15562" ph="{...}" />
+            <marker date="1495987780282" expanded="true" signature="15680:15968" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17217:17280" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="17435:17530" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21206:22221" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="21870:22211" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="22359:22416" ph="{...}" />
+            <marker date="1495987780282" expanded="false" signature="25812:25889" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/dictionaries/Thomas.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Category.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding>
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="method#learn#0;class#Category#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
+        <state relative-caret-position="274">
           <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding />
         </state>
@@ -1483,77 +1600,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="190" column="4" lean-forward="true" selection-start-line="190" selection-start-column="4" selection-end-line="190" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;class#Element#0" expanded="true" />
-            <element signature="e#4836#4837#0" expanded="true" />
-            <element signature="e#4888#4889#0" expanded="true" />
-            <element signature="method#getAllRecipes#0;class#Element#0" expanded="true" />
-            <element signature="e#5168#5169#0" expanded="true" />
-            <element signature="e#5225#5226#0" expanded="true" />
-            <element signature="e#5279#5280#0" expanded="true" />
-            <element signature="e#5337#5338#0" expanded="true" />
-            <element signature="method#move#0;class#Element#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="4" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        <state relative-caret-position="206">
+          <caret line="544" column="34" lean-forward="false" selection-start-line="544" selection-start-column="34" selection-end-line="544" selection-end-column="34" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#combine#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#addRecipe#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#4689#4723#0" expanded="false" />
-            <element signature="method#remove#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#merge#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#loadDataFrom#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13083#13122#0" expanded="true" />
-            <element signature="method#getEmptyCombination#0;class#ElementCooker#0" expanded="true" />
-            <element signature="e#13246#13290#0" expanded="false" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getKnownCategories#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
+            <element signature="e#14950#14989#0" expanded="true" />
+            <element signature="e#15113#15157#0" expanded="false" />
+            <marker date="1495988922519" expanded="false" signature="1866:2556" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="2620:2820" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="3661:3709" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10001:11955" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10070:11688" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10268:10359" ph="{...}" />
+            <marker date="1495988922519" expanded="true" signature="10492:10736" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="10874:11478" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11180:11256" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11580:11674" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="11815:11919" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12542:13567" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="12891:13252" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="20259:21404" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21122:21317" ph="{...}" />
+            <marker date="1495988922519" expanded="false" signature="21888:22088" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.java">
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+        <state relative-caret-position="202">
+          <caret line="518" column="19" lean-forward="false" selection-start-line="518" selection-start-column="19" selection-end-line="518" selection-end-column="19" />
           <folding>
-            <element signature="docComment;class#App#0" expanded="true" />
-            <element signature="method#main#0;class#App#0" expanded="true" />
-            <element signature="method#run#0;class#App#0" expanded="true" />
-            <element signature="method#setCommands#0;class#App#0" expanded="true" />
-            <element signature="e#3854#4691#0" expanded="false" />
-            <element signature="e#4759#4899#0" expanded="false" />
-            <element signature="e#4970#5119#0" expanded="false" />
-            <element signature="e#5731#6994#0" expanded="false" />
-            <element signature="e#7076#7768#0" expanded="false" />
-            <element signature="e#7844#8509#0" expanded="false" />
-            <element signature="e#8600#9356#0" expanded="false" />
-            <element signature="e#9438#10645#0" expanded="false" />
-            <element signature="e#10740#12068#0" expanded="false" />
-            <element signature="method#askQuizQuestion#0;class#App#0" expanded="true" />
-            <element signature="method#randomize#0;class#App#0" expanded="true" />
-            <element signature="method#askCombination#0;class#App#0" expanded="true" />
-            <element signature="method#executeCommand#0;class#App#0" expanded="true" />
+            <element signature="method#indexOf#0;class#ArrayList#0" expanded="true" />
+            <element signature="method#remove#1;class#ArrayList#0" expanded="true" />
+            <element signature="method#fastRemove#0;class#ArrayList#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SafeFile">
+    <entry file="file://$PROJECT_DIR$/src/Element.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="1428">
+          <caret line="299" column="4" lean-forward="false" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#Element#0" expanded="true" />
+            <marker date="1495988922566" expanded="true" signature="6194:6453" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

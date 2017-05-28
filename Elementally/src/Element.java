@@ -60,6 +60,14 @@ public class Element
         highestId = 0;
     }
     
+    /**
+     * Reads a line and interprets the data to a element
+     *
+     * @param line The line that should be read
+     *
+     * @return The element resulting in the reading
+     * @throws ElementallyException When a line could not be a element
+     */
     public static Element parseLine(String line) throws ElementallyException
     {
         String[] components = line.split(";");
@@ -189,6 +197,11 @@ public class Element
         return new ArrayList<>(knownRecipes);
     }
     
+    /**
+     * Adds the quized, known and unknown recipes in one arrayList
+     *
+     * @return An ArrayList with all the recipes
+     */
     public ArrayList<String> getAllRecipes()
     {
         ArrayList<String> output = new ArrayList<>(unknownRecipes);
@@ -197,20 +210,29 @@ public class Element
         return output;
     }
     
+    /**
+     * Moves a recipe from known to quized
+     *
+     * @param recipe The recipe that got quized
+     */
     public void gotQuized(String recipe)
     {
         move(recipe, knownRecipes, quizedRecipes);
     }
     
-    public void learnRecipe(String recipe)
-    {
-        move(recipe, unknownRecipes, knownRecipes);
-    }
-    
+    /**
+     * Moves a string from one ArrayList to another
+     *
+     * @param string The String that should be moved
+     * @param from   The arrayList that the string is in
+     * @param to     The arrayList that the string should go in
+     */
     private void move(String string, ArrayList<String> from, ArrayList<String> to)
     {
+        // Remove the string and add it to the destination
         for (int i = 0; i < from.size(); i++)
         {
+            // If the String matches: remove the String and add it to the new arrayList
             if (from.get(i).equals(string))
             {
                 from.remove(i);
@@ -220,14 +242,70 @@ public class Element
         }
     }
     
+    /**
+     * Makes a recipe quizable again
+     * Starts with the last element and works it way back
+     *
+     * @param recipe The recipe that should be made available
+     */
+    public void quizCanceled(String recipe)
+    {
+        // Remove the string and add it to the destination
+        // Starts from the back for optimization
+        for (int i = quizedRecipes.size() - 1; i >= 0; i--)
+        {
+            // If the String matches: remove the String and add it to the new arrayList
+            if (quizedRecipes.get(i).equals(recipe))
+            {
+                quizedRecipes.remove(i);
+                knownRecipes.add(recipe);
+                return;
+            }
+        }
+    }
+    
+    /**
+     * Learns a recipe
+     *
+     * @param recipe The recipe that should be learned
+     */
+    public void learnRecipe(String recipe)
+    {
+        move(recipe, unknownRecipes, knownRecipes);
+    }
+    
+    /**
+     * Unlearn all recipes
+     */
     public void unLearnAll()
     {
-        unknownRecipes.addAll(knownRecipes);
         unknownRecipes.addAll(quizedRecipes);
+        unknownRecipes.addAll(knownRecipes);
+        quizedRecipes = new ArrayList<>();
         knownRecipes = new ArrayList<>();
     }
     
+    /**
+     * Removes a recipe from the element
+     *
+     * @param recipe The recipe that should be removed
+     */
     public void removeRecipe(String recipe)
+    {
+        if (removeRecipeFrom(recipe, quizedRecipes)) return;
+        if (removeRecipeFrom(recipe, knownRecipes)) return;
+        removeRecipeFrom(recipe, unknownRecipes);
+    }
+    
+    /**
+     * Helper method for removing recipes
+     *
+     * @param recipe       The recipe that should be removed
+     * @param knownRecipes The ArrayList it should be removed from
+     *
+     * @return True if the element was in the list
+     */
+    private boolean removeRecipeFrom(String recipe, ArrayList<String> knownRecipes)
     {
         // Remove the recipe from the knownRecipes ArrayList
         for (int i = 0; i < knownRecipes.size(); i++)
@@ -236,9 +314,10 @@ public class Element
             if (knownRecipes.get(i).equals(recipe))
             {
                 knownRecipes.remove(i);
-                return;
+                return true;
             }
         }
+        return false;
     }
     
     /**
@@ -296,10 +375,5 @@ public class Element
     public boolean isBasic()
     {
         return basic;
-    }
-    
-    public ArrayList<String> getUnknownRecipes()
-    {
-        return unknownRecipes;
     }
 }
