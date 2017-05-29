@@ -486,24 +486,6 @@ public class ElementCooker
     }
     
     /**
-     * Calculates the known percentage.
-     *
-     * @return The percentage of elements that are known
-     */
-    public double getProgress()
-    {
-        double total = 0;
-        double known = 0;
-        // Count all the total elements and known elements
-        for (Category category : categories)
-        {
-            total += category.getContaining().size();
-            known += category.getKnown().size();
-        }
-        return known / total * 100;
-    }
-    
-    /**
      * Learns an element
      *
      * @param toLearn The element to learn
@@ -605,6 +587,47 @@ public class ElementCooker
             }
         }
         return null;
+    }
+    
+    public Element getDirectOption() throws ElementallyException
+    {
+        if (getProgress() < 100)
+        {
+            for (Category category : categories)
+            {
+                for (Element element : category.getUnknown())
+                {
+                    for (String s : element.getUnknownRecipes())
+                    {
+                        String[] recipe = s.split(",");
+                        if (getElementById(Integer.parseInt(recipe[0]), true) != null &&
+                            getElementById(Integer.parseInt(recipe[1]), true) != null)
+                        {
+                            return element;
+                        }
+                    }
+                }
+            }
+        }
+        throw new ElementallyException("No recipes available");
+    }
+    
+    /**
+     * Calculates the known percentage.
+     *
+     * @return The percentage of elements that are known
+     */
+    public double getProgress()
+    {
+        double total = 0;
+        double known = 0;
+        // Count all the total elements and known elements
+        for (Category category : categories)
+        {
+            total += category.getContaining().size();
+            known += category.getKnown().size();
+        }
+        return known / total * 100;
     }
     
     /**

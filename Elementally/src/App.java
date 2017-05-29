@@ -33,6 +33,7 @@ public class App
     private Scanner userInput;
     private String safeFileLocation;
     private Command[] commands;
+    private int hints;
     
     /**
      * Sets up the variables that can be changed in the main method
@@ -139,6 +140,7 @@ public class App
         game = ElementCooker.getInstance();
         safeFileLocation = "src\\SafeFile";
         userInput = new Scanner(System.in);
+        hints = 1;
         setCommands();
     }
     
@@ -188,7 +190,28 @@ public class App
                              askQuizQuestion();
                              return null;
                          });
-            commands = new Command[]{save, quiz, exit, reset, cancel};
+            Command hint = new Command("hint");
+            hint.setCode(args ->
+                         {
+                             if (hints > 0)
+                             {
+                                 hints--;
+                                 try
+                                 {
+                                     System.out.println("There is a combination that can create " + game.getDirectOption().getName());
+                                 }
+                                 catch (ElementallyException eEx)
+                                 {
+                                     System.out.println("There are no elements left");
+                                 }
+                             }
+                             else
+                             {
+                                 System.out.println("You do not have enough hints, you can earn more by doing a quiz question");
+                             }
+                             return null;
+                         });
+            commands = new Command[]{save, quiz, hint, exit, reset, cancel};
         }
         // Else: add all commands
         else
@@ -368,16 +391,15 @@ public class App
             // If the answer is correct: congratulate the user
             if (answer == correctPosition)
             {
-                System.out.println("Correct");
+                System.out.println("Correct, you now have " + ++hints + " hints");
             }
             // Else: let the player know the real answer
             else
             {
                 Element[] chosen = choices[answer];
                 String chosenResult = game.combine(chosen[0], chosen[1], false).getName();
-                System.out.println("Incorrect, " + answerString(chosen) + " creates " + chosenResult +
-                                   "\nThe correct answer was " + answerString(correct));
-                
+                System.out.printf("Incorrect, %s creates %s%n" +
+                                  "The correct answer was %s%n", answerString(chosen), chosenResult, answerString(correct));
             }
         }
         // If there are questions to ask: inform the user

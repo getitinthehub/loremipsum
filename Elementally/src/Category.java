@@ -343,4 +343,20 @@ public class Category
             addElement(element);
         }
     }
+    
+    public ArrayList<Element> getUnknown()
+    {
+        ArrayList<Element> unknown = new ArrayList<>();
+        int index = 0;
+        while (containing.size() - known.size() - unknown.size() > 0)
+        {
+            Element toAdd = containing.get(index);
+            if (!known.contains(toAdd))
+            {
+                unknown.add(toAdd);
+            }
+            index++;
+        }
+        return unknown;
+    }
 }

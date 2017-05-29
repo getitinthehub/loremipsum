@@ -376,4 +376,9 @@ public class Element
     {
         return basic;
     }
+    
+    public ArrayList<String> getUnknownRecipes()
+    {
+        return unknownRecipes;
+    }
 }
