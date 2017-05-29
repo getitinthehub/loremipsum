@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9538a5a-d844-46c0-b676-ac0c5a8b675f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/App.class" afterPath="$PROJECT_DIR$/out/production/Elementally/App.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/Category.class" afterPath="$PROJECT_DIR$/out/production/Elementally/Category.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/Element.class" afterPath="$PROJECT_DIR$/out/production/Elementally/Element.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/ElementCooker.class" afterPath="$PROJECT_DIR$/out/production/Elementally/ElementCooker.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.java" afterPath="$PROJECT_DIR$/src/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Category.java" afterPath="$PROJECT_DIR$/src/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Element.java" afterPath="$PROJECT_DIR$/src/Element.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ElementCooker.java" afterPath="$PROJECT_DIR$/src/ElementCooker.java" />
     </list>
     <ignored path="Elementally.iws" />
@@ -27,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="197" column="41" lean-forward="true" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
+            <state relative-caret-position="273">
+              <caret line="200" column="110" lean-forward="true" selection-start-line="200" selection-start-column="110" selection-end-line="200" selection-end-column="110" />
               <folding>
                 <element signature="method#initGlobals#0;class#App#0" expanded="true" />
                 <element signature="e#4902#5685#0" expanded="false" />
@@ -49,15 +50,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ElementCooker.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ElementCooker.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="573" column="0" lean-forward="false" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
+            <state relative-caret-position="652">
+              <caret line="630" column="7" lean-forward="true" selection-start-line="630" selection-start-column="7" selection-end-line="630" selection-end-column="7" />
               <folding>
-                <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+                <element signature="docComment;class#ElementCooker#0" expanded="true" />
                 <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-                <marker date="1496062322670" expanded="false" signature="24063:24070" ph="{...}" />
+                <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
+                <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
+                <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+                <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -117,9 +121,9 @@
         <option value="$PROJECT_DIR$/src/Answer.java" />
         <option value="$PROJECT_DIR$/src/SafeFile" />
         <option value="$PROJECT_DIR$/src/Element.java" />
-        <option value="$PROJECT_DIR$/src/ElementCooker.java" />
         <option value="$PROJECT_DIR$/src/App.java" />
         <option value="$PROJECT_DIR$/src/Category.java" />
+        <option value="$PROJECT_DIR$/src/ElementCooker.java" />
       </list>
     </option>
   </component>
@@ -614,7 +618,7 @@
       <workItem from="1495977261603" duration="8690000" />
       <workItem from="1495995820031" duration="475000" />
       <workItem from="1496057240765" duration="281000" />
-      <workItem from="1496059784997" duration="2874000" />
+      <workItem from="1496059784997" duration="3819000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented quiz method">
       <created>1495977622267</created>
@@ -644,11 +648,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496060589572</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implemented hint method">
+      <created>1496062708788</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1496062708788</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36414000" />
+    <option name="totallyTimeSpent" value="37359000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -709,7 +720,8 @@
     <MESSAGE value="added java doc and comments" />
     <MESSAGE value="xml files" />
     <MESSAGE value="bugfix: during the quiz multiple answers could result in the correct answer" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugfix: during the quiz multiple answers could result in the correct answer" />
+    <MESSAGE value="implemented hint method" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented hint method" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -722,12 +734,6 @@
           <line>348</line>
           <properties />
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ElementCooker.java</url>
-          <line>562</line>
-          <properties />
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="19" />
@@ -778,9 +784,12 @@
         <state relative-caret-position="8636">
           <caret line="508" column="38" lean-forward="false" selection-start-line="508" selection-start-column="38" selection-end-line="508" selection-end-column="38" />
           <folding>
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <element signature="docComment;class#ElementCooker#0" expanded="true" />
             <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496062322670" expanded="false" signature="24063:24070" ph="{...}" />
+            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -849,9 +858,12 @@
         <state relative-caret-position="8636">
           <caret line="508" column="38" lean-forward="true" selection-start-line="508" selection-start-column="38" selection-end-line="508" selection-end-column="38" />
           <folding>
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <element signature="docComment;class#ElementCooker#0" expanded="true" />
             <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496062322670" expanded="false" signature="24063:24070" ph="{...}" />
+            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -920,9 +932,12 @@
         <state relative-caret-position="1003">
           <caret line="59" column="34" lean-forward="false" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <element signature="docComment;class#ElementCooker#0" expanded="true" />
             <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496062322670" expanded="false" signature="24063:24070" ph="{...}" />
+            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -991,9 +1006,12 @@
         <state relative-caret-position="1003">
           <caret line="59" column="34" lean-forward="true" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <element signature="docComment;class#ElementCooker#0" expanded="true" />
             <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496062322670" expanded="false" signature="24063:24070" ph="{...}" />
+            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1055,9 +1073,12 @@
         <state relative-caret-position="1241">
           <caret line="418" column="52" lean-forward="false" selection-start-line="418" selection-start-column="52" selection-end-line="418" selection-end-column="52" />
           <folding>
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <element signature="docComment;class#ElementCooker#0" expanded="true" />
             <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496062322670" expanded="false" signature="24063:24070" ph="{...}" />
+            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1119,9 +1140,12 @@
         <state relative-caret-position="7106">
           <caret line="418" column="52" lean-forward="true" selection-start-line="418" selection-start-column="52" selection-end-line="418" selection-end-column="52" />
           <folding>
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <element signature="docComment;class#ElementCooker#0" expanded="true" />
             <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496062322670" expanded="false" signature="24063:24070" ph="{...}" />
+            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1292,22 +1316,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="573" column="0" lean-forward="false" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
-          <folding>
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496062322670" expanded="false" signature="24063:24070" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="197" column="41" lean-forward="true" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
+        <state relative-caret-position="273">
+          <caret line="200" column="110" lean-forward="true" selection-start-line="200" selection-start-column="110" selection-end-line="200" selection-end-column="110" />
           <folding>
             <element signature="method#initGlobals#0;class#App#0" expanded="true" />
             <element signature="e#4902#5685#0" expanded="false" />
@@ -1320,6 +1332,21 @@
             <element signature="e#10725#11481#0" expanded="false" />
             <element signature="e#11563#12747#0" expanded="false" />
             <element signature="e#12842#14152#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="630" column="7" lean-forward="true" selection-start-line="630" selection-start-column="7" selection-end-line="630" selection-end-column="7" />
+          <folding>
+            <element signature="docComment;class#ElementCooker#0" expanded="true" />
+            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
+            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
           </folding>
         </state>
       </provider>

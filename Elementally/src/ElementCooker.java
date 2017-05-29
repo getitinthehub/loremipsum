@@ -591,7 +591,7 @@ public class ElementCooker
     
     public Element getDirectOption() throws ElementallyException
     {
-        if (getProgress() < 100)
+        if (isOngoing())
         {
             for (Category category : categories)
             {
@@ -610,6 +610,18 @@ public class ElementCooker
             }
         }
         throw new ElementallyException("No recipes available");
+    }
+    
+    private boolean isOngoing()
+    {
+        for (Category category : categories)
+        {
+            if (category.getContaining().size() > category.getKnown().size())
+            {
+                return true;
+            }
+        }
+        return false;
     }
     
     /**
