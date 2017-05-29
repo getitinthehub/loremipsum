@@ -140,7 +140,7 @@ public class App
         game = ElementCooker.getInstance();
         safeFileLocation = "src\\SafeFile";
         userInput = new Scanner(System.in);
-        hints = 1;
+        hints = Integer.MAX_VALUE;
         setCommands();
     }
     
@@ -675,7 +675,10 @@ public class App
         if (creates != null)
         {
             System.out.println(" " + creates.getName());
-            game.learn(creates);
+            if (!editMode)
+            {
+                game.learn(creates);
+            }
         }
         // Else if the player can create combinations: prompt the player for what it should create
         else if (editMode)
