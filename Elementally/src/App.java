@@ -329,12 +329,13 @@ public class App
         // Ask a question to the player
         try
         {
-            Element[] correct = game.getQuizAnswer();
+            Element[] correct = game.getQuizAnswer(null);
+            Element correctResult = game.combine(correct[0], correct[1], false);
             choices[0] = correct;
             // Fill the other options with incorrect answers
             for (int i = 1; i < choices.length; i++)
             {
-                choices[i] = game.getQuizAnswer();
+                choices[i] = game.getQuizAnswer(correctResult);
             }
             int correctPosition = (int) (Math.random() * choices.length);
             choices[0] = choices[correctPosition];

@@ -522,8 +522,7 @@ public class ElementCooker
      * @return A element that hasn't been asked before
      * @throws ElementallyException When there are no quizable elements
      */
-    //todo avoid a certain element
-    public Element[] getQuizAnswer() throws ElementallyException
+    public Element[] getQuizAnswer(Element exclude) throws ElementallyException
     {
         ArrayList<Category> knownCategories = getKnownCategories();
         int stopAtCat = (int) (knownCategories.size() * Math.random());
@@ -538,7 +537,7 @@ public class ElementCooker
             Element current = knownCategories.get(currentCat).getKnown().get(currentEle);
             ArrayList<String> answers = current.getKnownRecipes();
             // If there are known recipes that aren't quized yet: return a recipe
-            if (answers.size() > 0)
+            if (!current.equals(exclude) && answers.size() > 0)
             {
                 ArrayList<String> recipes = current.getKnownRecipes();
                 String answer = recipes.get((int) (Math.random() * recipes.size()));
