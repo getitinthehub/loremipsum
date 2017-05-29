@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9538a5a-d844-46c0-b676-ac0c5a8b675f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/App.class" afterPath="$PROJECT_DIR$/out/production/Elementally/App.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/Category.class" afterPath="$PROJECT_DIR$/out/production/Elementally/Category.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/Element.class" afterPath="$PROJECT_DIR$/out/production/Elementally/Element.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/ElementCooker.class" afterPath="$PROJECT_DIR$/out/production/Elementally/ElementCooker.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.java" afterPath="$PROJECT_DIR$/src/App.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ElementCooker.java" afterPath="$PROJECT_DIR$/src/ElementCooker.java" />
     </list>
     <ignored path="Elementally.iws" />
@@ -31,20 +28,20 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="200" column="110" lean-forward="true" selection-start-line="200" selection-start-column="110" selection-end-line="200" selection-end-column="110" />
+            <state relative-caret-position="357">
+              <caret line="197" column="41" lean-forward="true" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
               <folding>
                 <element signature="method#initGlobals#0;class#App#0" expanded="true" />
                 <element signature="e#4902#5685#0" expanded="false" />
                 <element signature="e#5753#5893#0" expanded="false" />
                 <element signature="e#5964#6113#0" expanded="false" />
                 <element signature="e#6350#6501#0" expanded="false" />
-                <element signature="e#7748#9119#0" expanded="false" />
-                <element signature="e#9201#9893#0" expanded="false" />
-                <element signature="e#9969#10634#0" expanded="false" />
-                <element signature="e#10725#11481#0" expanded="false" />
-                <element signature="e#11563#12747#0" expanded="false" />
-                <element signature="e#12842#14152#0" expanded="false" />
+                <element signature="e#7747#9118#0" expanded="false" />
+                <element signature="e#9200#9892#0" expanded="false" />
+                <element signature="e#9968#10633#0" expanded="false" />
+                <element signature="e#10724#11480#0" expanded="false" />
+                <element signature="e#11562#12746#0" expanded="false" />
+                <element signature="e#12841#14151#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -53,15 +50,13 @@
       <file leaf-file-name="ElementCooker.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="652">
-              <caret line="630" column="7" lean-forward="true" selection-start-line="630" selection-start-column="7" selection-end-line="630" selection-end-column="7" />
+            <state relative-caret-position="340">
+              <caret line="21" column="69" lean-forward="false" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
               <folding>
                 <element signature="docComment;class#ElementCooker#0" expanded="true" />
-                <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-                <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
-                <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
-                <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
-                <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
+                <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
+                <marker date="1496065449274" expanded="false" signature="22482:23390" ph="{...}" />
+                <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -98,6 +93,7 @@
       <find>temp</find>
       <find>14</find>
       <find>save</find>
+      <find>&quot;</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -618,7 +614,7 @@
       <workItem from="1495977261603" duration="8690000" />
       <workItem from="1495995820031" duration="475000" />
       <workItem from="1496057240765" duration="281000" />
-      <workItem from="1496059784997" duration="3819000" />
+      <workItem from="1496059784997" duration="4959000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented quiz method">
       <created>1495977622267</created>
@@ -655,11 +651,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496062708788</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Optimized hint system">
+      <created>1496064312822</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1496064312822</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37359000" />
+    <option name="totallyTimeSpent" value="38499000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -721,7 +724,8 @@
     <MESSAGE value="xml files" />
     <MESSAGE value="bugfix: during the quiz multiple answers could result in the correct answer" />
     <MESSAGE value="implemented hint method" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented hint method" />
+    <MESSAGE value="Optimized hint system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimized hint system" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -755,12 +759,12 @@
             <element signature="e#5753#5893#0" expanded="false" />
             <element signature="e#5964#6113#0" expanded="false" />
             <element signature="e#6350#6501#0" expanded="false" />
-            <element signature="e#7748#9119#0" expanded="false" />
-            <element signature="e#9201#9893#0" expanded="false" />
-            <element signature="e#9969#10634#0" expanded="false" />
-            <element signature="e#10725#11481#0" expanded="false" />
-            <element signature="e#11563#12747#0" expanded="false" />
-            <element signature="e#12842#14152#0" expanded="false" />
+            <element signature="e#7747#9118#0" expanded="false" />
+            <element signature="e#9200#9892#0" expanded="false" />
+            <element signature="e#9968#10633#0" expanded="false" />
+            <element signature="e#10724#11480#0" expanded="false" />
+            <element signature="e#11562#12746#0" expanded="false" />
+            <element signature="e#12841#14151#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -785,11 +789,9 @@
           <caret line="508" column="38" lean-forward="false" selection-start-line="508" selection-start-column="38" selection-end-line="508" selection-end-column="38" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
+            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496065449274" expanded="false" signature="22482:23390" ph="{...}" />
+            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -829,12 +831,12 @@
             <element signature="e#5753#5893#0" expanded="false" />
             <element signature="e#5964#6113#0" expanded="false" />
             <element signature="e#6350#6501#0" expanded="false" />
-            <element signature="e#7748#9119#0" expanded="false" />
-            <element signature="e#9201#9893#0" expanded="false" />
-            <element signature="e#9969#10634#0" expanded="false" />
-            <element signature="e#10725#11481#0" expanded="false" />
-            <element signature="e#11563#12747#0" expanded="false" />
-            <element signature="e#12842#14152#0" expanded="false" />
+            <element signature="e#7747#9118#0" expanded="false" />
+            <element signature="e#9200#9892#0" expanded="false" />
+            <element signature="e#9968#10633#0" expanded="false" />
+            <element signature="e#10724#11480#0" expanded="false" />
+            <element signature="e#11562#12746#0" expanded="false" />
+            <element signature="e#12841#14151#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -859,11 +861,9 @@
           <caret line="508" column="38" lean-forward="true" selection-start-line="508" selection-start-column="38" selection-end-line="508" selection-end-column="38" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
+            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496065449274" expanded="false" signature="22482:23390" ph="{...}" />
+            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -903,12 +903,12 @@
             <element signature="e#5753#5893#0" expanded="false" />
             <element signature="e#5964#6113#0" expanded="false" />
             <element signature="e#6350#6501#0" expanded="false" />
-            <element signature="e#7748#9119#0" expanded="false" />
-            <element signature="e#9201#9893#0" expanded="false" />
-            <element signature="e#9969#10634#0" expanded="false" />
-            <element signature="e#10725#11481#0" expanded="false" />
-            <element signature="e#11563#12747#0" expanded="false" />
-            <element signature="e#12842#14152#0" expanded="false" />
+            <element signature="e#7747#9118#0" expanded="false" />
+            <element signature="e#9200#9892#0" expanded="false" />
+            <element signature="e#9968#10633#0" expanded="false" />
+            <element signature="e#10724#11480#0" expanded="false" />
+            <element signature="e#11562#12746#0" expanded="false" />
+            <element signature="e#12841#14151#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -933,11 +933,9 @@
           <caret line="59" column="34" lean-forward="false" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
+            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496065449274" expanded="false" signature="22482:23390" ph="{...}" />
+            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -977,12 +975,12 @@
             <element signature="e#5753#5893#0" expanded="false" />
             <element signature="e#5964#6113#0" expanded="false" />
             <element signature="e#6350#6501#0" expanded="false" />
-            <element signature="e#7748#9119#0" expanded="false" />
-            <element signature="e#9201#9893#0" expanded="false" />
-            <element signature="e#9969#10634#0" expanded="false" />
-            <element signature="e#10725#11481#0" expanded="false" />
-            <element signature="e#11563#12747#0" expanded="false" />
-            <element signature="e#12842#14152#0" expanded="false" />
+            <element signature="e#7747#9118#0" expanded="false" />
+            <element signature="e#9200#9892#0" expanded="false" />
+            <element signature="e#9968#10633#0" expanded="false" />
+            <element signature="e#10724#11480#0" expanded="false" />
+            <element signature="e#11562#12746#0" expanded="false" />
+            <element signature="e#12841#14151#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1007,11 +1005,9 @@
           <caret line="59" column="34" lean-forward="true" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
+            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496065449274" expanded="false" signature="22482:23390" ph="{...}" />
+            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1051,12 +1047,12 @@
             <element signature="e#5753#5893#0" expanded="false" />
             <element signature="e#5964#6113#0" expanded="false" />
             <element signature="e#6350#6501#0" expanded="false" />
-            <element signature="e#7748#9119#0" expanded="false" />
-            <element signature="e#9201#9893#0" expanded="false" />
-            <element signature="e#9969#10634#0" expanded="false" />
-            <element signature="e#10725#11481#0" expanded="false" />
-            <element signature="e#11563#12747#0" expanded="false" />
-            <element signature="e#12842#14152#0" expanded="false" />
+            <element signature="e#7747#9118#0" expanded="false" />
+            <element signature="e#9200#9892#0" expanded="false" />
+            <element signature="e#9968#10633#0" expanded="false" />
+            <element signature="e#10724#11480#0" expanded="false" />
+            <element signature="e#11562#12746#0" expanded="false" />
+            <element signature="e#12841#14151#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1074,11 +1070,9 @@
           <caret line="418" column="52" lean-forward="false" selection-start-line="418" selection-start-column="52" selection-end-line="418" selection-end-column="52" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
+            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496065449274" expanded="false" signature="22482:23390" ph="{...}" />
+            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1118,12 +1112,12 @@
             <element signature="e#5753#5893#0" expanded="false" />
             <element signature="e#5964#6113#0" expanded="false" />
             <element signature="e#6350#6501#0" expanded="false" />
-            <element signature="e#7748#9119#0" expanded="false" />
-            <element signature="e#9201#9893#0" expanded="false" />
-            <element signature="e#9969#10634#0" expanded="false" />
-            <element signature="e#10725#11481#0" expanded="false" />
-            <element signature="e#11563#12747#0" expanded="false" />
-            <element signature="e#12842#14152#0" expanded="false" />
+            <element signature="e#7747#9118#0" expanded="false" />
+            <element signature="e#9200#9892#0" expanded="false" />
+            <element signature="e#9968#10633#0" expanded="false" />
+            <element signature="e#10724#11480#0" expanded="false" />
+            <element signature="e#11562#12746#0" expanded="false" />
+            <element signature="e#12841#14151#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1141,11 +1135,9 @@
           <caret line="418" column="52" lean-forward="true" selection-start-line="418" selection-start-column="52" selection-end-line="418" selection-end-column="52" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
+            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496065449274" expanded="false" signature="22482:23390" ph="{...}" />
+            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1318,35 +1310,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="200" column="110" lean-forward="true" selection-start-line="200" selection-start-column="110" selection-end-line="200" selection-end-column="110" />
+        <state relative-caret-position="357">
+          <caret line="197" column="41" lean-forward="true" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
           <folding>
             <element signature="method#initGlobals#0;class#App#0" expanded="true" />
             <element signature="e#4902#5685#0" expanded="false" />
             <element signature="e#5753#5893#0" expanded="false" />
             <element signature="e#5964#6113#0" expanded="false" />
             <element signature="e#6350#6501#0" expanded="false" />
-            <element signature="e#7748#9119#0" expanded="false" />
-            <element signature="e#9201#9893#0" expanded="false" />
-            <element signature="e#9969#10634#0" expanded="false" />
-            <element signature="e#10725#11481#0" expanded="false" />
-            <element signature="e#11563#12747#0" expanded="false" />
-            <element signature="e#12842#14152#0" expanded="false" />
+            <element signature="e#7747#9118#0" expanded="false" />
+            <element signature="e#9200#9892#0" expanded="false" />
+            <element signature="e#9968#10633#0" expanded="false" />
+            <element signature="e#10724#11480#0" expanded="false" />
+            <element signature="e#11562#12746#0" expanded="false" />
+            <element signature="e#12841#14151#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="630" column="7" lean-forward="true" selection-start-line="630" selection-start-column="7" selection-end-line="630" selection-end-column="7" />
+        <state relative-caret-position="340">
+          <caret line="21" column="69" lean-forward="false" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
           <folding>
             <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getElementById#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getDirectOption#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#isOngoing#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getProgress#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496064295821" expanded="false" signature="24406:24413" ph="{...}" />
+            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496065449274" expanded="false" signature="22482:23390" ph="{...}" />
+            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
           </folding>
         </state>
       </provider>

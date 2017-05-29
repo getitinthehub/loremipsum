@@ -198,7 +198,7 @@ public class App
                                  hints--;
                                  try
                                  {
-                                     System.out.println("There is a combination that can create " + game.getDirectOption().getName());
+                                     System.out.println("There is a combination that can create " + game.getNextElement().getName());
                                  }
                                  catch (ElementallyException eEx)
                                  {

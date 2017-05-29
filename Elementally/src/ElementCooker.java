@@ -18,6 +18,8 @@ public class ElementCooker
     private static final String NO_ARGUMENTS_ERROR = "Line must contain arguments";
     private static final String INVALID_ARGUMENT_AMOUNT_CATEGORY = "Category must have two arguments";
     private static final String NO_CATEGORY_SPECIFIED = "no category specified for element";
+    private static final String NO_QUIZABLE_ELEMENTS = "No quizable elements";
+    private static final String NO_NEXT_ELEMENT = "No element found";
     
     private Element nothing;
     private ArrayList<Category> categories;
@@ -537,7 +539,7 @@ public class ElementCooker
             }
             fullCircle = currentCat == stopAtCat && currentEle == stopAtEle;
         }
-        throw new ElementallyException("No quizable elements");
+        throw new ElementallyException(NO_QUIZABLE_ELEMENTS);
     }
     
     /**
@@ -589,19 +591,30 @@ public class ElementCooker
         return null;
     }
     
-    public Element getDirectOption() throws ElementallyException
+    /**
+     * Goes through every recipe of every element and checks if it can be created using the known elements
+     *
+     * @return An element that can be created with the known elements
+     * @throws ElementallyException When there are no elements that can be created
+     */
+    public Element getNextElement() throws ElementallyException
     {
+        // If there are elements that are unknown: find a unknown element that can be created
         if (isOngoing())
         {
+            // Find the first unknown creatable element in a category
             for (Category category : categories)
             {
+                // Find the first creatable element
                 for (Element element : category.getUnknown())
                 {
+                    // Go through every recipe and check if the ingredients are known
                     for (String s : element.getUnknownRecipes())
                     {
                         String[] recipe = s.split(",");
-                        if (getElementById(Integer.parseInt(recipe[0]), true) != null &&
-                            getElementById(Integer.parseInt(recipe[1]), true) != null)
+                        // If both ingredients are known: return the element
+                        if (getElementById(Integer.parseInt(recipe[1]), true) != null &&
+                            getElementById(Integer.parseInt(recipe[0]), true) != null)
                         {
                             return element;
                         }
@@ -609,9 +622,14 @@ public class ElementCooker
                 }
             }
         }
-        throw new ElementallyException("No recipes available");
+        throw new ElementallyException(NO_NEXT_ELEMENT);
     }
     
+    /**
+     * Helper method to check if there are still unknown elements
+     *
+     * @return True if there is at least 1 unknown element
+     */
     private boolean isOngoing()
     {
         for (Category category : categories)
