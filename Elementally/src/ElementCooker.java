@@ -383,7 +383,7 @@ public class ElementCooker
     }
     
     /**
-     * Data can only be saved in activities
+     * @return the string that can be loaded later
      */
     public String getSaveString()
     {
@@ -411,6 +411,7 @@ public class ElementCooker
     /**
      * Goes through every combination starting at a random position
      *
+     * @param first           The first element of the combination, can be null
      * @param allowDuplicates True if elements can be the same
      *
      * @return An element combination that was not created yet
@@ -502,6 +503,8 @@ public class ElementCooker
     
     /**
      * Finds and returns a quizable element
+     *
+     * @param exclude The element that should not be returned, can be null
      *
      * @return A element that hasn't been asked before
      * @throws ElementallyException When there are no quizable elements
@@ -675,6 +678,7 @@ public class ElementCooker
      *
      * @param element1 The first element of the combination
      * @param element2 The second element of the combination
+     * @param learn    True if the element should be learned when it's unlearned
      *
      * @return An element that this combination would result in or null if the combination is not defined before
      */

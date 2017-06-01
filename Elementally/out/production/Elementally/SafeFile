@@ -28,7 +28,6 @@ u;13;energy;q;k;u;1,4;
 u;14;life;q;k;u;12,13;
 u;16;golem;q;k;u;10,14;
 u;22;plant;q;k;u;12,14;
-u;25;time;q;k;u;23,24;
 u;48;tree;q;k;u;2,22;
 c;creatures
 u;17;fish;q;k;u;2,14;
@@ -55,8 +54,9 @@ u;39;sharknado;q;k;u;15,38;
 u;42;phoenix;q;k;u;1,41;
 u;49;dragon;q;k;u;1,20;
 c;tools
+u;25;hourglass;q;k;u;23,24;
 u;35;aquarium;q;k;u;17,24;24,34;11,35;
-u;47;terrarium;q;k;u;19,35;
+u;47;terrarium;q;k;u;19,35;20,35;
 c;buildings
 u;45;house;q;k;u;24,44;
 u;46;sauna;q;k;u;5,45;

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9538a5a-d844-46c0-b676-ac0c5a8b675f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/App.class" afterPath="$PROJECT_DIR$/out/production/Elementally/App.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/ElementCooker.class" afterPath="$PROJECT_DIR$/out/production/Elementally/ElementCooker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.java" afterPath="$PROJECT_DIR$/src/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Elementally/SafeFile" afterPath="$PROJECT_DIR$/out/production/Elementally/SafeFile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ElementCooker.java" afterPath="$PROJECT_DIR$/src/ElementCooker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SafeFile" afterPath="$PROJECT_DIR$/src/SafeFile" />
     </list>
     <ignored path="Elementally.iws" />
@@ -28,15 +32,14 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="679" column="36" lean-forward="true" selection-start-line="679" selection-start-column="36" selection-end-line="679" selection-end-column="36" />
+            <state relative-caret-position="102">
+              <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
               <folding>
-                <element signature="method#run#0;class#App#0" expanded="true" />
-                <element signature="method#initGlobals#0;class#App#0" expanded="true" />
                 <element signature="e#4918#5701#0" expanded="false" />
                 <element signature="e#5769#5909#0" expanded="false" />
                 <element signature="e#5980#6129#0" expanded="false" />
                 <element signature="e#6366#6517#0" expanded="false" />
+                <element signature="e#6593#7533#0" expanded="false" />
                 <element signature="e#7763#9134#0" expanded="false" />
                 <element signature="e#9216#9908#0" expanded="false" />
                 <element signature="e#9984#10649#0" expanded="false" />
@@ -44,16 +47,6 @@
                 <element signature="e#11578#12762#0" expanded="false" />
                 <element signature="e#12857#14167#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SafeFile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SafeFile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,10 +85,10 @@
         <option value="$PROJECT_DIR$/src/ElementallyException.java" />
         <option value="$PROJECT_DIR$/src/Answer.java" />
         <option value="$PROJECT_DIR$/src/Element.java" />
-        <option value="$PROJECT_DIR$/src/ElementCooker.java" />
         <option value="$PROJECT_DIR$/src/Category.java" />
         <option value="$PROJECT_DIR$/src/SafeFile" />
         <option value="$PROJECT_DIR$/src/App.java" />
+        <option value="$PROJECT_DIR$/src/ElementCooker.java" />
       </list>
     </option>
   </component>
@@ -191,7 +184,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.EditMode">
+  <component name="RunManager" selected="Application.PlayMode">
     <configuration default="false" name="PlayMode" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="App" />
@@ -591,7 +584,8 @@
       <workItem from="1495995820031" duration="475000" />
       <workItem from="1496057240765" duration="281000" />
       <workItem from="1496059784997" duration="6257000" />
-      <workItem from="1496068340655" duration="5108000" />
+      <workItem from="1496068340655" duration="5390000" />
+      <workItem from="1496314487437" duration="730000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented quiz method">
       <created>1495977622267</created>
@@ -642,11 +636,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496065468641</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Changed recipe">
+      <created>1496074182920</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1496074182920</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44905000" />
+    <option name="totallyTimeSpent" value="45917000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -668,11 +669,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.68927443" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60883284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -683,7 +685,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,7 +712,8 @@
     <MESSAGE value="implemented hint method" />
     <MESSAGE value="Optimized hint system" />
     <MESSAGE value="added documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added documentation" />
+    <MESSAGE value="Changed recipe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed recipe" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -732,12 +734,11 @@
         <state relative-caret-position="238">
           <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
           <folding>
-            <element signature="method#run#0;class#App#0" expanded="true" />
-            <element signature="method#initGlobals#0;class#App#0" expanded="true" />
             <element signature="e#4918#5701#0" expanded="false" />
             <element signature="e#5769#5909#0" expanded="false" />
             <element signature="e#5980#6129#0" expanded="false" />
             <element signature="e#6366#6517#0" expanded="false" />
+            <element signature="e#6593#7533#0" expanded="false" />
             <element signature="e#7763#9134#0" expanded="false" />
             <element signature="e#9216#9908#0" expanded="false" />
             <element signature="e#9984#10649#0" expanded="false" />
@@ -767,11 +768,9 @@
         <state relative-caret-position="8636">
           <caret line="508" column="38" lean-forward="false" selection-start-line="508" selection-start-column="38" selection-end-line="508" selection-end-column="38" />
           <folding>
-            <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496065449274" expanded="true" signature="22482:23390" ph="{...}" />
-            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
+            <element signature="docComment;method#getSaveString#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496315101390" expanded="true" signature="22651:23559" ph="{...}" />
+            <marker date="1496315101390" expanded="false" signature="25605:25612" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -803,12 +802,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#run#0;class#App#0" expanded="true" />
-            <element signature="method#initGlobals#0;class#App#0" expanded="true" />
             <element signature="e#4918#5701#0" expanded="false" />
             <element signature="e#5769#5909#0" expanded="false" />
             <element signature="e#5980#6129#0" expanded="false" />
             <element signature="e#6366#6517#0" expanded="false" />
+            <element signature="e#6593#7533#0" expanded="false" />
             <element signature="e#7763#9134#0" expanded="false" />
             <element signature="e#9216#9908#0" expanded="false" />
             <element signature="e#9984#10649#0" expanded="false" />
@@ -838,11 +836,9 @@
         <state relative-caret-position="8636">
           <caret line="508" column="38" lean-forward="true" selection-start-line="508" selection-start-column="38" selection-end-line="508" selection-end-column="38" />
           <folding>
-            <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496065449274" expanded="true" signature="22482:23390" ph="{...}" />
-            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
+            <element signature="docComment;method#getSaveString#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496315101390" expanded="true" signature="22651:23559" ph="{...}" />
+            <marker date="1496315101390" expanded="false" signature="25605:25612" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -874,12 +870,11 @@
         <state relative-caret-position="51">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="method#run#0;class#App#0" expanded="true" />
-            <element signature="method#initGlobals#0;class#App#0" expanded="true" />
             <element signature="e#4918#5701#0" expanded="false" />
             <element signature="e#5769#5909#0" expanded="false" />
             <element signature="e#5980#6129#0" expanded="false" />
             <element signature="e#6366#6517#0" expanded="false" />
+            <element signature="e#6593#7533#0" expanded="false" />
             <element signature="e#7763#9134#0" expanded="false" />
             <element signature="e#9216#9908#0" expanded="false" />
             <element signature="e#9984#10649#0" expanded="false" />
@@ -909,11 +904,9 @@
         <state relative-caret-position="1003">
           <caret line="59" column="34" lean-forward="false" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
-            <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496065449274" expanded="true" signature="22482:23390" ph="{...}" />
-            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
+            <element signature="docComment;method#getSaveString#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496315101390" expanded="true" signature="22651:23559" ph="{...}" />
+            <marker date="1496315101390" expanded="false" signature="25605:25612" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -945,12 +938,11 @@
         <state relative-caret-position="51">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="method#run#0;class#App#0" expanded="true" />
-            <element signature="method#initGlobals#0;class#App#0" expanded="true" />
             <element signature="e#4918#5701#0" expanded="false" />
             <element signature="e#5769#5909#0" expanded="false" />
             <element signature="e#5980#6129#0" expanded="false" />
             <element signature="e#6366#6517#0" expanded="false" />
+            <element signature="e#6593#7533#0" expanded="false" />
             <element signature="e#7763#9134#0" expanded="false" />
             <element signature="e#9216#9908#0" expanded="false" />
             <element signature="e#9984#10649#0" expanded="false" />
@@ -980,11 +972,9 @@
         <state relative-caret-position="1003">
           <caret line="59" column="34" lean-forward="true" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
-            <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496065449274" expanded="true" signature="22482:23390" ph="{...}" />
-            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
+            <element signature="docComment;method#getSaveString#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496315101390" expanded="true" signature="22651:23559" ph="{...}" />
+            <marker date="1496315101390" expanded="false" signature="25605:25612" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1016,12 +1006,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#run#0;class#App#0" expanded="true" />
-            <element signature="method#initGlobals#0;class#App#0" expanded="true" />
             <element signature="e#4918#5701#0" expanded="false" />
             <element signature="e#5769#5909#0" expanded="false" />
             <element signature="e#5980#6129#0" expanded="false" />
             <element signature="e#6366#6517#0" expanded="false" />
+            <element signature="e#6593#7533#0" expanded="false" />
             <element signature="e#7763#9134#0" expanded="false" />
             <element signature="e#9216#9908#0" expanded="false" />
             <element signature="e#9984#10649#0" expanded="false" />
@@ -1044,11 +1033,9 @@
         <state relative-caret-position="1241">
           <caret line="418" column="52" lean-forward="false" selection-start-line="418" selection-start-column="52" selection-end-line="418" selection-end-column="52" />
           <folding>
-            <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496065449274" expanded="true" signature="22482:23390" ph="{...}" />
-            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
+            <element signature="docComment;method#getSaveString#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496315101390" expanded="true" signature="22651:23559" ph="{...}" />
+            <marker date="1496315101390" expanded="false" signature="25605:25612" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1080,12 +1067,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#run#0;class#App#0" expanded="true" />
-            <element signature="method#initGlobals#0;class#App#0" expanded="true" />
             <element signature="e#4918#5701#0" expanded="false" />
             <element signature="e#5769#5909#0" expanded="false" />
             <element signature="e#5980#6129#0" expanded="false" />
             <element signature="e#6366#6517#0" expanded="false" />
+            <element signature="e#6593#7533#0" expanded="false" />
             <element signature="e#7763#9134#0" expanded="false" />
             <element signature="e#9216#9908#0" expanded="false" />
             <element signature="e#9984#10649#0" expanded="false" />
@@ -1108,11 +1094,9 @@
         <state relative-caret-position="7106">
           <caret line="418" column="52" lean-forward="true" selection-start-line="418" selection-start-column="52" selection-end-line="418" selection-end-column="52" />
           <folding>
-            <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496065449274" expanded="true" signature="22482:23390" ph="{...}" />
-            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
+            <element signature="docComment;method#getSaveString#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496315101390" expanded="true" signature="22651:23559" ph="{...}" />
+            <marker date="1496315101390" expanded="false" signature="25605:25612" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1267,47 +1251,44 @@
         <state relative-caret-position="-1154">
           <caret line="44" column="25" lean-forward="true" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
           <folding>
-            <element signature="e#832#833#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="method#getElementByName#0;class#Category#0" expanded="true" />
-            <element signature="method#remove#0;class#Category#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getQuizAnswer#0;class#ElementCooker#0" expanded="true" />
-            <element signature="method#getNextElement#0;class#ElementCooker#0" expanded="true" />
-            <marker date="1496065449274" expanded="true" signature="22482:23390" ph="{...}" />
-            <marker date="1496065449274" expanded="false" signature="25355:25362" ph="{...}" />
+            <element signature="e#832#833#0" expanded="false" />
+            <element signature="e#864#865#0" expanded="false" />
+            <element signature="method#getElementByName#0;class#Category#0" expanded="false" />
+            <element signature="method#remove#0;class#Category#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SafeFile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state relative-caret-position="436">
+          <caret line="58" column="33" lean-forward="true" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElementCooker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="675" column="4" lean-forward="false" selection-start-line="675" selection-start-column="4" selection-end-line="675" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;method#getSaveString#0;class#ElementCooker#0" expanded="true" />
+            <marker date="1496315101390" expanded="true" signature="22651:23559" ph="{...}" />
+            <marker date="1496315101390" expanded="false" signature="25605:25612" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="679" column="36" lean-forward="true" selection-start-line="679" selection-start-column="36" selection-end-line="679" selection-end-column="36" />
+        <state relative-caret-position="102">
+          <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding>
-            <element signature="method#run#0;class#App#0" expanded="true" />
-            <element signature="method#initGlobals#0;class#App#0" expanded="true" />
             <element signature="e#4918#5701#0" expanded="false" />
             <element signature="e#5769#5909#0" expanded="false" />
             <element signature="e#5980#6129#0" expanded="false" />
             <element signature="e#6366#6517#0" expanded="false" />
+            <element signature="e#6593#7533#0" expanded="false" />
             <element signature="e#7763#9134#0" expanded="false" />
             <element signature="e#9216#9908#0" expanded="false" />
             <element signature="e#9984#10649#0" expanded="false" />

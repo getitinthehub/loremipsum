@@ -56,7 +56,7 @@ u;49;dragon;q;k;u;1,20;
 c;tools
 u;25;hourglass;q;k;u;23,24;
 u;35;aquarium;q;k;u;17,24;24,34;11,35;
-u;47;terrarium;q;k;u;19,35;
+u;47;terrarium;q;k;u;19,35;20,35;
 c;buildings
 u;45;house;q;k;u;24,44;
 u;46;sauna;q;k;u;5,45;
