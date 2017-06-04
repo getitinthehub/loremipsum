@@ -13,16 +13,17 @@ public class ElementCooker
     public static final String NOTHING_NAME = "nothing";
     
     private static final ElementCooker instance = new ElementCooker();
-    private static final String NO_NOTHING_ERROR = "Incorrect file format, nothing element must be present";
     private static final String ALL_COMBINATIONS_FILLED_ERROR = "All combinations are filled in";
     private static final String NO_ARGUMENTS_ERROR = "Line must contain arguments";
     private static final String INVALID_ARGUMENT_AMOUNT_CATEGORY = "Category must have two arguments";
     private static final String NO_CATEGORY_SPECIFIED = "no category specified for element";
     private static final String NO_QUIZABLE_ELEMENTS = "No quizable elements";
     private static final String NO_NEXT_ELEMENT = "No element found";
+    private static final String COULD_NOT_RESTART_ERROR = "Default state could not be loaded";
     
     private Element nothing;
-    private ArrayList<Category> categories;
+    private ArrayList<Category> unknownCategories, knownCategories;
+    private ArrayList<Category>[] allCategories;
     private HashMap<String, Element> recipes;
     
     /**
@@ -39,7 +40,9 @@ public class ElementCooker
     private void initGlobals()
     {
         recipes = new HashMap<>();
-        categories = new ArrayList<>();
+        unknownCategories = new ArrayList<>();
+        knownCategories = new ArrayList<>();
+        allCategories = new ArrayList[]{knownCategories, unknownCategories};
         nothing = new Element(NOTHING_NAME, 0, true);
     }
     
@@ -63,29 +66,22 @@ public class ElementCooker
         // If the elements should be removed: remove them and go back to the first four elements
         if (removeElements)
         {
-            initGlobals();
-            Element.resetCounter();
-            
-            Category fire = new Category("fire");
-            Category water = new Category("water");
-            Category earth = new Category("earth");
-            Category air = new Category("air");
-            
-            fire.addElement(new Element("fire", 1, true));
-            water.addElement(new Element("water", 2, true));
-            earth.addElement(new Element("earth", 3, true));
-            air.addElement(new Element("air", 4, true));
-            
-            categories.add(fire);
-            categories.add(water);
-            categories.add(earth);
-            categories.add(air);
+            try
+            {
+                initGlobals();
+                Element.resetCounter();
+                loadDataFrom(StartState.startState); // Throws ElementallyException
+            }
+            catch (ElementallyException eEx)
+            {
+                System.err.println(COULD_NOT_RESTART_ERROR);
+            }
         }
         // Else: unlearn all the elements
         else
         {
             // Go through every category and unlearn all elements
-            for (Category category : categories)
+            for (Category category : knownCategories)
             {
                 category.unlearnEverything();
             }
@@ -93,13 +89,109 @@ public class ElementCooker
     }
     
     /**
-     * Simple getter for the categories
+     * Loads all the data from a String
      *
-     * @return The categories in this object
+     * @param dataLine The line with all the data
+     *
+     * @throws ElementallyException Thrown when the string does not contain the nothing element
      */
-    public ArrayList<Category> getCategories()
+    public void loadDataFrom(String dataLine) throws ElementallyException
     {
-        return categories;
+        String[] data = dataLine.split("\n");
+        int lineNumber = 0; // Throws ElementallyException
+        Category lastCategory = null;
+        // Import the data from all the lines
+        while (lineNumber < data.length)
+        {
+            // Import data from a line
+            try
+            {
+                String[] components = data[lineNumber].split(";");
+                // If there are no arguments to read: throw an error
+                if (components.length == 0)
+                {
+                    throw new ElementallyException(NO_ARGUMENTS_ERROR);
+                }
+                // If the line contains a category: add the category
+                if (components[0].equals("c"))
+                {
+                    if (components.length != 2) throw new ElementallyException(INVALID_ARGUMENT_AMOUNT_CATEGORY);
+                    lastCategory = new Category(components[1]);
+                    addCategory(lastCategory);
+                }
+                // If there is a last category to add elements to: add it
+                else
+                {
+                    Element loaded = Element.parseLine(data[lineNumber]); // Throws ElementallyException
+                    // If a category is specified: add the element to that category
+                    if (lastCategory != null)
+                    {
+                        lastCategory.addElement(loaded);
+                        // If the element is known: learn it
+                        if (components[0].equals("k"))
+                        {
+                            lastCategory.learn(loaded);
+                        }
+                    }
+                    // Check if the element is the nothing element
+                    else
+                    {
+                        // If the element is nothing: replace the element
+                        if (loaded.getName().equals(NOTHING_NAME))
+                        {
+                            loaded = nothing;
+                        }
+                        // No category specified: throw an exception
+                        else
+                        {
+                            throw new ElementallyException(NO_CATEGORY_SPECIFIED);
+                        }
+                    }
+                    // Add all the recipes to the recipe map
+                    for (String recipe : loaded.getAllRecipes())
+                    {
+                        recipes.put(recipe, loaded);
+                    }
+                }
+            }
+            // If a line has a incorrect format: let the player know
+            catch (ElementallyException eEx)
+            {
+                System.err.println("line" + (lineNumber + 1) + ": " + eEx.getMessage());
+            }
+            lineNumber++;
+        }
+    }
+    
+    /**
+     * Adds a category to this class
+     *
+     * @param category The category to add
+     */
+    public void addCategory(Category category)
+    {
+        // If there are known elements in the category: add it to known
+        if (category.getKnown().size() > 0)
+        {
+            knownCategories.add(category);
+        }
+        // Else: add it to unknown
+        else
+        {
+            unknownCategories.add(category);
+        }
+    }
+    
+    /**
+     * Creates a combination of known and unknown categories
+     *
+     * @return An ArrayList with all the categories
+     */
+    public ArrayList<Category> getAllCategories()
+    {
+        ArrayList<Category> allCategories = new ArrayList<>(knownCategories);
+        allCategories.addAll(unknownCategories);
+        return allCategories;
     }
     
     /**
@@ -157,31 +249,35 @@ public class ElementCooker
      */
     public void remove(Element toRemove, boolean clearRecipes)
     {
-        if (toRemove == null) return;
-        int i = 0;
-        // Try to remove the element from every category until one actually removes something
-        while (!categories.get(i).remove(toRemove))
+        assert toRemove != null : "null element";
+        // Check all categories to remove the element
+        for (ArrayList<Category> categoryKind : allCategories)
         {
-            // If the next removal attempt will throw an out of bounds exception: stop
-            if (++i == categories.size())
+            // Go through the categories and remove the element if it's in there
+            for (Category category : categoryKind)
             {
-                return;
+                // If the element was removed: clean up where necessary
+                if (category.remove(toRemove))
+                {
+                    // If the category is now empty: remove the category
+                    if (category.getContaining().size() == 0)
+                    {
+                        categoryKind.remove(category);
+                    }
+                    // Remove the recipes when wanted
+                    if (clearRecipes)
+                    {
+                        // Clear all the recipes
+                        for (String recipe : toRemove.getAllRecipes())
+                        {
+                            recipes.put(recipe, null);
+                        }
+                    }
+                    return;
+                }
             }
         }
-        // If the category is now empty: remove the category
-        if (categories.get(i).getContaining().size() == 0)
-        {
-            categories.remove(i);
-        }
-        // If the recipes should be removed: remove them
-        if (clearRecipes)
-        {
-            // Remove every recipe that will result into that element
-            for (String recipe : toRemove.getAllRecipes())
-            {
-                recipes.put(recipe, null);
-            }
-        }
+        assert false : "Element does not exist";
     }
     
     /**
@@ -199,14 +295,18 @@ public class ElementCooker
         {
             return nothing;
         }
-        // Goes through every category and returns the element if it's in there
-        for (Category category : categories)
+        // Go through every category and returns the element if it's in there
+        for (ArrayList<Category> categories : allCategories)
         {
-            Element found = category.getElementByName(elementName);
-            // If the element is in this category: return it
-            if (found != null)
+            // Go through the categories and return the element
+            for (Category category : categories)
             {
-                return found;
+                Element found = category.getElementByName(elementName);
+                // If the element is in this category: return it
+                if (found != null)
+                {
+                    return found;
+                }
             }
         }
         return null;
@@ -244,7 +344,11 @@ public class ElementCooker
         {
             base.addElement(element);
         }
-        categories.remove(toDelete);
+        // remove the category
+        for (ArrayList<Category> categories : allCategories)
+        {
+            categories.remove(toDelete);
+        }
     }
     
     /**
@@ -256,130 +360,20 @@ public class ElementCooker
      */
     public Category getCategoryByName(String categoryName)
     {
-        // Go through every category and return the one with that name
-        for (Category category : categories)
+        // Go through all categories and return the one with that name
+        for (ArrayList<Category> categories : allCategories)
         {
-            // If the category with that name is found: return it
-            if (category.getName().equals(categoryName))
+            // Go through every category and return the one with that name
+            for (Category category : categories)
             {
-                return category;
+                // If the category with that name is found: return it
+                if (category.getName().equals(categoryName))
+                {
+                    return category;
+                }
             }
         }
         return null;
-    }
-    
-    /**
-     * Loads all the data from a String
-     *
-     * @param dataLine The line with all the data
-     *
-     * @throws ElementallyException Thrown when the string does not contain the nothing element
-     */
-    public void loadDataFrom(String dataLine) throws ElementallyException
-    {
-        String[] data = dataLine.split("\n");
-        int lineNumber = findNothingElement(data) + 1; // Throws ElementallyException
-        Category lastCategory = null;
-        // Import the data from all the lines
-        while (lineNumber < data.length)
-        {
-            // Import data from a line
-            try
-            {
-                String[] components = data[lineNumber].split(";");
-                // If there are no arguments to read: throw an error
-                if (components.length == 0)
-                {
-                    throw new ElementallyException(NO_ARGUMENTS_ERROR);
-                }
-                // If the line contains a category: add the category
-                if (components[0].equals("c"))
-                {
-                    if (components.length != 2) throw new ElementallyException(INVALID_ARGUMENT_AMOUNT_CATEGORY);
-                    lastCategory = new Category(components[1]);
-                    addCategory(lastCategory);
-                }
-                // If there is a last category to add elements to: add it
-                else if (lastCategory != null)
-                {
-                    Element loaded = Element.parseLine(data[lineNumber]); // Throws ElementallyException
-                    lastCategory.addElement(loaded);
-                    // Add all the recipes to the recipe map
-                    for (String recipe : loaded.getAllRecipes())
-                    {
-                        recipes.put(recipe, loaded);
-                    }
-                    // If the element is known: learn it
-                    if (components[0].equals("k"))
-                    {
-                        lastCategory.learn(loaded);
-                    }
-                }
-                // If there is no last category: throw an error
-                else
-                {
-                    throw new ElementallyException(NO_CATEGORY_SPECIFIED);
-                }
-            }
-            // If a line has a incorrect format: let the player know
-            catch (ElementallyException eEx)
-            {
-                System.err.println("line" + (lineNumber + 1) + ": " + eEx.getMessage());
-            }
-            lineNumber++;
-        }
-    }
-    
-    /**
-     * Helper method for the loadDataFrom method.
-     * Finds the nothing element and replaces the previous one.
-     *
-     * @param data The lines where the nothing element should be in
-     *
-     * @return The line on which the nothing element was positioned
-     * @throws ElementallyException When there is no nothing element
-     */
-    private int findNothingElement(String[] data) throws ElementallyException
-    {
-        int lineNumber = 0;
-        // Goes through every line and finds the nothing element
-        while (lineNumber < data.length)
-        {
-            String line = data[lineNumber];
-            String[] components = line.split(";");
-            // If this line contains the nothing element: add it and all the recipes
-            if (components[0].equals(nothing.getName()))
-            {
-                // Save the nothing element and its recipes
-                try
-                {
-                    nothing = Element.parseLine("b;0;" + line); // Throws ElementallyException
-                    // Save all the recipes
-                    for (String recipe : nothing.getAllRecipes())
-                    {
-                        recipes.put(recipe, nothing);
-                    }
-                    return lineNumber;
-                }
-                // If the nothing element did not have the correct format: inform the user and keep looking
-                catch (ElementallyException eEx)
-                {
-                    System.out.println(line + ": " + eEx.getMessage());
-                }
-            }
-            lineNumber++;
-        }
-        throw new ElementallyException(NO_NOTHING_ERROR);
-    }
-    
-    /**
-     * Adds a category to this class
-     *
-     * @param category The category to add
-     */
-    public void addCategory(Category category)
-    {
-        categories.add(category);
     }
     
     /**
@@ -387,22 +381,22 @@ public class ElementCooker
      */
     public String getSaveString()
     {
-        StringBuilder output = new StringBuilder();
-        output.append(nothing.getName())
-              .append(";")
-              .append(nothing.getRecipesString())
-              .append("\n");
+        StringBuilder output = new StringBuilder(nothing.exportLine());
         // Save all the categories and their elements
-        for (Category category : categories)
+        for (ArrayList<Category> categories : allCategories)
         {
-            output.append("c;")
-                  .append(category.getName())
-                  .append("\n");
-            // Save all the elements from each category
-            for (Element element : category.getContaining())
+            // Save the categories and their elements
+            for (Category category : categories)
             {
-                output.append(element.exportLine())
+                output.append("c;")
+                      .append(category.getName())
                       .append("\n");
+                // Save all the elements from each category
+                for (Element element : category.getContaining())
+                {
+                    output.append(element.exportLine())
+                          .append("\n");
+                }
             }
         }
         return output.toString();
@@ -421,6 +415,8 @@ public class ElementCooker
     public Element[] getEmptyCombination(Element first, boolean allowDuplicates) throws ElementallyException
     {
         // todo: only check half of the combinations
+        ArrayList<Category> categories = new ArrayList<>(unknownCategories);
+        categories.addAll(knownCategories);
         //If there are elements to combine: combine them
         if (categories.size() != 0)
         {
@@ -511,7 +507,6 @@ public class ElementCooker
      */
     public Element[] getQuizAnswer(Element exclude) throws ElementallyException
     {
-        ArrayList<Category> knownCategories = getKnownCategories();
         int stopAtCat = (int) (knownCategories.size() * Math.random());
         int stopAtEle = (int) (knownCategories.get(stopAtCat).getKnown().size() * Math.random());
         int currentCat = stopAtCat;
@@ -546,27 +541,6 @@ public class ElementCooker
     }
     
     /**
-     * Generates an arrayList with all the known categories
-     *
-     * @return A arrayList with categories that have known elements in them
-     */
-    //todo optimize
-    public ArrayList<Category> getKnownCategories()
-    {
-        ArrayList<Category> known = new ArrayList<>();
-        // Gets all the categories with known elements in them
-        for (Category category : categories)
-        {
-            // If the category has known elements in it: add it to the list
-            if (category.getKnown().size() > 0)
-            {
-                known.add(category);
-            }
-        }
-        return known;
-    }
-    
-    /**
      * Finds an element with a given id
      *
      * @param elementId The id of the element that needs to be found
@@ -577,21 +551,35 @@ public class ElementCooker
     public Element getElementById(int elementId, boolean fromKnown)
     {
         // Nothing is not in an category and will therefor be compared here
-        if (elementId == 0)
+        if (elementId == nothing.getId())
         {
             return nothing;
         }
-        // Go through every element and returns the element if it's in there
-        for (Category category : categories)
+        // Go through every category and returns the element if it's in there
+        for (ArrayList<Category> categories : allCategories)
         {
-            Element found = category.getElementById(elementId, fromKnown);
-            // If the element is found: return it
-            if (found != null)
+            // Go through every element and returns the element if it's in there
+            for (Category category : categories)
             {
-                return found;
+                Element found = category.getElementById(elementId, fromKnown);
+                // If the element is found: return it
+                if (found != null)
+                {
+                    return found;
+                }
             }
         }
         return null;
+    }
+    
+    /**
+     * Generates an arrayList with all the known categories
+     *
+     * @return A arrayList with categories that have known elements in them
+     */
+    public ArrayList<Category> getKnownCategories()
+    {
+        return knownCategories;
     }
     
     /**
@@ -605,21 +593,26 @@ public class ElementCooker
         // If there are elements that are unknown: find a unknown element that can be created
         if (isOngoing())
         {
-            // Find the first unknown creatable element in a category
-            for (Category category : categories)
+            ArrayList<Category>[] allCategories = new ArrayList[]{unknownCategories, knownCategories};
+            // Go through the unknown categories and than the known categories to find a creatable element
+            for (ArrayList<Category> categories : allCategories)
             {
-                // Find the first creatable element
-                for (Element element : category.getUnknown())
+                // Find the first unknown creatable element in a category
+                for (Category category : categories)
                 {
-                    // Go through every recipe and check if the ingredients are known
-                    for (String s : element.getUnknownRecipes())
+                    // Find the first creatable element
+                    for (Element element : category.getUnknown())
                     {
-                        String[] recipe = s.split(",");
-                        // If both ingredients are known: return the element
-                        if (getElementById(Integer.parseInt(recipe[1]), true) != null &&
-                            getElementById(Integer.parseInt(recipe[0]), true) != null)
+                        // Go through every recipe and check if the ingredients are known
+                        for (String s : element.getUnknownRecipes())
                         {
-                            return element;
+                            String[] recipe = s.split(",");
+                            // If both ingredients are known: return the element
+                            if (getElementById(Integer.parseInt(recipe[1]), true) != null &&
+                                getElementById(Integer.parseInt(recipe[0]), true) != null)
+                            {
+                                return element;
+                            }
                         }
                     }
                 }
@@ -635,8 +628,12 @@ public class ElementCooker
      */
     private boolean isOngoing()
     {
-        for (Category category : categories)
+        // If there are unknown categories: return true
+        if (unknownCategories.size() > 0) return true;
+        // Go through the categories
+        for (Category category : knownCategories)
         {
+            // If there are unknown elements: return true
             if (category.getContaining().size() > category.getKnown().size())
             {
                 return true;
@@ -654,8 +651,13 @@ public class ElementCooker
     {
         double total = 0;
         double known = 0;
-        // Count all the total elements and known elements
-        for (Category category : categories)
+        // Count all the unknown elements from unknown categories
+        for (Category unknownCategory : unknownCategories)
+        {
+            total += unknownCategory.getContaining().size();
+        }
+        // Count all the total elements and known elements from known categories
+        for (Category category : knownCategories)
         {
             total += category.getContaining().size();
             known += category.getKnown().size();

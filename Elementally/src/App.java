@@ -737,7 +737,7 @@ public class App
         if (editMode)
         {
             // Print the categories and their elements
-            for (Category category : game.getCategories())
+            for (Category category : game.getAllCategories())
             {
                 ArrayList<Element> containing = category.getContaining();
                 printCategory(category, containing);
