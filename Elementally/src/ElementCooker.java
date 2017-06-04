@@ -80,8 +80,9 @@ public class ElementCooker
         // Else: unlearn all the elements
         else
         {
+            ArrayList<Category> nonChangingKnownCategories = new ArrayList<>(knownCategories);
             // Go through every category and unlearn all elements
-            for (Category category : knownCategories)
+            for (Category category : nonChangingKnownCategories)
             {
                 category.unlearnEverything();
             }
@@ -98,7 +99,7 @@ public class ElementCooker
     public void loadDataFrom(String dataLine) throws ElementallyException
     {
         String[] data = dataLine.split("\n");
-        int lineNumber = 0; // Throws ElementallyException
+        int lineNumber = 0;
         Category lastCategory = null;
         // Import the data from all the lines
         while (lineNumber < data.length)
@@ -139,7 +140,7 @@ public class ElementCooker
                         // If the element is nothing: replace the element
                         if (loaded.getName().equals(NOTHING_NAME))
                         {
-                            loaded = nothing;
+                            nothing = loaded;
                         }
                         // No category specified: throw an exception
                         else
@@ -381,7 +382,7 @@ public class ElementCooker
      */
     public String getSaveString()
     {
-        StringBuilder output = new StringBuilder(nothing.exportLine());
+        StringBuilder output = new StringBuilder(nothing.exportLine() + "\n");
         // Save all the categories and their elements
         for (ArrayList<Category> categories : allCategories)
         {
@@ -504,12 +505,12 @@ public class ElementCooker
     
     private void move(ArrayList from, ArrayList to, Object toMove)
     {
-        for (int i = 0; i < to.size(); i++)
+        for (int i = 0; i < from.size(); i++)
         {
-            if (to.get(i).equals(toMove))
+            if (from.get(i).equals(toMove))
             {
-                to.remove(i);
-                from.add(toMove);
+                from.remove(i);
+                to.add(toMove);
                 return;
             }
         }
