@@ -94,6 +94,11 @@ public class Category
         {
             addElement(toAdd, true);
         }
+        // If the category was unknown before but not anymore: learn the category
+        if (toKnown && known.size() == 0)
+        {
+            ElementCooker.getInstance().learn(this);
+        }
         toAdd.setCategory(this);
         int id = toAdd.getId();
         int largest = addTo.size() - 1;
@@ -341,6 +346,11 @@ public class Category
         for (Element element : basic)
         {
             addElement(element);
+        }
+        // If this is now unknown: unlearn
+        if (known.size() == 0)
+        {
+            ElementCooker.getInstance().unlearn(this);
         }
     }
     

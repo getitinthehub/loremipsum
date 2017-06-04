@@ -346,7 +346,7 @@ public class Element
      *
      * @return A valid export string
      */
-    public String getRecipesString()
+    private String getRecipesString()
     {
         StringBuilder output = new StringBuilder();
         output.append("q;");

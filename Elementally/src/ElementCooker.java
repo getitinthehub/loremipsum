@@ -497,6 +497,29 @@ public class ElementCooker
         category.learn(toLearn);
     }
     
+    public void learn(Category category)
+    {
+        move(unknownCategories, knownCategories, category);
+    }
+    
+    private void move(ArrayList from, ArrayList to, Object toMove)
+    {
+        for (int i = 0; i < to.size(); i++)
+        {
+            if (to.get(i).equals(toMove))
+            {
+                to.remove(i);
+                from.add(toMove);
+                return;
+            }
+        }
+    }
+    
+    public void unlearn(Category category)
+    {
+        move(knownCategories, unknownCategories, category);
+    }
+    
     /**
      * Finds and returns a quizable element
      *
