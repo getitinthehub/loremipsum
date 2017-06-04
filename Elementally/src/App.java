@@ -417,6 +417,8 @@ public class App
     
     private String answerString(Element[] toString)
     {
+        assert toString != null : "null element array";
+        assert toString.length == 2 : "incorrect array length";
         return toString[0].getName() + " + " + toString[1].getName();
     }
     
@@ -437,12 +439,12 @@ public class App
      * Tries to get an element with the id given by the player
      *
      * @param input           The id of the element
-     * @param previousElement The element that is not allowed to be filled in
+     * @param previousElementId The element that is not allowed to be filled in
      *
      * @return The element found with the id or null when no element is found
      * @throws NumberFormatException When the input is not a integer
      */
-    private Element parseElement(String input, int previousElement) throws NumberFormatException
+    private Element parseElement(String input, int previousElementId) throws NumberFormatException
     {
         Element chosen = game.getElementById(Integer.parseInt(input), !editMode); //Throws NumberFormatException
         // If the element does not exist: inform the player.
@@ -451,7 +453,7 @@ public class App
             System.out.println(INVALID_ELEMENT_ID);
         }
         // If the element is already asked before: inform the player and invalidate the input
-        else if (chosen.getId() == previousElement)
+        else if (chosen.getId() == previousElementId)
         {
             System.out.println(DUPLICATE_ELEMENT_ERROR);
             chosen = null;
@@ -512,10 +514,11 @@ public class App
      */
     private Element[] executeCommand(String command)
     {
+        assert command != null : "null command";
         // If there are commands to look through: execute commands
         if (commands.length > 0)
         {
-            String[] args = command.split(" ");
+            String[] args = command.trim().split(" ");
             // Go through all the commands and execute the one that should be
             for (Command possibleCommand : commands)
             {
@@ -562,7 +565,7 @@ public class App
         // Rename an element
         try
         {
-            if (newName == null) return;
+            assert newName != null : "null name";
             // If the new name is empty: assume it should be the nothing element
             if (newName.trim().isEmpty()) newName = ElementCooker.NOTHING_NAME;
             Element toRename = parseElement(elementNumber); //Throws NumberFormatException
@@ -629,7 +632,7 @@ public class App
      */
     private void renameCategory(String currentName, String newName)
     {
-        if (newName == null) return;
+        assert newName != null : "null name";
         // If the new name is empty: inform the user and return
         if (newName.trim().isEmpty())
         {
@@ -669,12 +672,15 @@ public class App
      */
     private void combine(Element element1, Element element2)
     {
+        assert element1 != null : "null element";
+        assert element2 != null : "null element";
         Element creates = game.combine(element1, element2, !editMode);
         System.out.printf("%s and %s creates", element1.getName(), element2.getName());
         // If the combination is known: print the result
         if (creates != null)
         {
             System.out.println(" " + creates.getName());
+            // Learn the element if elements should be learned
             if (!editMode)
             {
                 game.learn(creates);
@@ -700,7 +706,8 @@ public class App
      */
     private void createElement(Element element1, Element element2)
     {
-        if (element1 == null || element2 == null) return;
+        assert element1 != null : "null element";
+        assert element2 != null : "null element";
         System.out.print(": ");
         String elementName = userInput.nextLine();
         if (elementName.trim().isEmpty()) elementName = ElementCooker.NOTHING_NAME;
@@ -764,6 +771,8 @@ public class App
      */
     private void printCategory(Category category, ArrayList<Element> containing)
     {
+        assert category != null : "null category";
+        assert containing != null : "null ArrayList";
         System.out.print(category.getName() + ":");
         // Print the elements from this category
         for (Element element : containing)

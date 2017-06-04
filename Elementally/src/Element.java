@@ -37,6 +37,7 @@ public class Element
      */
     public Element(String name, int id, boolean basic)
     {
+        assert name != null : "null name";
         this.name = name;
         quizedRecipes = new ArrayList<>();
         knownRecipes = new ArrayList<>();
@@ -70,6 +71,7 @@ public class Element
      */
     public static Element parseLine(String line) throws ElementallyException
     {
+        assert line != null : "null line";
         String[] components = line.split(";");
         if (components.length < 6)
         {
@@ -184,6 +186,7 @@ public class Element
      */
     public void setName(String name)
     {
+        assert name != null : "null name";
         this.name = name;
     }
     
@@ -194,7 +197,7 @@ public class Element
      */
     public ArrayList<String> getKnownRecipes()
     {
-        return new ArrayList<>(knownRecipes);
+        return knownRecipes;
     }
     
     /**
@@ -223,20 +226,22 @@ public class Element
     /**
      * Moves a string from one ArrayList to another
      *
-     * @param string The String that should be moved
+     * @param toMove The String that should be moved
      * @param from   The arrayList that the string is in
      * @param to     The arrayList that the string should go in
      */
-    private void move(String string, ArrayList<String> from, ArrayList<String> to)
+    private void move(Object toMove, ArrayList from, ArrayList to)
     {
-        // Remove the string and add it to the destination
+        assert from != null : "null ArrayList";
+        assert to != null : "null ArrayList";
+        // Remove the object and add it to the destination
         for (int i = 0; i < from.size(); i++)
         {
-            // If the String matches: remove the String and add it to the new arrayList
-            if (from.get(i).equals(string))
+            // If the object matches: remove the object and add it to the new arrayList
+            if (from.get(i).equals(toMove))
             {
                 from.remove(i);
-                to.add(string);
+                to.add(toMove);
                 return;
             }
         }
@@ -277,7 +282,7 @@ public class Element
     /**
      * Unlearn all recipes
      */
-    public void unLearnAll()
+    public void unLearnAllRecipes()
     {
         unknownRecipes.addAll(quizedRecipes);
         unknownRecipes.addAll(knownRecipes);
@@ -307,6 +312,8 @@ public class Element
      */
     private boolean removeRecipeFrom(String recipe, ArrayList<String> knownRecipes)
     {
+        assert recipe != null : "null String";
+        assert knownRecipes != null : "null ArrayList";
         // Remove the recipe from the knownRecipes ArrayList
         for (int i = 0; i < knownRecipes.size(); i++)
         {

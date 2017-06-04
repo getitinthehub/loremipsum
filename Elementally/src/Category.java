@@ -20,6 +20,8 @@ public class Category
      */
     public Category(String name)
     {
+        assert name != null : "null name";
+        assert name.isEmpty() : "empty names can not be found in the terminal";
         containing = new ArrayList<>();
         known = new ArrayList<>();
         this.name = name;
@@ -42,6 +44,7 @@ public class Category
      */
     public void setName(String name)
     {
+        assert name != null : "null name";
         this.name = name;
     }
     
@@ -87,7 +90,7 @@ public class Category
      */
     private void addElement(Element toAdd, boolean toKnown)
     {
-        if (toAdd == null) return;
+        assert toAdd != null : "null element";
         ArrayList<Element> addTo = toKnown ? known : containing;
         // If the element is known but it is not currently added to known: add it to known
         if (!toKnown && toAdd.isKnown())
@@ -197,7 +200,7 @@ public class Category
      */
     public Element getElementByName(String elementName)
     {
-        if (elementName == null) return null;
+        assert elementName != null : "null name";
         // Go through every element in this category and return the element if it is in here
         for (Element element : containing)
         {
@@ -212,7 +215,7 @@ public class Category
     
     public int indexOf(Element element)
     {
-        if (element == null) return -1;
+        assert element != null : "null element";
         ArrayList<Element> from = containing;
         int elementId = element.getId();
         int largest = from.size() - 1;
@@ -258,6 +261,7 @@ public class Category
      */
     public void learn(Element toLearn)
     {
+        assert toLearn != null : "null element";
         // If the element is known to this category: learn the element
         if (getElementById(toLearn.getId(), false) != null)
         {
@@ -286,7 +290,7 @@ public class Category
      */
     public boolean remove(Element toRemove)
     {
-        if (toRemove == null) return false;
+        assert toRemove != null : "null element";
         int elementId = toRemove.getId();
         int largest = containing.size() - 1;
         // If the element is larger than the largest element in this category: return false
@@ -328,13 +332,13 @@ public class Category
     /**
      * Resets the known ArrayList to the starting state
      */
-    public void unlearnEverything()
+    public void unlearnAllElements()
     {
         ArrayList<Element> basic = new ArrayList<>();
         // Add all the basic elements to the ArrayList
         for (Element element : known)
         {
-            element.unLearnAll();
+            element.unLearnAllRecipes();
             // If the element is basic: add it
             if (element.isBasic())
             {

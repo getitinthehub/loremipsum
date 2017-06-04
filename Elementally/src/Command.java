@@ -12,15 +12,19 @@ public class Command
 {
     private executable code;
     private String[] executeAt;
+    private String nameExecutor;
     
     /**
      * Constructor for the command
      *
-     * @param executeAt The strings that should call this command when given
+     * @param nameExecutor The name of the command that will also execute this command
+     * @param executeAt    The strings that should call this command when given
      */
-    public Command(String... executeAt)
+    public Command(String nameExecutor, String... executeAt)
     {
-        this.executeAt = executeAt != null ? executeAt : new String[]{null};
+        assert nameExecutor != null : "null name";
+        this.nameExecutor = nameExecutor;
+        this.executeAt = executeAt;
         code = null;
     }
     
@@ -30,8 +34,7 @@ public class Command
     @Nullable
     public String getName()
     {
-        if (executeAt.length == 0) return null;
-        return executeAt[0];
+        return nameExecutor;
     }
     
     /**
@@ -43,6 +46,11 @@ public class Command
      */
     public boolean shouldExecuteAt(String command)
     {
+        // If the command is the name of the command: return true
+        if (nameExecutor.equals(command))
+        {
+            return true;
+        }
         // Go through every execute command and compare it to the argument
         for (String synonym : executeAt)
         {

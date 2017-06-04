@@ -84,7 +84,7 @@ public class ElementCooker
             // Go through every category and unlearn all elements
             for (Category category : nonChangingKnownCategories)
             {
-                category.unlearnEverything();
+                category.unlearnAllElements();
             }
         }
     }
@@ -98,6 +98,7 @@ public class ElementCooker
      */
     public void loadDataFrom(String dataLine) throws ElementallyException
     {
+        assert dataLine != null : "null line";
         String[] data = dataLine.split("\n");
         int lineNumber = 0;
         Category lastCategory = null;
@@ -171,6 +172,7 @@ public class ElementCooker
      */
     public void addCategory(Category category)
     {
+        assert category != null : "null category";
         // If there are known elements in the category: add it to known
         if (category.getKnown().size() > 0)
         {
@@ -204,7 +206,7 @@ public class ElementCooker
      */
     public void addRecipe(int elementId1, int elementId2, Element existingElement)
     {
-        if (existingElement == null) return;
+        assert existingElement != null : "null element";
         String key = getKey(elementId1, elementId2);
         existingElement.addRecipe(key);
         Element previous = recipes.put(key, existingElement);
@@ -278,7 +280,6 @@ public class ElementCooker
                 }
             }
         }
-        assert false : "Element does not exist";
     }
     
     /**
@@ -290,7 +291,7 @@ public class ElementCooker
      */
     public Element getElementByName(String elementName)
     {
-        if (elementName == null) return null;
+        assert elementName != null : "null name";
         // Nothing is not in an category and will therefor be compared here
         if (nothing.getName().equals(elementName))
         {
@@ -321,7 +322,9 @@ public class ElementCooker
      */
     public void merge(Element base, Element toDelete)
     {
-        if (base == null || toDelete == null || base.equals(toDelete)) return;
+        assert base != null : "null element";
+        assert toDelete != null : "null element";
+        assert base.equals(toDelete) : "base and toDelete are the same";
         remove(toDelete, false);
         // Goes through every recipe and sets them to the base element
         for (String recipe : toDelete.getAllRecipes())
@@ -339,7 +342,9 @@ public class ElementCooker
      */
     public void merge(Category base, Category toDelete)
     {
-        if (base == null || toDelete == null || base.equals(toDelete)) return;
+        assert base != null : "null category";
+        assert toDelete != null : "null category";
+        assert base.equals(toDelete) : "base and toDelete are the same";
         // Add all the elements from the deleting category to the base category
         for (Element element : toDelete.getContaining())
         {
@@ -492,9 +497,9 @@ public class ElementCooker
      */
     public void learn(Element toLearn)
     {
-        if (toLearn == null) return;
+        assert toLearn != null : "null element";
         Category category = toLearn.getCategory();
-        if (category == null) return;
+        assert category != null : "element does not have a category";
         category.learn(toLearn);
     }
     
@@ -505,6 +510,8 @@ public class ElementCooker
     
     private void move(ArrayList from, ArrayList to, Object toMove)
     {
+        assert from != null : "null ArrayList";
+        assert to != null : "null ArrayList";
         for (int i = 0; i < from.size(); i++)
         {
             if (from.get(i).equals(toMove))
@@ -696,6 +703,8 @@ public class ElementCooker
      */
     public void cancelQuiz(Element[] answer)
     {
+        assert answer != null : "null answer";
+        assert answer.length == 2 : "incorrect answer length, length of 2 expected";
         combine(answer[0], answer[1], false).quizCanceled(getKey(answer[0].getId(), answer[1].getId()));
     }
     
@@ -710,6 +719,8 @@ public class ElementCooker
      */
     public Element combine(Element element1, Element element2, boolean learn)
     {
+        assert element1 != null : "null element";
+        assert element2 != null : "null element";
         String key = getKey(element1.getId(), element2.getId());
         Element result = recipes.get(key);
         // If the result can and should be learned: learn it
